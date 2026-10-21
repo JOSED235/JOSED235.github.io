@@ -72,6 +72,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
+  overflow-x: clip;
 }
 
 body {
@@ -82,7 +83,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -492,21 +493,6 @@ ol {
   display: flex;
   align-items: center;
   gap: 2px;
-}
-
-.hero__role-word {
-  animation: roleIn 0.5s ease;
-}
-
-@keyframes roleIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 .caret {
@@ -1143,6 +1129,110 @@ ol {
   transform: translateY(-3px);
 }
 
+/* ============ Certificaciones ============ */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* El emisor con más certificados ocupa la columna izquierda completa */
+.cert-group:first-child {
+  grid-row: span 3;
+}
+
+.cert-group:hover {
+  border-color: var(--accent);
+}
+
+.cert-group__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cert-group__head h3 {
+  font-size: 19px;
+  flex: 1;
+}
+
+.cert-group__mark {
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 8px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cert-group__count {
+  font-size: 12px;
+  color: var(--faint);
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.certs {
+  display: grid;
+  gap: 16px;
+}
+
+.cert {
+  display: grid;
+  gap: 10px;
+}
+
+.cert + .cert {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.cert__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.cert__head h4 {
+  font-size: 16.5px;
+}
+
+.cert__head .meta {
+  flex-shrink: 0;
+}
+
+.cert__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cert__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cert__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ============ Formación ============ */
 .about-grid {
   display: grid;
@@ -1304,7 +1394,7 @@ ol {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .nav__burger {
     display: inline-grid;
   }
@@ -1335,7 +1425,9 @@ ol {
     padding: 12px 14px;
     font-size: 16px;
   }
+}
 
+@media (max-width: 860px) {
   .hero {
     padding-top: 110px;
     min-height: auto;
@@ -1354,7 +1446,12 @@ ol {
     width: min(240px, 60vw);
   }
 
+  .cert-group:first-child {
+    grid-row: auto;
+  }
+
   .projects-grid,
+  .certs-grid,
   .about-grid {
     grid-template-columns: 1fr;
   }

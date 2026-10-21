@@ -21,7 +21,7 @@ export default function Contact({ t, lang }) {
       <div className="container">
         <div className="contact reveal">
           <p className="eyebrow mono">
-            <span className="accent">05</span> / {c.eyebrow}
+            <span className="accent">06</span> / {c.eyebrow}
           </p>
           <h2 className="contact__title">{c.title}</h2>
           <p className="contact__text">{c.text}</p>

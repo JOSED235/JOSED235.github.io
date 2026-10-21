@@ -18,7 +18,7 @@ export default function About({ t }) {
   return (
     <section className="section" id="about">
       <div className="container">
-        <SectionHead index={4} eyebrow={a.eyebrow} title={a.title} />
+        <SectionHead index={5} eyebrow={a.eyebrow} title={a.title} />
         <div className="about-grid">
           <div className="card reveal">
             <h3 className="about__title mono">{a.education}</h3>

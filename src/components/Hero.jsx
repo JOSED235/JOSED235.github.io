@@ -2,21 +2,60 @@ import { useEffect, useState } from 'react'
 import { links } from '../data/content.js'
 import { GitHub, LinkedIn, Mail, Download, ArrowRight, Pin } from './Icons.jsx'
 
-function useRotatingWord(words, ms = 2600) {
-  const [i, setI] = useState(0)
+// Escribe cada palabra letra por letra, la sostiene y la borra antes de pasar a la siguiente.
+// Con "reducir movimiento" activo solo alterna palabras completas.
+function useTypewriter(words, { typeMs = 65, eraseMs = 30, holdMs = 1700 } = {}) {
+  const [text, setText] = useState('')
+
   useEffect(() => {
-    setI(0)
-    const id = setInterval(() => setI((n) => (n + 1) % words.length), ms)
-    return () => clearInterval(id)
-  }, [words, ms])
-  return words[i]
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let word = 0
+    let chars = 0
+    let erasing = false
+    let timer
+
+    const tick = () => {
+      const current = words[word]
+      if (reduce) {
+        setText(current)
+        word = (word + 1) % words.length
+        timer = setTimeout(tick, 2600)
+        return
+      }
+      if (!erasing) {
+        chars += 1
+        setText(current.slice(0, chars))
+        if (chars === current.length) {
+          erasing = true
+          timer = setTimeout(tick, holdMs)
+          return
+        }
+        timer = setTimeout(tick, typeMs)
+      } else {
+        chars -= 1
+        setText(current.slice(0, chars))
+        if (chars === 0) {
+          erasing = false
+          word = (word + 1) % words.length
+          timer = setTimeout(tick, 400)
+          return
+        }
+        timer = setTimeout(tick, eraseMs)
+      }
+    }
+
+    tick()
+    return () => clearTimeout(timer)
+  }, [words, typeMs, eraseMs, holdMs])
+
+  return text
 }
 
 const floating = ['ESP32', 'React', 'FastAPI', 'MQTT', 'NestJS', 'Docker']
 
 export default function Hero({ t, lang }) {
   const h = t.hero
-  const role = useRotatingWord(h.roles)
+  const role = useTypewriter(h.roles)
 
   return (
     <section className="hero" id="top">
@@ -30,11 +69,10 @@ export default function Hero({ t, lang }) {
             Jose David <span className="hero__name-accent">Rodríguez</span>
           </h1>
           <p className="hero__role reveal mono">
-            <span className="accent">&gt;</span>{' '}
-            <span key={role} className="hero__role-word">
-              {role}
-            </span>
+            <span className="accent" aria-hidden="true">&gt;</span>{' '}
+            <span aria-hidden="true">{role}</span>
             <span className="caret" aria-hidden="true" />
+            <span className="sr-only">{h.roles.join(' · ')}</span>
           </p>
           <p className="hero__summary reveal">{h.summary}</p>
 

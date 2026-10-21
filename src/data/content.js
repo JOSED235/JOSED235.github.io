@@ -32,8 +32,10 @@ const projectsMeta = {
   },
 }
 
+const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
+
 const es = {
-  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', about: 'Formación', contact: 'Contacto' },
+  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', certs: 'Certificados', about: 'Formación', contact: 'Contacto' },
   hero: {
     hello: 'Hola, soy',
     roles: ['Full Stack Developer', 'Desarrollador IoT', 'Ingeniero de Sistemas en formación', 'Ingeniero Telemático en formación'],
@@ -147,6 +149,41 @@ const es = {
       { name: 'DevOps, seguridad y calidad', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'Cifrado AES-256-GCM', 'Vitest', 'Playwright'] },
     ],
   },
+  certs: {
+    eyebrow: 'Credenciales',
+    title: 'Certificaciones',
+    verify: 'Ver credencial',
+    credId: 'ID',
+    issuers: [
+      {
+        issuer: 'HackerRank',
+        mark: 'HR',
+        items: [
+          { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
+          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
+          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+        ],
+      },
+      {
+        issuer: 'MathWorks',
+        mark: 'MW',
+        items: [{ name: 'Telecomunicaciones Onramp', date: 'Sep 2026', skills: ['MATLAB', 'Python'] }],
+      },
+      {
+        issuer: 'IEEE Sección Colombia',
+        mark: 'IEEE',
+        items: [
+          { name: 'Reunión Nacional de Ramas 2026', date: 'Sep 2026', skills: ['Networking'] },
+          { name: 'Reunión Nacional de Ramas 2025', date: 'Sep 2025' },
+        ],
+      },
+      {
+        issuer: 'Universidad Icesi · Centro de Talento',
+        mark: 'UI',
+        items: [{ name: 'Certificación de pasantía', date: 'Oct 2023', skills: ['Desarrollo front end', 'Wix'] }],
+      },
+    ],
+  },
   about: {
     eyebrow: 'Formación y comunidad',
     title: 'Más allá del código',
@@ -177,7 +214,7 @@ const es = {
 }
 
 const en = {
-  nav: { projects: 'Projects', experience: 'Experience', skills: 'Stack', about: 'Education', contact: 'Contact' },
+  nav: { projects: 'Projects', experience: 'Experience', skills: 'Stack', certs: 'Certificates', about: 'Education', contact: 'Contact' },
   hero: {
     hello: "Hi, I'm",
     roles: ['Full Stack Developer', 'IoT Developer', 'Systems Engineering student', 'Telematics Engineering student'],
@@ -289,6 +326,41 @@ const en = {
       { name: 'IoT & networking', items: ['ESP32', 'MQTT', 'Node-RED', 'Cisco Packet Tracer', 'IPv4/IPv6 · VLANs', 'MATLAB'] },
       { name: 'Data, AI & automation', items: ['scikit-learn', 'Pandas', 'Jupyter', 'LLM integration (Gemini)', 'Automation Anywhere'] },
       { name: 'DevOps, security & quality', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'AES-256-GCM encryption', 'Vitest', 'Playwright'] },
+    ],
+  },
+  certs: {
+    eyebrow: 'Credentials',
+    title: 'Certifications',
+    verify: 'View credential',
+    credId: 'ID',
+    issuers: [
+      {
+        issuer: 'HackerRank',
+        mark: 'HR',
+        items: [
+          { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
+          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
+          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+        ],
+      },
+      {
+        issuer: 'MathWorks',
+        mark: 'MW',
+        items: [{ name: 'Telecommunications Onramp', date: 'Sep 2026', skills: ['MATLAB', 'Python'] }],
+      },
+      {
+        issuer: 'IEEE Colombia Section',
+        mark: 'IEEE',
+        items: [
+          { name: 'National Student Branch Meeting 2026', date: 'Sep 2026', skills: ['Networking'] },
+          { name: 'National Student Branch Meeting 2025', date: 'Sep 2025' },
+        ],
+      },
+      {
+        issuer: 'Universidad Icesi · Talent Center',
+        mark: 'UI',
+        items: [{ name: 'Internship certificate', date: 'Oct 2023', skills: ['Front-end development', 'Wix'] }],
+      },
     ],
   },
   about: {
