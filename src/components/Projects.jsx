@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { projectsMeta } from '../data/content.js'
 import SectionHead from './SectionHead.jsx'
-import { ArrowUpRight, GitHub } from './Icons.jsx'
+import { ArrowUpRight, GitHub, Lock } from './Icons.jsx'
 
 function Stack({ items }) {
   return (
@@ -99,9 +99,15 @@ function Featured({ t }) {
           <a className="btn btn--primary" href={meta.live} target="_blank" rel="noreferrer">
             {t.projects.live} <ArrowUpRight />
           </a>
-          <a className="btn btn--ghost" href={meta.repo} target="_blank" rel="noreferrer">
-            <GitHub /> {t.projects.repo}
-          </a>
+          {meta.repo ? (
+            <a className="btn btn--ghost" href={meta.repo} target="_blank" rel="noreferrer">
+              <GitHub /> {t.projects.repo}
+            </a>
+          ) : (
+            <span className="private-badge mono">
+              <Lock /> {t.projects.privateCode}
+            </span>
+          )}
         </div>
       </div>
     </article>
