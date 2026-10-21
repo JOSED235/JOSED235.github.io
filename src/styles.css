@@ -807,7 +807,30 @@ ol {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 18px;
+}
+
+/* Deja espacio al teléfono que cuelga sobre la esquina inferior derecha */
+.shot-tabs--narrow {
   max-width: 72%;
+}
+
+.shots-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.projects-list {
+  display: grid;
+  gap: 24px;
+}
+
+.featured--reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.featured--reverse .featured__showcase {
+  order: 2;
 }
 
 .shot-tab {
@@ -931,6 +954,20 @@ ol {
   transform: translateY(-4px);
   border-color: var(--accent);
   box-shadow: 0 24px 60px -30px var(--accent-glow);
+}
+
+.project--wide {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  padding: 36px;
+}
+
+.project__main,
+.project__side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .project__head {
@@ -1389,6 +1426,15 @@ ol {
     margin-bottom: 24px;
   }
 
+  .featured--reverse .featured__showcase {
+    order: 0;
+  }
+
+  .project--wide {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1536,7 +1582,7 @@ ol {
     display: none;
   }
 
-  .shot-tabs {
+  .shot-tabs--narrow {
     max-width: 68%;
   }
 
