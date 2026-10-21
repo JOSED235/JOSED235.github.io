@@ -11,6 +11,7 @@ export const links = {
 const projectsMeta = {
   caminoLegal: {
     live: 'https://caminolegal.space',
+    address: 'caminolegal.space',
     shots: [
       { src: 'img/cl-inicio.webp', key: 'inicio' },
       { src: 'img/cl-chat.webp', key: 'chat' },
@@ -22,6 +23,14 @@ const projectsMeta = {
   },
   archimedes: {
     repo: 'https://github.com/JOSED235/ProyectoIntegrador1-Tel',
+    address: 'localhost:5173',
+    shots: [
+      { src: 'img/ar-analisis.webp', key: 'analisis' },
+      { src: 'img/ar-dashboard.webp', key: 'dashboard' },
+      { src: 'img/ar-paciente.webp', key: 'paciente' },
+      { src: 'img/ar-historial.webp', key: 'historial' },
+      { src: 'img/ar-captura.webp', key: 'captura' },
+    ],
     stack: ['ESP32', 'C++ · PlatformIO', 'MQTT', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT · bcrypt', 'React 19', 'Tailwind', 'Recharts', 'Docker Compose', 'Nginx'],
     flow: ['MPU6050 · LSM303 · FSR402', 'ESP32 · 100 Hz', 'MQTT', 'FastAPI', 'PostgreSQL', 'React'],
   },
@@ -87,6 +96,8 @@ const es = {
         'API FastAPI + PostgreSQL con autenticación JWT/bcrypt y roles Admin, Doctor y Paciente.',
         'Dashboard React con gráficas de oscilación y fuerza de agarre; 3 capas en Docker Compose.',
       ],
+      shots: { analisis: 'Análisis', dashboard: 'Panel', paciente: 'Paciente', historial: 'Historial', captura: 'Captura' },
+      shotsNote: 'Capturas con pacientes y señales de demostración.',
     },
     agroiot: {
       name: 'AgroIoT + Machine Learning',
@@ -266,6 +277,8 @@ const en = {
         'FastAPI + PostgreSQL API with JWT/bcrypt auth and Admin, Doctor and Patient roles.',
         'React dashboard charting oscillation and grip force; 3 layers on Docker Compose.',
       ],
+      shots: { analisis: 'Analysis', dashboard: 'Dashboard', paciente: 'Patient', historial: 'History', captura: 'Capture' },
+      shotsNote: 'Screenshots use demo patients and signals.',
     },
     agroiot: {
       name: 'AgroIoT + Machine Learning',

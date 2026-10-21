@@ -25,82 +25,95 @@ function Highlights({ items }) {
   )
 }
 
-function Featured({ t }) {
-  const p = t.projects.caminoLegal
-  const meta = projectsMeta.caminoLegal
+function Showcase({ p, meta }) {
   const [active, setActive] = useState(0)
-  const shot = meta.shots[active]
-
   return (
-    <article className="featured reveal">
-      <div className="featured__showcase">
-        <div className="devices">
-          <div className="browser">
-            <div className="browser__bar">
-              <span className="dot" />
-              <span className="dot" />
-              <span className="dot" />
-              <span className="browser__url mono">caminolegal.space</span>
-            </div>
-            <div className="browser__view">
-              {meta.shots.map((s, i) => (
-                <img
-                  key={s.key}
-                  src={s.src}
-                  alt={`Camino Legal · ${p.shots[s.key]}`}
-                  loading="lazy"
-                  width="1280"
-                  height="860"
-                  className={i === active ? 'is-active' : ''}
-                />
-              ))}
-            </div>
+    <div className="featured__showcase">
+      <div className="devices">
+        <div className="browser">
+          <div className="browser__bar">
+            <span className="dot" />
+            <span className="dot" />
+            <span className="dot" />
+            <span className="browser__url mono">{meta.address}</span>
           </div>
+          <div className="browser__view">
+            {meta.shots.map((s, i) => (
+              <img
+                key={s.key}
+                src={s.src}
+                alt={`${p.name} · ${p.shots[s.key]}`}
+                loading="lazy"
+                width="1280"
+                height="860"
+                className={i === active ? 'is-active' : ''}
+              />
+            ))}
+          </div>
+        </div>
+        {meta.mobile && (
           <div className="phone" aria-hidden="true">
             <img src={meta.mobile} alt="" loading="lazy" width="390" height="900" />
           </div>
-        </div>
-        <div className="shot-tabs" role="tablist">
-          {meta.shots.map((s, i) => (
-            <button
-              key={s.key}
-              role="tab"
-              aria-selected={i === active}
-              className={`shot-tab mono ${i === active ? 'is-active' : ''}`}
-              onClick={() => setActive(i)}
-            >
-              {p.shots[s.key]}
-            </button>
-          ))}
-        </div>
-        <span className="sr-only">{p.shots[shot.key]}</span>
+        )}
       </div>
+      <div className={`shot-tabs ${meta.mobile ? 'shot-tabs--narrow' : ''}`} role="tablist">
+        {meta.shots.map((s, i) => (
+          <button
+            key={s.key}
+            role="tab"
+            aria-selected={i === active}
+            className={`shot-tab mono ${i === active ? 'is-active' : ''}`}
+            onClick={() => setActive(i)}
+          >
+            {p.shots[s.key]}
+          </button>
+        ))}
+      </div>
+      {p.shotsNote && <p className="shots-note">{p.shotsNote}</p>}
+    </div>
+  )
+}
+
+function Featured({ t, id, reverse }) {
+  const p = t.projects[id]
+  const meta = projectsMeta[id]
+
+  return (
+    <article className={`featured reveal ${reverse ? 'featured--reverse' : ''}`}>
+      <Showcase p={p} meta={meta} />
 
       <div className="featured__body">
         <div className="featured__top">
-          <span className="live-badge mono">
-            <span className="pulse" /> {t.projects.featured}
-          </span>
+          {meta.live && (
+            <span className="live-badge mono">
+              <span className="pulse" /> {t.projects.featured}
+            </span>
+          )}
           <span className="meta mono">{p.meta}</span>
         </div>
         <h3 className="featured__title">{p.name}</h3>
         <p className="featured__tagline">{p.tagline}</p>
         <p className="featured__desc">{p.description}</p>
 
-        <div className="role-box">
-          <span className="role-box__label mono">{t.projects.myRole}</span>
-          <p>{p.role}</p>
-        </div>
+        {p.role && (
+          <div className="role-box">
+            <span className="role-box__label mono">{t.projects.myRole}</span>
+            <p>{p.role}</p>
+          </div>
+        )}
 
         <Highlights items={p.highlights} />
         <Stack items={meta.stack} />
 
         <div className="project-links">
-          <a className="btn btn--primary" href={meta.live} target="_blank" rel="noreferrer">
-            {t.projects.live} <ArrowUpRight />
-          </a>
+          {meta.live && (
+            <a className="btn btn--primary" href={meta.live} target="_blank" rel="noreferrer">
+              {t.projects.live} <ArrowUpRight />
+            </a>
+          )}
           {meta.repo ? (
-            <a className="btn btn--ghost" href={meta.repo} target="_blank" rel="noreferrer">
+            <a className={`btn ${meta.live ? 'btn--ghost' : 'btn--primary'}`} href={meta.repo} target="_blank" rel="noreferrer">
               <GitHub /> {t.projects.repo}
             </a>
           ) : (
@@ -131,20 +144,24 @@ function ProjectCard({ t, id, number }) {
   const p = t.projects[id]
   const meta = projectsMeta[id]
   return (
-    <article className="card project reveal">
-      <div className="project__head">
-        <span className="project__num mono">{number}</span>
-        <span className="meta mono">{p.meta}</span>
+    <article className="card project project--wide reveal">
+      <div className="project__main">
+        <div className="project__head">
+          <span className="project__num mono">{number}</span>
+          <span className="meta mono">{p.meta}</span>
+        </div>
+        <h3 className="project__title">{p.name}</h3>
+        <p className="project__tagline">{p.tagline}</p>
+        <p className="project__desc">{p.description}</p>
+        <Highlights items={p.highlights} />
       </div>
-      <h3 className="project__title">{p.name}</h3>
-      <p className="project__tagline">{p.tagline}</p>
-      <Flow steps={meta.flow} />
-      <p className="project__desc">{p.description}</p>
-      <Highlights items={p.highlights} />
-      <Stack items={meta.stack} />
-      <a className="project__repo" href={meta.repo} target="_blank" rel="noreferrer">
-        <GitHub /> {t.projects.repo} <ArrowUpRight width={16} height={16} />
-      </a>
+      <div className="project__side">
+        <Flow steps={meta.flow} />
+        <Stack items={meta.stack} />
+        <a className="project__repo" href={meta.repo} target="_blank" rel="noreferrer">
+          <GitHub /> {t.projects.repo} <ArrowUpRight width={16} height={16} />
+        </a>
+      </div>
     </article>
   )
 }
@@ -154,9 +171,9 @@ export default function Projects({ t }) {
     <section className="section" id="projects">
       <div className="container">
         <SectionHead index={1} eyebrow={t.projects.eyebrow} title={t.projects.title} />
-        <Featured t={t} />
-        <div className="projects-grid">
-          <ProjectCard t={t} id="archimedes" number="02" />
+        <div className="projects-list">
+          <Featured t={t} id="caminoLegal" />
+          <Featured t={t} id="archimedes" reverse />
           <ProjectCard t={t} id="agroiot" number="03" />
         </div>
       </div>
