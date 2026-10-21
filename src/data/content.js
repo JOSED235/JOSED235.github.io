@@ -11,7 +11,6 @@ export const links = {
 const projectsMeta = {
   caminoLegal: {
     live: 'https://caminolegal.space',
-    repo: 'https://github.com/JOSED235/VeredaClara',
     shots: [
       { src: 'img/cl-inicio.webp', key: 'inicio' },
       { src: 'img/cl-chat.webp', key: 'chat' },
@@ -54,6 +53,7 @@ const es = {
     title: 'Lo que he construido',
     live: 'Ver en vivo',
     repo: 'Código',
+    privateCode: 'Código privado',
     stack: 'Tecnologías',
     myRole: 'Mi rol',
     featured: 'En producción',
@@ -140,11 +140,11 @@ const es = {
     title: 'Stack técnico',
     groups: [
       { name: 'Lenguajes', items: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL', 'C++', 'R'] },
-      { name: 'Backend y datos', items: ['Spring Boot', 'FastAPI', 'NestJS', 'SQLAlchemy', 'PostgreSQL', 'InfluxDB'] },
-      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA', 'Wix'] },
+      { name: 'Backend y datos', items: ['Spring Boot', 'FastAPI', 'NestJS', 'APIs REST · OpenAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'IndexedDB'] },
+      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Accesibilidad web', 'Wix'] },
       { name: 'IoT y redes', items: ['ESP32', 'MQTT', 'Node-RED', 'Cisco Packet Tracer', 'IPv4/IPv6 · VLANs', 'MATLAB'] },
-      { name: 'Datos y automatización', items: ['scikit-learn', 'Pandas', 'Jupyter', 'Automation Anywhere'] },
-      { name: 'DevOps', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions'] },
+      { name: 'Datos, IA y automatización', items: ['scikit-learn', 'Pandas', 'Jupyter', 'Integración de LLM (Gemini)', 'Automation Anywhere'] },
+      { name: 'DevOps, seguridad y calidad', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'Cifrado AES-256-GCM', 'Vitest', 'Playwright'] },
     ],
   },
   about: {
@@ -197,6 +197,7 @@ const en = {
     title: "What I've built",
     live: 'Live demo',
     repo: 'Code',
+    privateCode: 'Private source',
     stack: 'Tech stack',
     myRole: 'My role',
     featured: 'In production',
@@ -283,11 +284,11 @@ const en = {
     title: 'Tech stack',
     groups: [
       { name: 'Languages', items: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL', 'C++', 'R'] },
-      { name: 'Backend & data', items: ['Spring Boot', 'FastAPI', 'NestJS', 'SQLAlchemy', 'PostgreSQL', 'InfluxDB'] },
-      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA', 'Wix'] },
+      { name: 'Backend & data', items: ['Spring Boot', 'FastAPI', 'NestJS', 'REST APIs · OpenAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'IndexedDB'] },
+      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Web accessibility', 'Wix'] },
       { name: 'IoT & networking', items: ['ESP32', 'MQTT', 'Node-RED', 'Cisco Packet Tracer', 'IPv4/IPv6 · VLANs', 'MATLAB'] },
-      { name: 'Data & automation', items: ['scikit-learn', 'Pandas', 'Jupyter', 'Automation Anywhere'] },
-      { name: 'DevOps', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions'] },
+      { name: 'Data, AI & automation', items: ['scikit-learn', 'Pandas', 'Jupyter', 'LLM integration (Gemini)', 'Automation Anywhere'] },
+      { name: 'DevOps, security & quality', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'AES-256-GCM encryption', 'Vitest', 'Playwright'] },
     ],
   },
   about: {
