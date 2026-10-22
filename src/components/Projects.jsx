@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { projectsMeta } from '../data/content.js'
 import SectionHead from './SectionHead.jsx'
+import Meta from './Meta.jsx'
 import { ArrowUpRight, GitHub, Lock } from './Icons.jsx'
 
 function Stack({ items }) {
@@ -35,7 +36,7 @@ function Showcase({ p, meta }) {
             <span className="dot" />
             <span className="dot" />
             <span className="dot" />
-            <span className="browser__url mono">{meta.address}</span>
+            <span className="browser__url mono">{meta.shots[active].address ?? meta.address}</span>
           </div>
           <div className="browser__view">
             {meta.shots.map((s, i) => (
@@ -90,7 +91,7 @@ function Featured({ t, id, reverse }) {
               <span className="pulse" /> {t.projects.featured}
             </span>
           )}
-          <span className="meta mono">{p.meta}</span>
+          <Meta text={p.meta} />
         </div>
         <h3 className="featured__title">{p.name}</h3>
         <p className="featured__tagline">{p.tagline}</p>
@@ -127,45 +128,6 @@ function Featured({ t, id, reverse }) {
   )
 }
 
-function Flow({ steps }) {
-  return (
-    <div className="flow" aria-hidden="true">
-      {steps.map((s, i) => (
-        <div key={s} className="flow__step" style={{ '--i': i }}>
-          <span className="flow__node mono">{s}</span>
-          {i < steps.length - 1 && <span className="flow__wire" />}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function ProjectCard({ t, id, number }) {
-  const p = t.projects[id]
-  const meta = projectsMeta[id]
-  return (
-    <article className="card project project--wide reveal">
-      <div className="project__main">
-        <div className="project__head">
-          <span className="project__num mono">{number}</span>
-          <span className="meta mono">{p.meta}</span>
-        </div>
-        <h3 className="project__title">{p.name}</h3>
-        <p className="project__tagline">{p.tagline}</p>
-        <p className="project__desc">{p.description}</p>
-        <Highlights items={p.highlights} />
-      </div>
-      <div className="project__side">
-        <Flow steps={meta.flow} />
-        <Stack items={meta.stack} />
-        <a className="project__repo" href={meta.repo} target="_blank" rel="noreferrer">
-          <GitHub /> {t.projects.repo} <ArrowUpRight width={16} height={16} />
-        </a>
-      </div>
-    </article>
-  )
-}
-
 export default function Projects({ t }) {
   return (
     <section className="section" id="projects">
@@ -174,7 +136,7 @@ export default function Projects({ t }) {
         <div className="projects-list">
           <Featured t={t} id="caminoLegal" />
           <Featured t={t} id="archimedes" reverse />
-          <ProjectCard t={t} id="agroiot" number="03" />
+          <Featured t={t} id="agroiot" />
         </div>
       </div>
     </section>
