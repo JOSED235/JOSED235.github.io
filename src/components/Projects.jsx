@@ -137,6 +137,7 @@ export default function Projects({ t }) {
           <Featured t={t} id="caminoLegal" />
           <Featured t={t} id="archimedes" reverse />
           <Featured t={t} id="agroiot" />
+          <Featured t={t} id="pacman" reverse />
         </div>
       </div>
     </section>

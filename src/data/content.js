@@ -43,6 +43,17 @@ const projectsMeta = {
       { src: 'img/ag-transform.webp', key: 'transform', address: 'localhost:1880 · Node-RED' },
     ],
   },
+  pacman: {
+    repo: 'https://github.com/JOSED235/Pacman-aj',
+    address: 'Pac-Man · Grafos — JavaFX',
+    stack: ['Java 17', 'JavaFX', 'FXML', 'Maven', 'JUnit 5', 'Hilos / concurrencia', 'Grafos', 'Dijkstra', 'BFS'],
+    shots: [
+      { src: 'img/pm-juego.webp', key: 'juego' },
+      { src: 'img/pm-susto.webp', key: 'susto' },
+      { src: 'img/pm-menu.webp', key: 'menu' },
+      { src: 'img/pm-gameover.webp', key: 'gameover' },
+    ],
+  },
 }
 
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
@@ -118,6 +129,21 @@ const es = {
       shots: { influx: 'InfluxDB', ml: 'ML en línea', nodered: 'Node-RED', transform: 'Transform Data' },
       shotsNote: 'Capturas del sistema corriendo con el simulador de sensores.',
     },
+    pacman: {
+      name: 'Pac-Man · Grafos',
+      tagline: 'Juego de escritorio donde el laberinto es un grafo',
+      meta: 'Discretas I · Equipo de 2 · May – Jun 2025',
+      description:
+        'Pac-Man completo en JavaFX: cada casilla es un vértice y los fantasmas recorren el grafo con algoritmos clásicos, sobre estructuras de datos implementadas desde cero.',
+      role: 'Estructuras de datos, grafos y algoritmos, IA de los fantasmas, interfaz JavaFX y pruebas.',
+      highlights: [
+        'Estructuras propias: lista enlazada, pila, cola, cola de prioridad, tabla hash y union-find.',
+        'Laberinto como grafo dirigido: puerta de la casa de un solo sentido y túneles como aristas.',
+        'Fantasma rojo con Dijkstra (sobre la cola de prioridad propia), rosado con BFS; cada fantasma en su propio hilo.',
+        'Biblioteca de BFS, DFS, Dijkstra, Floyd-Warshall, Kruskal y Prim con 17 pruebas JUnit.',
+      ],
+      shots: { juego: 'Juego', susto: 'Pastilla de poder', menu: 'Menú', gameover: 'Game over' },
+    },
   },
   experience: {
     eyebrow: 'Trayectoria',
@@ -160,10 +186,10 @@ const es = {
     groups: [
       { name: 'Lenguajes', items: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL', 'C++', 'R'] },
       { name: 'Backend y datos', items: ['Spring Boot', 'FastAPI', 'NestJS', 'APIs REST · OpenAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'IndexedDB'] },
-      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Accesibilidad web', 'Wix'] },
+      { name: 'Frontend y escritorio', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Accesibilidad web', 'JavaFX', 'Wix'] },
       { name: 'IoT y redes', items: ['ESP32', 'MQTT', 'Node-RED', 'Cisco Packet Tracer', 'IPv4/IPv6 · VLANs', 'MATLAB'] },
       { name: 'Datos, IA y automatización', items: ['scikit-learn', 'Pandas', 'Jupyter', 'Integración de LLM (Gemini)', 'Automation Anywhere'] },
-      { name: 'DevOps, seguridad y calidad', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'Cifrado AES-256-GCM', 'Vitest', 'Playwright'] },
+      { name: 'DevOps, seguridad y calidad', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'Cifrado AES-256-GCM', 'JUnit 5', 'Vitest', 'Playwright'] },
     ],
   },
   certs: {
@@ -301,6 +327,21 @@ const en = {
       shots: { influx: 'InfluxDB', ml: 'Online ML', nodered: 'Node-RED', transform: 'Transform Data' },
       shotsNote: 'Screenshots of the system running with the sensor simulator.',
     },
+    pacman: {
+      name: 'Pac-Man · Graphs',
+      tagline: 'Desktop game where the maze is a graph',
+      meta: 'Discrete Math I · Team of 2 · May – Jun 2025',
+      description:
+        'Full Pac-Man in JavaFX: every tile is a vertex and the ghosts traverse the graph with classic algorithms, built on data structures implemented from scratch.',
+      role: 'Data structures, graphs and algorithms, ghost AI, JavaFX interface and tests.',
+      highlights: [
+        'Custom structures: linked list, stack, queue, priority queue, hash table and union-find.',
+        'Maze as a directed graph: one-way ghost-house door and tunnels as edges.',
+        'Red ghost uses Dijkstra (on the custom priority queue), pink uses BFS; each ghost runs on its own thread.',
+        'Library of BFS, DFS, Dijkstra, Floyd-Warshall, Kruskal and Prim backed by 17 JUnit tests.',
+      ],
+      shots: { juego: 'Gameplay', susto: 'Power pellet', menu: 'Menu', gameover: 'Game over' },
+    },
   },
   experience: {
     eyebrow: 'Background',
@@ -343,10 +384,10 @@ const en = {
     groups: [
       { name: 'Languages', items: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL', 'C++', 'R'] },
       { name: 'Backend & data', items: ['Spring Boot', 'FastAPI', 'NestJS', 'REST APIs · OpenAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'IndexedDB'] },
-      { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Web accessibility', 'Wix'] },
+      { name: 'Frontend & desktop', items: ['React', 'HTML', 'CSS', 'Tailwind', 'Vite', 'PWA · offline-first', 'Web accessibility', 'JavaFX', 'Wix'] },
       { name: 'IoT & networking', items: ['ESP32', 'MQTT', 'Node-RED', 'Cisco Packet Tracer', 'IPv4/IPv6 · VLANs', 'MATLAB'] },
       { name: 'Data, AI & automation', items: ['scikit-learn', 'Pandas', 'Jupyter', 'LLM integration (Gemini)', 'Automation Anywhere'] },
-      { name: 'DevOps, security & quality', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'AES-256-GCM encryption', 'Vitest', 'Playwright'] },
+      { name: 'DevOps, security & quality', items: ['Docker', 'Docker Compose', 'Nginx', 'Git', 'GitHub Actions', 'JWT · roles', 'AES-256-GCM encryption', 'JUnit 5', 'Vitest', 'Playwright'] },
     ],
   },
   certs: {
