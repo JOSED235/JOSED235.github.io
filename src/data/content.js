@@ -32,12 +32,16 @@ const projectsMeta = {
       { src: 'img/ar-captura.webp', key: 'captura' },
     ],
     stack: ['ESP32', 'C++ · PlatformIO', 'MQTT', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT · bcrypt', 'React 19', 'Tailwind', 'Recharts', 'Docker Compose', 'Nginx'],
-    flow: ['MPU6050 · LSM303 · FSR402', 'ESP32 · 100 Hz', 'MQTT', 'FastAPI', 'PostgreSQL', 'React'],
   },
   agroiot: {
     repo: 'https://github.com/JOSED235/ProyectoFinalSyC1',
     stack: ['Python', 'MQTT · Mosquitto', 'Node-RED', 'InfluxDB v2', 'scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Docker Compose'],
-    flow: ['Sensores · 8 parcelas', 'MQTT', 'Node-RED', 'InfluxDB', 'Online ML'],
+    shots: [
+      { src: 'img/ag-influx.webp', key: 'influx', address: 'localhost:8086 · InfluxDB' },
+      { src: 'img/ag-ml.webp', key: 'ml', address: 'online_monitor.py · Matplotlib' },
+      { src: 'img/ag-nodered.webp', key: 'nodered', address: 'localhost:1880 · Node-RED' },
+      { src: 'img/ag-transform.webp', key: 'transform', address: 'localhost:1880 · Node-RED' },
+    ],
   },
 }
 
@@ -107,10 +111,12 @@ const es = {
         'Plataforma de telemetría y analítica predictiva para cultivos de café y palma de aceite: detecta anomalías climáticas antes de que se conviertan en pérdidas.',
       highlights: [
         'Telemetría simulada de 8 parcelas (temperatura, humedad, lluvia, pH) publicada por MQTT.',
-        'Gateway en Node-RED con validación de rangos agronómicos y persistencia en InfluxDB.',
-        'Modelo híbrido: aprendizaje incremental (PassiveAggressive) más reentrenamiento con HistGradientBoosting.',
-        'Detección de anomalías por Z-Score en tiempo real y comparativa offline con R² ≈ 0.94.',
+        'Gateway en Node-RED que valida rangos, calcula variables derivadas (déficit de presión de vapor), guarda en InfluxDB y genera alertas por umbrales agronómicos.',
+        'Modelo híbrido en línea: aprendizaje incremental (PassiveAggressive) más reentrenamiento periódico con HistGradientBoosting.',
+        'Detección de anomalías por Z-Score y comparativa offline con validación cruzada (MAE ≈ 2 °C en temperatura).',
       ],
+      shots: { influx: 'InfluxDB', ml: 'ML en línea', nodered: 'Node-RED', transform: 'Transform Data' },
+      shotsNote: 'Capturas del sistema corriendo con el simulador de sensores.',
     },
   },
   experience: {
@@ -288,10 +294,12 @@ const en = {
         'Telemetry and predictive analytics platform for coffee and oil palm crops: spots climate anomalies before they turn into losses.',
       highlights: [
         'Simulated telemetry from 8 plots (temperature, humidity, rain, pH) published over MQTT.',
-        'Node-RED gateway validating agronomic ranges and persisting to InfluxDB.',
-        'Hybrid model: incremental learning (PassiveAggressive) plus HistGradientBoosting retraining.',
-        'Real-time Z-Score anomaly detection and an offline benchmark reaching R² ≈ 0.94.',
+        'Node-RED gateway that validates ranges, derives variables (vapor pressure deficit), writes to InfluxDB and raises alerts from agronomic thresholds.',
+        'Hybrid online model: incremental learning (PassiveAggressive) plus periodic HistGradientBoosting retraining.',
+        'Z-Score anomaly detection and a cross-validated offline benchmark (MAE ≈ 2 °C on temperature).',
       ],
+      shots: { influx: 'InfluxDB', ml: 'Online ML', nodered: 'Node-RED', transform: 'Transform Data' },
+      shotsNote: 'Screenshots of the system running with the sensor simulator.',
     },
   },
   experience: {

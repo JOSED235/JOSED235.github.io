@@ -1,4 +1,5 @@
 import SectionHead from './SectionHead.jsx'
+import Meta from './Meta.jsx'
 
 export default function Experience({ t }) {
   const e = t.experience
@@ -16,9 +17,9 @@ export default function Experience({ t }) {
                     <h3>{item.role}</h3>
                     <p className="timeline__org">{item.org}</p>
                   </div>
-                  <span className="meta mono">
-                    {item.date}
-                    {item.place && <><br />{item.place}</>}
+                  <span className="timeline__when">
+                    <Meta text={item.date} />
+                    {item.place && <Meta text={item.place} />}
                   </span>
                 </div>
                 <ul className="highlights">
