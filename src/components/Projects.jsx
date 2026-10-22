@@ -81,7 +81,7 @@ function Featured({ t, id, reverse }) {
   const meta = projectsMeta[id]
 
   return (
-    <article className={`featured reveal ${reverse ? 'featured--reverse' : ''}`}>
+    <article className={`featured ${reverse ? 'featured--reverse' : ''}`}>
       <Showcase p={p} meta={meta} />
 
       <div className="featured__body">

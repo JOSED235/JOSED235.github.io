@@ -20,7 +20,7 @@ export default function About({ t }) {
       <div className="container">
         <SectionHead index={5} eyebrow={a.eyebrow} title={a.title} />
         <div className="about-grid">
-          <div className="card reveal">
+          <div className="card">
             <h3 className="about__title mono">{a.education}</h3>
             <ul className="entries">
               {a.studies.map((s) => (
@@ -28,7 +28,7 @@ export default function About({ t }) {
               ))}
             </ul>
           </div>
-          <div className="card reveal">
+          <div className="card">
             <h3 className="about__title mono">{a.community}</h3>
             <ul className="entries">
               {a.activities.map((s) => (

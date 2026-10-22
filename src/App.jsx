@@ -9,7 +9,6 @@ import Skills from './components/Skills.jsx'
 import Certifications from './components/Certifications.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
-import { useReveal } from './components/useReveal.js'
 
 function initialLang() {
   const stored = load('lang')
@@ -26,14 +25,11 @@ export default function App() {
     save('lang', lang)
   }, [lang])
 
-  useReveal(lang)
 
   const toggleLang = () => setLang((l) => (l === 'es' ? 'en' : 'es'))
 
   return (
     <>
-      <div className="bg-glow" aria-hidden="true" />
-      <div className="bg-grid" aria-hidden="true" />
       <Nav t={t} lang={lang} onToggleLang={toggleLang} />
       <main>
         <Hero t={t} lang={lang} />
