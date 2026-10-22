@@ -9,7 +9,7 @@ export default function Experience({ t }) {
         <SectionHead index={2} eyebrow={e.eyebrow} title={e.title} />
         <ol className="timeline">
           {e.items.map((item, i) => (
-            <li key={item.role} className={`timeline__item reveal ${i === 0 ? 'is-main' : ''}`}>
+            <li key={item.role} className={`timeline__item ${i === 0 ? 'is-main' : ''}`}>
               <span className="timeline__dot" aria-hidden="true" />
               <div className="timeline__card card">
                 <div className="timeline__head">

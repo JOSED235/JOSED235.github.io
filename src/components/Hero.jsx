@@ -61,22 +61,22 @@ export default function Hero({ t, lang }) {
     <section className="hero" id="top">
       <div className="container hero__grid">
         <div className="hero__text">
-          <p className="badge reveal">
+          <p className="badge">
             <span className="pulse" /> {h.available}
           </p>
-          <p className="hero__hello reveal">{h.hello}</p>
-          <h1 className="hero__name reveal">
+          <p className="hero__hello">{h.hello}</p>
+          <h1 className="hero__name">
             Jose David <span className="hero__name-accent">Rodríguez</span>
           </h1>
-          <p className="hero__role reveal mono">
+          <p className="hero__role mono">
             <span className="accent" aria-hidden="true">&gt;</span>{' '}
             <span aria-hidden="true">{role}</span>
             <span className="caret" aria-hidden="true" />
             <span className="sr-only">{h.roles.join(' · ')}</span>
           </p>
-          <p className="hero__summary reveal">{h.summary}</p>
+          <p className="hero__summary">{h.summary}</p>
 
-          <div className="hero__cta reveal">
+          <div className="hero__cta">
             <a className="btn btn--primary" href="#projects">
               {h.ctaProjects} <ArrowRight />
             </a>
@@ -85,7 +85,7 @@ export default function Hero({ t, lang }) {
             </a>
           </div>
 
-          <div className="hero__social reveal">
+          <div className="hero__social">
             <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
               <GitHub />
             </a>
@@ -101,7 +101,7 @@ export default function Hero({ t, lang }) {
           </div>
         </div>
 
-        <div className="hero__visual reveal">
+        <div className="hero__visual">
           <div className="portrait">
             <div className="portrait__ring" aria-hidden="true" />
             <div className="portrait__frame">
@@ -117,7 +117,7 @@ export default function Hero({ t, lang }) {
       </div>
 
       <div className="container">
-        <dl className="stats reveal">
+        <dl className="stats">
           {h.stats.map((s) => (
             <div key={s.label} className="stat">
               <dt className="stat__value">{s.value}</dt>

@@ -39,7 +39,7 @@ export default function Certifications({ t }) {
         <SectionHead index={4} eyebrow={c.eyebrow} title={c.title} />
         <div className="certs-grid">
           {c.issuers.map((group) => (
-            <div key={group.issuer} className="card cert-group reveal">
+            <div key={group.issuer} className="card cert-group">
               <div className="cert-group__head">
                 <span className="cert-group__mark mono" aria-hidden="true">
                   {group.mark}

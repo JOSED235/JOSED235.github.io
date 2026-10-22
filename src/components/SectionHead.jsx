@@ -1,6 +1,6 @@
 export default function SectionHead({ eyebrow, title, index }) {
   return (
-    <div className="section-head reveal">
+    <div className="section-head">
       <p className="eyebrow mono">
         <span className="accent">0{index}</span> / {eyebrow}
       </p>

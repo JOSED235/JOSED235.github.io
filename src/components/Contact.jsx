@@ -19,7 +19,7 @@ export default function Contact({ t, lang }) {
   return (
     <section className="section" id="contact">
       <div className="container">
-        <div className="contact reveal">
+        <div className="contact">
           <p className="eyebrow mono">
             <span className="accent">06</span> / {c.eyebrow}
           </p>
