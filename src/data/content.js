@@ -54,6 +54,17 @@ const projectsMeta = {
       { src: 'img/pm-gameover.webp', key: 'gameover' },
     ],
   },
+  sgmms: {
+    repo: 'https://github.com/JOSED235/SIMULADOR-SGMMS',
+    address: 'SGMMS · Despacho — JavaFX',
+    stack: ['Java 17', 'JavaFX', 'Canvas', 'Maven', 'JUnit 5', 'A*', 'Árbol AVL', 'Montículo binario', 'Tabla hash', 'Simulación determinista'],
+    shots: [
+      { src: 'img/sg-despacho.webp', key: 'despacho' },
+      { src: 'img/sg-conduccion.webp', key: 'conduccion' },
+      { src: 'img/sg-informe.webp', key: 'informe' },
+      { src: 'img/sg-menu.webp', key: 'menu' },
+    ],
+  },
 }
 
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
@@ -143,6 +154,22 @@ const es = {
         'Biblioteca de BFS, DFS, Dijkstra, Floyd-Warshall, Kruskal y Prim con 17 pruebas JUnit.',
       ],
       shots: { juego: 'Juego', susto: 'Pastilla de poder', menu: 'Menú', gameover: 'Game over' },
+    },
+    sgmms: {
+      name: 'SGMMS · Despacho de emergencias',
+      tagline: 'Simulador de despacho sobre un grafo vial dinámico',
+      meta: 'APO II · Equipo de 3 · 2025 · Reconstruido en 2026',
+      description:
+        'Simulador de un centro de despacho de emergencias: asignas patrullas, ambulancias y bomberos antes de que venza el plazo de cada incidente, en una ciudad donde el tráfico cambia el costo de cada calle en tiempo real.',
+      role: 'Reconstrucción completa: motor de simulación, grafo dinámico, rutas con A*, tráfico, estructuras de datos, interfaz JavaFX y pruebas.',
+      highlights: [
+        'Grafo vial dinámico: el peso de cada carril depende de la congestión del tráfico civil y los accidentes cierran calles en ambos sentidos.',
+        'A* con orígenes y destinos múltiples para vehículos a mitad de cuadra: expande entre 43 y 52 % menos nodos que Dijkstra con el mismo costo óptimo (medido en 2000 rutas).',
+        'Cola de triage por plazo en un árbol AVL propio; tabla hash, montículo y lista enlazada también implementados desde cero.',
+        'Motor determinista de paso fijo separado de JavaFX: el mismo código corre en el juego, en 52 pruebas JUnit y en un benchmark de estrategias de despacho.',
+        'Tráfico con seguimiento vehicular, replanificación con histéresis, conducción manual con GPS e informe de métricas (P90 y cumplimiento de plazos).',
+      ],
+      shots: { despacho: 'Despacho', conduccion: 'Conducción', informe: 'Informe', menu: 'Menú' },
     },
   },
   experience: {
@@ -341,6 +368,22 @@ const en = {
         'Library of BFS, DFS, Dijkstra, Floyd-Warshall, Kruskal and Prim backed by 17 JUnit tests.',
       ],
       shots: { juego: 'Gameplay', susto: 'Power pellet', menu: 'Menu', gameover: 'Game over' },
+    },
+    sgmms: {
+      name: 'SGMMS · Emergency Dispatch',
+      tagline: 'Dispatch simulator on a dynamic road graph',
+      meta: 'Programming II · Team of 3 · 2025 · Rebuilt in 2026',
+      description:
+        'Emergency dispatch center simulator: assign police cars, ambulances and fire trucks before each incident deadline expires, in a city where traffic changes the cost of every street in real time.',
+      role: 'Full rebuild: simulation engine, dynamic graph, A* routing, traffic, data structures, JavaFX interface and tests.',
+      highlights: [
+        'Dynamic road graph: each lane weight depends on live civilian traffic congestion, and accidents close streets in both directions.',
+        'Multi-source, multi-target A* for vehicles in the middle of a block: expands 43–52% fewer nodes than Dijkstra with the same optimal cost (measured over 2,000 routes).',
+        'Deadline-ordered triage queue on a custom AVL tree; hash table, heap and linked list also built from scratch.',
+        'Deterministic fixed-step engine decoupled from JavaFX: the same code runs the game, 52 JUnit tests and a dispatch-strategy benchmark.',
+        'Car-following traffic, rerouting with hysteresis, manual driving with GPS and a metrics report (P90 and deadline compliance).',
+      ],
+      shots: { despacho: 'Dispatch', conduccion: 'Driving', informe: 'Report', menu: 'Menu' },
     },
   },
   experience: {
