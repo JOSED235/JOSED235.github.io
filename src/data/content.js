@@ -65,6 +65,17 @@ const projectsMeta = {
       { src: 'img/sg-menu.webp', key: 'menu' },
     ],
   },
+  beatPotato: {
+    repo: 'https://github.com/JOSED235/SIMONLEON-TEAM',
+    address: 'Beat Potato — Unity',
+    stack: ['Unity 6', 'C#', 'Bus de eventos', 'AudioSettings.dspTime', 'Pruebas unitarias', 'Git flow en equipo'],
+    shots: [
+      { src: 'img/bp-duelo.webp', key: 'duelo' },
+      { src: 'img/bp-racha.webp', key: 'racha' },
+      { src: 'img/bp-menu.webp', key: 'menu' },
+      { src: 'img/bp-titulo.webp', key: 'titulo' },
+    ],
+  },
 }
 
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
@@ -170,6 +181,22 @@ const es = {
         'Tráfico con seguimiento vehicular, replanificación con histéresis, conducción manual con GPS e informe de métricas (P90 y cumplimiento de plazos).',
       ],
       shots: { despacho: 'Despacho', conduccion: 'Conducción', informe: 'Informe', menu: 'Menú' },
+    },
+    beatPotato: {
+      name: 'Beat Potato',
+      tagline: 'Duelo rítmico 1v1 con una papa a punto de explotar',
+      meta: 'GameHub Game Jam · IEEE CIS Icesi · Equipo de 5 · 24 h · Oct 2026',
+      description:
+        'Juego de ritmo para dos jugadores en el mismo teclado: cada uno pulsa notas en cuatro carriles al compás de la música y mantener el ritmo empuja la papa hacia el lado del rival.',
+      role: 'Backend de partida: el bus de eventos que conecta ritmo, entrada, puntaje e interfaz en la versión entregada, más el ciclo de rondas, rachas, poderes y calor de la papa con sus pruebas (en la rama backend).',
+      highlights: [
+        'Bus de eventos estático (21 eventos) como contrato entre ritmo, gameplay y presentación: la entrada, el puntaje, los combos, las animaciones y el medidor de presión se comunican sin conocerse.',
+        'Reloj musical con AudioSettings.dspTime: la precisión (Perfect, Good, Bad, Miss) se mide contra el tiempo de la nota, no contra su posición en pantalla ni los FPS.',
+        'MatchManager con cuenta regresiva y rondas por eventos, sistema de rachas, poderes y calor de la papa, probados fuera del Editor con dobles de UnityEngine.',
+        'Trabajo en paralelo de 5 personas con ramas por funcionalidad, pull requests y un registro de uso de IA durante la jam.',
+      ],
+      shots: { duelo: 'Duelo', racha: 'Racha', menu: 'Menú', titulo: 'Título' },
+      shotsNote: 'Fotogramas del video de la partida grabado por el equipo.',
     },
   },
   experience: {
@@ -384,6 +411,22 @@ const en = {
         'Car-following traffic, rerouting with hysteresis, manual driving with GPS and a metrics report (P90 and deadline compliance).',
       ],
       shots: { despacho: 'Dispatch', conduccion: 'Driving', informe: 'Report', menu: 'Menu' },
+    },
+    beatPotato: {
+      name: 'Beat Potato',
+      tagline: '1v1 rhythm duel with a potato about to explode',
+      meta: 'GameHub Game Jam · IEEE CIS Icesi · Team of 5 · 24 h · Oct 2026',
+      description:
+        'Two-player rhythm game on a single keyboard: each player hits notes across four lanes to the beat, and keeping the rhythm pushes the potato toward the opponent’s side.',
+      role: 'Match backend: the event bus that connects rhythm, input, scoring and UI in the shipped build, plus the round cycle, streaks, power-ups and potato heat with their tests (on the backend branch).',
+      highlights: [
+        'Static event bus (21 events) as the contract between rhythm, gameplay and presentation: input, scoring, combos, animations and the pressure meter talk without knowing each other.',
+        'Music clock on AudioSettings.dspTime: accuracy (Perfect, Good, Bad, Miss) is judged against the note’s scheduled time, not its on-screen position or the frame rate.',
+        'Event-driven MatchManager with countdown and rounds, plus streak, power-up and potato-heat systems, tested outside the Editor with UnityEngine test doubles.',
+        'Five people working in parallel with feature branches, pull requests and an AI-usage log kept throughout the jam.',
+      ],
+      shots: { duelo: 'Duel', racha: 'Streak', menu: 'Menu', titulo: 'Title' },
+      shotsNote: 'Frames from the gameplay video recorded by the team.',
     },
   },
   experience: {
