@@ -1,22 +1,32 @@
 /* ============ Tokens ============ */
-/* Concepto: notas del parche. Oscuro = el cliente; claro = la hoja impresa. */
+/* Concepto: notas del parche.
+   Oscuro = Steven Universe, noche en Ciudad Playa. Claro = Hora de Aventura, Ooo de día. */
 :root {
-  --bg: #111315;
-  --bg-2: #15181a;
-  --surface: #181b1e;
-  --surface-2: #1f2326;
-  --border: #2b3034;
-  --border-strong: #3c4247;
-  --text: #ece7de;
-  --muted: #aaa59b;
-  --faint: #8a857b;
+  --bg: #1b1830;
+  --bg-2: #201c38;
+  --surface: #262142;
+  --surface-2: #2e2850;
+  --border: #3d3663;
+  --border-strong: #52497f;
+  --heading: #fff8ee;
+  --heading-2: #ece3fa;
+  --text: #e9e1ee;
+  --muted: #c9bfdc;
+  --faint: #a59bbd;
+  --disabled: #857ca3;
+  --link: #c9b6ff;
+  --code-bg: #141127;
+  --shadow: rgba(8, 6, 20, 0.35);
   /* Colores de las notas del parche: cada uno significa algo */
-  --accent: #f0b54a; /* ajuste, versión y acento principal */
-  --on-accent: #111315;
-  --accent-soft: rgba(240, 181, 74, 0.12);
-  --new: #86d17e; /* nuevo */
-  --bug: #ff7a6b; /* bug conocido */
-  --learn: #8bbcff; /* aprendido */
+  --accent: #ffd447; /* estrella de Steven: versión y acento principal */
+  --on-accent: #1b1830;
+  --accent-soft: rgba(255, 212, 71, 0.12);
+  --accent-hover: #ffe27a;
+  --highlight: #b9a0f5; /* Amatista */
+  --highlight-text: #b9a0f5;
+  --new: #a6e35a; /* nuevo · Peridot */
+  --bug: #ff7d8c; /* bug conocido · Garnet */
+  --learn: #7ee3e0; /* aprendido · Perla */
   --ok: var(--new);
   --radius: 4px;
   --font-display: 'Bricolage Grotesque', Georgia, serif;
@@ -27,42 +37,60 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --bg: #f1ede4;
-    --bg-2: #ebe6db;
-    --surface: #faf8f3;
-    --surface-2: #f3efe7;
-    --border: #d9d3c6;
-    --border-strong: #bdb5a5;
-    --text: #1d1c19;
-    --muted: #524f48;
-    --faint: #6b675e;
-    --accent: #8c5a00;
-    --on-accent: #faf8f3;
-    --accent-soft: rgba(140, 90, 0, 0.1);
-    --new: #2c6f30;
-    --bug: #b02a1f;
-    --learn: #1f58a0;
+    --bg: #fff8e8;
+    --bg-2: #fdf0d2;
+    --surface: #ffffff;
+    --surface-2: #fff3dc;
+    --border: #ecd9ae;
+    --border-strong: #d4b77a;
+    --heading: #141a30;
+    --heading-2: #2a3a5e;
+    --text: #1f2a44;
+    --muted: #47506a;
+    --faint: #5a6178;
+    --disabled: #8a8778;
+    --link: #0d4a94;
+    --code-bg: #fbeccb;
+    --shadow: rgba(31, 42, 68, 0.1);
+    --accent: #1565c0; /* camiseta de Finn */
+    --on-accent: #ffffff;
+    --accent-soft: rgba(21, 101, 192, 0.1);
+    --accent-hover: #0d4a94;
+    --highlight: #ffc93c; /* Jake */
+    --highlight-text: #8a5a00;
+    --new: #2e7d32; /* pasto de Ooo */
+    --bug: #c62828; /* Marceline */
+    --learn: #c2185b; /* Dulce Princesa */
     --ok: var(--new);
     color-scheme: light;
   }
 }
 
 :root[data-theme='light'] {
-  --bg: #f1ede4;
-  --bg-2: #ebe6db;
-  --surface: #faf8f3;
-  --surface-2: #f3efe7;
-  --border: #d9d3c6;
-  --border-strong: #bdb5a5;
-  --text: #1d1c19;
-  --muted: #524f48;
-  --faint: #6b675e;
-  --accent: #8c5a00;
-  --on-accent: #faf8f3;
-  --accent-soft: rgba(140, 90, 0, 0.1);
-  --new: #2c6f30;
-  --bug: #b02a1f;
-  --learn: #1f58a0;
+  --bg: #fff8e8;
+  --bg-2: #fdf0d2;
+  --surface: #ffffff;
+  --surface-2: #fff3dc;
+  --border: #ecd9ae;
+  --border-strong: #d4b77a;
+  --heading: #141a30;
+  --heading-2: #2a3a5e;
+  --text: #1f2a44;
+  --muted: #47506a;
+  --faint: #5a6178;
+  --disabled: #8a8778;
+  --link: #0d4a94;
+  --code-bg: #fbeccb;
+  --shadow: rgba(31, 42, 68, 0.1);
+  --accent: #1565c0; /* camiseta de Finn */
+  --on-accent: #ffffff;
+  --accent-soft: rgba(21, 101, 192, 0.1);
+  --accent-hover: #0d4a94;
+  --highlight: #ffc93c; /* Jake */
+  --highlight-text: #8a5a00;
+  --new: #2e7d32; /* pasto de Ooo */
+  --bug: #c62828; /* Marceline */
+  --learn: #c2185b; /* Dulce Princesa */
   --ok: var(--new);
   color-scheme: light;
 }
@@ -116,6 +144,12 @@ h4 {
   line-height: 1.1;
   margin: 0;
   letter-spacing: -0.02em;
+  color: var(--heading);
+}
+
+h3,
+h4 {
+  color: var(--heading-2);
 }
 
 p {
@@ -183,9 +217,8 @@ ol {
 }
 
 .btn--primary:hover {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .btn--ghost {
@@ -406,38 +439,35 @@ ol {
 }
 
 /* ============ Hero ============ */
+/* La cabecera de unas notas del parche, firmada por mí */
 .hero {
-  padding: 140px 0 40px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 132px 0 24px;
 }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: end;
 }
 
-.badge {
+.hero__kicker {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
-  padding: 7px 14px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  font-size: 13.5px;
-  color: var(--muted);
-  margin-bottom: 28px;
+  padding-bottom: 10px;
+  margin-bottom: 26px;
+  border-bottom: 2px solid var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-.hero__hello {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 6px;
+.hero__kicker span {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .hero__name {
@@ -447,185 +477,146 @@ ol {
   line-height: 1;
 }
 
-.hero__name-accent {
-  color: inherit;
-}
-
-.hero__role {
-  margin-top: 20px;
-  font-size: clamp(16px, 2.2vw, 20px);
-  color: var(--text);
-  min-height: 1.6em;
-}
-
-.caret {
-  display: inline-block;
-  width: 10px;
-  height: 1.1em;
-  margin-left: 4px;
-  vertical-align: text-bottom;
-  background: var(--accent);
-  animation: blink 1s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero__summary {
-  margin-top: 22px;
-  max-width: 560px;
-  font-size: 17.5px;
-  color: var(--muted);
-}
-
-.hero__cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.hero__social {
+.hero__byline {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 30px;
-  color: var(--muted);
+  gap: 16px;
+  margin-top: 26px;
 }
 
-.hero__social a {
-  transition: color 0.2s;
+/* Foto pequeña y algo torcida, como pegada en la hoja */
+.hero__photo {
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  transform: rotate(2deg);
 }
 
-.hero__social a:hover {
-  color: var(--accent);
+.hero__degrees {
+  font-weight: 600;
+  color: var(--heading-2);
 }
 
 .hero__loc {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
-  padding-left: 18px;
-  border-left: 1px solid var(--border);
-}
-
-/* Foto */
-.hero__visual {
-  display: flex;
-  justify-content: center;
-}
-
-.portrait {
-  position: relative;
-  width: min(360px, 78vw);
-  aspect-ratio: 1;
-}
-
-.portrait__ring {
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  border: 2px dashed var(--accent);
-  animation: spin 40s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.portrait__frame {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--surface-2);
-}
-
-.portrait__frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 20%;
-}
-
-.float-chip {
-  position: absolute;
-  padding: 7px 12px;
-  border-radius: var(--radius);
-  font-size: 12.5px;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  animation: float 6s ease-in-out infinite;
-}
-
-.float-chip::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-right: 7px;
-  vertical-align: middle;
-}
-
-.float-chip--0 { top: 4%; left: -12%; }
-.float-chip--1 { top: 2%; right: -6%; animation-delay: -1s; }
-.float-chip--2 { top: 44%; right: -18%; animation-delay: -2s; }
-.float-chip--3 { bottom: 10%; right: -8%; animation-delay: -3s; }
-.float-chip--4 { bottom: 4%; left: -6%; animation-delay: -4s; }
-.float-chip--5 { top: 46%; left: -20%; animation-delay: -5s; }
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Estadísticas */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 72px 0 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  overflow: hidden;
-}
-
-.stat {
-  padding: 22px 26px;
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-}
-
-.stat + .stat {
-  border-left: 1px solid var(--border);
-}
-
-.stat__value {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-
-.stat__label {
-  margin: 0;
+  margin-top: 4px;
+  font-size: 13px;
   color: var(--muted);
-  font-size: 14.5px;
+}
+
+.hero__summary {
+  margin-top: 24px;
+  max-width: 560px;
+  font-size: 17.5px;
+  color: var(--muted);
+}
+
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 28px;
+}
+
+.hero__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.hero__links a:hover {
+  color: var(--accent);
+}
+
+.hero__links svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero__links .hero__cv {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero__highlights {
+  padding: 20px 24px;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.hero__highlights-title {
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.hero__highlights li + li {
+  border-top: 1px solid var(--border);
+}
+
+.hero__highlights li a {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 14px 0;
+}
+
+.hero__hl-version {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hero__hl-name {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--heading);
+  transition: color 0.2s;
+}
+
+.hero__highlights li a:hover .hero__hl-name {
+  color: var(--accent);
+}
+
+.hero__hl-tag {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.hero__hl-live {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  font-size: 11.5px;
+  color: var(--new);
+}
+
+.hero__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--link);
 }
 
 /* ============ Secciones ============ */
@@ -882,6 +873,271 @@ ol {
   height: 16px;
 }
 
+/* ============ Notas del parche ============ */
+/* El sello torcido es el elemento fuera de la cuadrícula a propósito */
+.patch__stamp {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 14px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+.patch__stamp span {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.notes {
+  --kind: var(--accent);
+  border-left: 3px solid var(--kind);
+  padding-left: 16px;
+}
+
+.notes--new {
+  --kind: var(--new);
+}
+
+.notes--bug {
+  --kind: var(--bug);
+}
+
+.notes--learn {
+  --kind: var(--learn);
+}
+
+.notes__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kind);
+  margin-bottom: 8px;
+}
+
+.notes li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.notes li + li {
+  margin-top: 8px;
+}
+
+.notes li::before {
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--kind);
+}
+
+.notes--new li::before {
+  content: '+';
+}
+
+.notes--bug li::before {
+  content: '!';
+}
+
+.notes--learn li::before {
+  content: '→';
+}
+
+.notes li.is-pending {
+  color: var(--faint);
+  font-style: italic;
+}
+
+/* Build: una casilla por tecnología, como los items de LoL */
+.build__label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 10px;
+}
+
+.build__slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+}
+
+.build__slot {
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.build__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--heading-2);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.build__slot:hover .build__icon {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.build__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.tech-initials {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.build__name {
+  margin-top: 5px;
+  font-size: 10.5px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.build--compact .build__slot {
+  width: auto;
+}
+
+.build--compact .build__icon {
+  width: 36px;
+  height: 36px;
+}
+
+.build--compact .build__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Hotfixes: sin tarjeta, en filas, para que no se vean como los parches */
+.hotfixes {
+  margin-top: 80px;
+}
+
+.hotfixes__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.hotfixes__head h3 {
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hotfixes__head p {
+  color: var(--faint);
+  font-size: 14px;
+}
+
+.hotfix {
+  display: grid;
+  grid-template-columns: 88px 1fr 280px;
+  gap: 28px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.hotfix__version {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.hotfix__main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.hotfix__title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.hotfix__tagline {
+  color: var(--muted);
+  margin-top: -6px;
+}
+
+.hotfix__role {
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.hotfix__role .mono {
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.hotfix__more summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--link);
+}
+
+.hotfix__more[open] summary {
+  margin-bottom: 12px;
+}
+
+.hotfix__side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hotfix__shot {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1280 / 860;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: #faf5ec;
+}
+
+.hotfix .project-links {
+  margin-top: 0;
+}
+
+.hotfix .btn {
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
 /* ============ Experiencia ============ */
 .timeline {
   position: relative;
@@ -960,19 +1216,165 @@ ol {
   flex-shrink: 0;
 }
 
-/* ============ Stack ============ */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* ============ Página de runas ============ */
+.runes__hint {
+  max-width: 640px;
+  margin: -24px 0 40px;
+  color: var(--muted);
 }
 
-.skill-group h3 {
+.runes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 32px;
+  align-items: start;
+}
+
+/* Cada rama con su color, como las ramas de runas */
+.rune-tree {
+  --tree: var(--accent);
+  border-top: 3px solid var(--tree);
+  padding-top: 16px;
+}
+
+.rune-tree--backend { --tree: var(--learn); }
+.rune-tree--iot { --tree: var(--new); }
+.rune-tree--web { --tree: var(--accent); }
+.rune-tree--data { --tree: var(--highlight-text); }
+.rune-tree--games { --tree: var(--bug); }
+.rune-tree--devops { --tree: var(--heading-2); }
+
+.rune-tree__name {
   font-size: 13px;
-  font-weight: 500;
-  font-family: var(--font-mono);
-  color: var(--accent);
-  margin-bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tree);
+}
+
+.rune-tree__keystone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 18px 0 22px;
+}
+
+/* La línea que baja de la runa principal a las demás */
+.rune-tree__keystone::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background: var(--tree);
+  opacity: 0.6;
+}
+
+.rune-tree__minor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px 6px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.rune {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+}
+
+.rune__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  background: var(--surface-2);
+  color: var(--heading-2);
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.rune__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.rune--keystone .rune__icon {
+  width: 68px;
+  height: 68px;
+  border-color: var(--tree);
+  color: var(--tree);
+}
+
+.rune--keystone .rune__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.rune--seen .rune__icon {
+  border-style: dashed;
+}
+
+.rune:hover .rune__icon {
+  border-color: var(--tree);
+}
+
+.rune[aria-pressed='true'] .rune__icon {
+  border-color: var(--tree);
+  color: var(--tree);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--tree) 28%, transparent);
+}
+
+.rune__name {
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.rune[aria-pressed='true'] .rune__name {
+  color: var(--text);
+}
+
+.rune-panel {
+  display: grid;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--tree);
+  background: var(--surface);
+  font-size: 14.5px;
+}
+
+.rune-panel__name {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.rune-panel__label {
+  font-size: 12px;
+  color: var(--tree);
+}
+
+.rune-panel a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rune-panel .is-pending {
+  color: var(--faint);
+  font-style: italic;
 }
 
 /* ============ Certificaciones ============ */
@@ -1075,6 +1477,7 @@ ol {
 }
 
 .cert__link:hover {
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1243,7 +1646,16 @@ ol {
     order: 0;
   }
 
-  .skills-grid {
+  .hotfix {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .hotfix__side {
+    grid-column: 2;
+    max-width: 420px;
+  }
+
+  .runes {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1284,20 +1696,11 @@ ol {
 @media (max-width: 860px) {
   .hero {
     padding-top: 110px;
-    min-height: auto;
   }
 
   .hero__grid {
     grid-template-columns: 1fr;
-    gap: 56px;
-  }
-
-  .hero__visual {
-    order: -1;
-  }
-
-  .portrait {
-    width: min(240px, 60vw);
+    gap: 40px;
   }
 
   .cert-group:first-child {
@@ -1315,18 +1718,7 @@ ol {
 }
 
 @media (max-width: 600px) {
-  /* Dos líneas reservadas: los roles largos no empujan el contenido mientras se escriben */
-  .hero__role {
-    min-height: 3.2em;
-  }
-
-  .badge {
-    border-radius: var(--radius);
-    font-size: 12.5px;
-  }
-
   /* Botones a todo el ancho para que no queden de tamaños distintos al apilarse */
-  .hero__cta .btn,
   .project-links > *,
   .contact__links .btn {
     flex: 1 1 100%;
@@ -1342,20 +1734,6 @@ ol {
 
   .nav__name {
     display: none;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-    margin-top: 48px;
-  }
-
-  .stat + .stat {
-    border-left: 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .stat {
-    padding: 16px 20px;
   }
 
   .featured,
@@ -1391,7 +1769,7 @@ ol {
     text-align: left;
   }
 
-  .skills-grid {
+  .runes {
     grid-template-columns: 1fr;
   }
 
@@ -1400,18 +1778,19 @@ ol {
     gap: 2px;
   }
 
-  .float-chip {
-    font-size: 11px;
-    padding: 5px 9px;
-  }
-
-  .float-chip--2,
-  .float-chip--5 {
-    display: none;
-  }
-
   .phone {
     display: none;
+  }
+
+  .hotfix {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 28px 0;
+  }
+
+  .hotfix__side {
+    grid-column: auto;
+    max-width: none;
   }
 
   .shot-tabs--narrow {
@@ -1420,11 +1799,6 @@ ol {
 
   .contact {
     padding: 52px 20px;
-  }
-
-  .hero__loc {
-    border-left: 0;
-    padding-left: 0;
   }
 }
 

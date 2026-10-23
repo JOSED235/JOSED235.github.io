@@ -1,0 +1,117 @@
+# Reglas para construir mi portafolio (anti "plantilla de IA")
+
+> Pega este archivo al inicio de la conversación con la IA y pídele que lo siga al pie de la letra.
+> Antes de generar nada, la IA debe confirmar que entendió las reglas y hacerme las preguntas de la sección 1 que falten.
+
+---
+
+## 0. Objetivo
+
+Construir la página de mi portafolio de proyectos de modo que **parezca hecha por una persona concreta con gustos concretos**, no generada por una IA. Prefiero algo imperfecto pero con personalidad antes que algo pulido y genérico.
+
+**Regla madre:** si un elemento podría pegarse tal cual en el portafolio de cualquier otra persona, está mal. Debe sustituirse por algo que solo tenga sentido en el mío.
+
+---
+
+## 1. Mi identidad (rellenar antes de empezar)
+
+La IA NO puede inventar nada de esta sección. Si falta algo, debe preguntarme.
+
+- **Nombre y cómo quiero que me llamen:** …
+- **A qué me dedico / estudio:** …
+- **3 cosas que me gustan fuera de lo técnico** (música, deporte, comida, juegos, lo que sea): …
+- **Mi región / contexto** (de dónde soy, qué problemas locales me importan): …
+- **Colores, objetos o estéticas que me gustan:** …
+- **Colores o estéticas que NO me gustan:** …
+- **Tono con el que hablo** (formal, bromista, directo, técnico, cercano): …
+- **Frases o expresiones que sí uso:** …
+- **Referencias de sitios que me gustan** (links o descripciones): …
+- **Proyectos a mostrar** (nombre, qué problema resuelve, qué hice yo, qué salió mal, qué aprendí): …
+
+---
+
+## 2. Lo que la IA NO puede hacer
+
+### 2.1 Diseño visual
+
+- ❌ **No** usar gradientes morado-azul-rosa ni ningún degradado "tech" genérico como fondo o en títulos.
+- ❌ **No** usar glassmorphism (tarjetas translúcidas con blur) ni sombras suaves difusas en todo.
+- ❌ **No** poner todo en tarjetas redondeadas idénticas con borde sutil y hover que sube 4px.
+- ❌ **No** usar emojis como iconos de secciones o de listas.
+- ❌ **No** usar la fuente Inter, Roboto, Poppins ni la fuente por defecto del sistema como única tipografía. Proponer una combinación con carácter (y decirme por qué).
+- ❌ **No** hacer el típico hero centrado: título gigante + subtítulo + dos botones ("Ver proyectos" / "Contáctame").
+- ❌ **No** usar fondo oscuro con puntos brillantes, partículas, "orbes" o brillos de neón por defecto.
+- ❌ **No** simetría perfecta en todas partes. Debe haber al menos un elemento deliberadamente fuera de la cuadrícula.
+- ❌ **No** usar íconos de librería genéricos (Font Awesome / Lucide) como decoración sin función.
+- ❌ **No** poner animaciones de aparición (fade-in + slide-up) en cada sección.
+- ❌ **No** usar modo oscuro/claro con toggle solo porque "se ve profesional".
+
+### 2.2 Estructura y contenido
+
+- ❌ **No** usar la estructura estándar: Hero → Sobre mí → Habilidades → Proyectos → Contacto, en ese orden, como plantilla.
+- ❌ **No** poner barras de progreso de habilidades ("Python 90%"). Son inventadas y no dicen nada.
+- ❌ **No** poner nubes de logos de tecnologías sin contexto. Si menciono una tecnología, debe estar ligada a un proyecto donde la usé.
+- ❌ **No** hacer una cuadrícula de 3 columnas con "tarjeta de proyecto" idéntica (imagen + título + 2 líneas + botón).
+- ❌ **No** inventar métricas, resultados, clientes, testimonios, premios ni cifras ("+50% de eficiencia"). Si no me lo dije, no existe.
+- ❌ **No** inventar proyectos, experiencia ni tecnologías que no usé.
+- ❌ **No** poner contadores animados ("10+ proyectos, 5+ años").
+- ❌ **No** terminar con un formulario de contacto genérico sin decirme si realmente tiene backend.
+
+### 2.3 Redacción
+
+- ❌ **No** frases de relleno típicas de IA: "apasionado por la tecnología", "transformando ideas en realidad", "soluciones innovadoras", "llevando al siguiente nivel", "en el mundo digital actual", "sumérgete en", "descubre cómo", "no solo X, sino también Y".
+- ❌ **No** listas de tres adjetivos ("creativo, innovador y comprometido").
+- ❌ **No** títulos de sección pomposos ("Mi viaje", "Mi universo creativo", "Donde la magia sucede").
+- ❌ **No** guiones largos (—) como muletilla en cada párrafo.
+- ❌ **No** hablar en tercera persona sobre mí ni usar tono de nota de prensa.
+- ❌ **No** escribir descripciones de proyectos que solo listen tecnologías. Cada proyecto debe contar: el problema, mi decisión más difícil, qué falló y qué aprendí.
+- ❌ **No** suavizar mi voz. Si escribo informal, el texto queda informal.
+
+### 2.4 Código
+
+- ❌ **No** usar Bootstrap, Tailwind con clases por defecto ni plantillas prearmadas sin personalizarlas. Si se usa un framework, debe notarse mi propia capa de estilos.
+- ❌ **No** dejar textos de ejemplo (lorem ipsum, "Tu nombre aquí", imágenes de stock).
+- ❌ **No** agregar librerías pesadas para efectos que se hacen con CSS.
+- ❌ **No** reescribir mi página completa de golpe. Los cambios deben ser incrementales y explicados.
+- ❌ **No** sacrificar accesibilidad (contraste, tamaño de texto, navegación con teclado, `alt` en imágenes) por estética.
+- ❌ **No** asumir lo que quiero. Si hay una decisión de diseño importante, me ofrece 2 o 3 opciones y yo elijo.
+
+---
+
+## 3. Lo que la IA SÍ debe hacer (para diferenciar)
+
+1. **Preguntarme primero.** Antes de proponer diseño, usar la sección 1 para encontrar un concepto propio (una metáfora, un objeto, un tema visual) que conecte con mi vida o mi región.
+2. **Proponer un concepto central.** Un único hilo conductor que se note en los colores, la tipografía, los textos y las interacciones. Ejemplo de tipo de idea (no de resultado): que el portafolio imite una libreta de apuntes, un panel de instrumentos, un mapa, un plano técnico o un cuaderno de laboratorio, según lo que me represente.
+3. **Incluir detalles que solo yo tendría:** una sección sobre cosas que me gustan, una anécdota real de un proyecto, un error que cometí y cómo lo arreglé, una frase mía.
+4. **Mostrar proceso, no solo resultado.** Bocetos, decisiones, versiones descartadas, capturas del desarrollo.
+5. **Permitir imperfección intencional:** una fuente manuscrita puntual, un elemento rotado, un borde irregular, un detalle que rompa la cuadrícula.
+6. **Usar mis propios materiales:** fotos mías, capturas reales de mis proyectos, mis diagramas, mis dibujos. Dejar marcado dónde va cada uno en lugar de poner imágenes de stock.
+7. **Variar el ritmo.** Cada sección con una composición distinta, no el mismo bloque repetido.
+8. **Dar una opinión honesta.** Si algo que propongo o que ya tengo se ve genérico, decírmelo.
+
+---
+
+## 4. Forma de trabajo
+
+- Trabajar **por secciones**, una a la vez, y esperar mi aprobación antes de seguir.
+- Cada propuesta de diseño debe venir con **una línea explicando por qué es distinta a lo típico**.
+- Si una idea suya aparece en la lista de prohibidos, **debe descartarla sola** y proponer otra.
+- Si no tiene información real mía para algo, **dejar un marcador visible** (`[PENDIENTE: …]`) en vez de inventar.
+- Al terminar cada entrega, revisar contra este documento y **listar qué reglas verificó**.
+
+---
+
+## 5. Prueba final (checklist)
+
+Antes de dar algo por terminado, la IA responde sí/no a cada punto:
+
+- [ ] ¿Alguien que me conozca reconocería que esto es mío?
+- [ ] ¿Hay al menos 3 detalles que no existirían en el portafolio de otra persona?
+- [ ] ¿Hay algún dato, cifra o frase que yo no haya dicho?
+- [ ] ¿Alguna frase suena a folleto corporativo?
+- [ ] ¿Las secciones se ven todas iguales?
+- [ ] ¿Se nota un concepto central en colores, tipografía y texto?
+- [ ] ¿Cada proyecto cuenta una historia (problema, decisión, error, aprendizaje)?
+- [ ] ¿Es accesible y funciona bien en celular?
+
+Si alguna respuesta es la incorrecta, se corrige antes de entregarme.
