@@ -1528,109 +1528,123 @@ ol {
   border: 2px solid var(--heading);
 }
 
-/* ============ Certificaciones ============ */
-.certs-grid {
+/* ============ Certificaciones: talonario de boletas ============ */
+/* Cada certificado es una boleta: cuerpo a la izquierda, talón troquelado a la derecha con fecha, ID y enlace. */
+.tickets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
   align-items: start;
 }
 
-/* El emisor con más certificados ocupa la columna izquierda completa */
-.cert-group:first-child {
-  grid-row: span 3;
-}
-
-.cert-group:hover {
-  border-color: var(--accent);
-}
-
-.cert-group__head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.cert-group__head h3 {
-  font-size: 19px;
-  flex: 1;
-}
-
-.cert-group__mark {
+.ticket {
+  --tk: var(--accent);
+  position: relative;
   display: grid;
-  place-items: center;
-  min-width: 38px;
-  height: 38px;
-  padding: 0 8px;
-  flex-shrink: 0;
-  border-radius: var(--radius);
-  background: var(--accent-soft);
+  grid-template-columns: minmax(0, 1fr) 150px;
+  background: var(--surface);
   border: 1px solid var(--border-strong);
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.cert-group__count {
-  font-size: 12px;
-  color: var(--faint);
-  padding: 3px 9px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  overflow: hidden;
 }
 
-.certs {
+/* Un color por emisor */
+.ticket--hr { --tk: var(--new); }
+.ticket--mw { --tk: var(--learn); }
+.ticket--ieee { --tk: var(--highlight-text); }
+.ticket--ui { --tk: var(--accent); }
+
+/* Una boleta torcida, como si la hubieran dejado encima de las demás */
+.ticket:nth-child(2) {
+  transform: rotate(1.2deg);
+  box-shadow: 5px 5px 0 var(--border);
+}
+
+.ticket__main {
   display: grid;
-  gap: 16px;
+  align-content: start;
+  gap: 8px;
+  padding: 18px 20px;
 }
 
-.cert {
-  display: grid;
-  gap: 10px;
+.ticket__issuer {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tk);
 }
 
-.cert + .cert {
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
+.ticket__name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading);
 }
 
-.cert__head {
+.ticket__stub {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px;
+  border-left: 2px dashed var(--border-strong);
+  background: color-mix(in srgb, var(--tk) 12%, var(--surface));
 }
 
-.cert__head h4 {
-  font-size: 16.5px;
+/* Muescas del troquel arriba y abajo */
+.ticket__stub::before,
+.ticket__stub::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
 }
 
-.cert__head .meta {
-  flex-shrink: 0;
+.ticket__stub::before {
+  top: -12px;
 }
 
-.cert__foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.ticket__stub::after {
+  bottom: -12px;
 }
 
-.cert__link {
+.ticket__date {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--heading);
+}
+
+.ticket__id,
+.ticket__nolink {
+  font-size: 11.5px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.ticket__link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  margin-top: auto;
   font-size: 14px;
   font-weight: 600;
-  color: var(--accent);
-}
-
-.cert__link:hover {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.ticket__link:hover {
+  color: var(--accent);
 }
 
 /* ============ Formación: regla de semestres ============ */
@@ -1967,11 +1981,7 @@ ol {
     gap: 40px;
   }
 
-  .cert-group:first-child {
-    grid-row: auto;
-  }
-
-  .certs-grid,
+  .tickets,
   .team {
     grid-template-columns: 1fr;
   }
@@ -2005,6 +2015,18 @@ ol {
 }
 
 @media (max-width: 600px) {
+  .ticket {
+    grid-template-columns: minmax(0, 1fr) 118px;
+  }
+
+  .ticket__main {
+    padding: 16px;
+  }
+
+  .ticket__stub {
+    padding: 16px 12px;
+  }
+
   /* Botones a todo el ancho para que no queden de tamaños distintos al apilarse */
   .project-links > *,
   .contact__links .btn {

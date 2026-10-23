@@ -1,5 +1,5 @@
 // Logos de Simple Icons (un solo color, se pintan con currentColor).
-// Lo que no tiene logo ahí (JavaFX, C#, Playwright, Recharts, Matplotlib, MATLAB...) se muestra con sus iniciales.
+// Lo que no tiene logo ahí (JavaFX, C#, Playwright, Recharts, Matplotlib, MATLAB, Lovable...) se muestra con sus iniciales.
 import {
   siReact,
   siTypescript,
