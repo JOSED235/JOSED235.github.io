@@ -56,3 +56,10 @@ Sacado de los repos públicos el 2026-10-23. Cada "bug" debe confirmarlo José a
 - Stack: lo quiere mantener, personalizado y con íconos. Eligió "página de runas".
 - R: Inferencia Estadística y Teoría de Probabilidades. Packet Tracer: Intro a la Ing. Telemática, Arquitecturas TIC, Infraestructura 1 y 2. Spring Boot: Computación en Internet 2 e Infraestructura 2.
 - AgroIoT: nada se rompió; al final logró lo que pretendía.
+
+## Experiencia y certificados (2026-10-23, segunda parte)
+- Pasantía en la Fundación Algo en Común: jun–ago 2026, Cali, híbrido, jornada parcial (dato de LinkedIn). Rediseño, desarrollo y actualización de la web; configuración de páginas y diseño responsive; apoyo en contenido (Wix) y soporte técnico.
+- Lo que aprendió en la pasantía: nunca había usado Wix ni Lovable; aprendió mucho de diseño UX/UI.
+- El certificado de la pasantía (Icesi, Centro de Talento) es de oct 2026, no de 2023.
+- Certificados nuevos: Java (Basic) de HackerRank (oct 2026, ID df71be511dda) y asistencia a EUDII 50 (oct 2026, verificable en hashproof.dev).
+- Falta el enlace del certificado de MathWorks (Telecomunicaciones Onramp).

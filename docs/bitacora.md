@@ -1,6 +1,6 @@
 # Bitácora del portafolio
 
-Registro de lo que se habló, se decidió y se hizo en la sesión del **23 de octubre de 2026**, y lo que quedó pendiente.
+Registro de lo que se habló, se decidió y se hizo el **23 de octubre de 2026** (primera parte: secciones 1 a 4; segunda parte: secciones 5 a 10), y lo que quedó pendiente.
 
 Archivos relacionados en esta carpeta:
 
@@ -147,25 +147,141 @@ Todo el texto pasa el contraste mínimo AA (4.5:1).
 | `package.json` | Dependencia nueva: `simple-icons@15`. |
 | `docs/identidad.md`, `docs/proyectos.md`, `docs/bitacora.md` | Documentación de esta sesión. |
 
+
 ---
 
-## 5. Pendientes
+# Segunda parte (23 de octubre de 2026, tarde)
+
+Se rehicieron todas las secciones que seguían con el formato viejo, una a la vez y con 2 o 3 opciones de diseño en cada una. El orden de la página quedó así:
+
+| # | Sección | Composición | Archivo |
+|---|---|---|---|
+| — | Hero | Cabecera de parche | `Hero.jsx` |
+| 01 | Notas del parche | Parches grandes + hotfixes | `Projects.jsx` |
+| 02 | Experiencia | Historial de partidas (LoL) | `Experience.jsx` |
+| 03 | Página de runas | Ramas de runas | `Skills.jsx` |
+| 04 | Mi equipo | Pantalla de equipo de Pokémon | `Team.jsx` (nuevo) |
+| 05 | Certificaciones | Talonario de boletas | `Certifications.jsx` |
+| 06 | Formación y comunidad | Regla de semestres 2021–2029 | `About.jsx` |
+| 07 | Contacto | Cierre del parche | `Contact.jsx` |
+
+Commits de esta parte, en orden: `40cdb01` Mi equipo · `9abce44` Formación · `bf03b60` Experiencia · `5667395` Certificados · `56f69de` enlaces de certificados y Contacto.
+
+## 5. Decisiones de la segunda parte
+
+| Sección | Opciones que se ofrecieron | Elegí | Por qué |
+|---|---|---|---|
+| Sección personal | Equipo Pokémon · Perfil de invocador · Lado A / Lado B (casete) | **Equipo Pokémon** | Rompe el ritmo de los parches con otro juego mío y no se puede pegar en otro portafolio. |
+| ¿Gustos y formación juntos? | Separarlos · Misma sección | **Separarlos** | Cada uno con su composición. |
+| Formación | Regla de semestres · Historial de partidas · Carnet + medallas | **Regla de semestres** | Es la única sección con eje horizontal y solo usa fechas reales. |
+| Título de Formación | "Dos carreras a la vez" · "Formación y comunidad" · "De dónde salgo" | **Formación y comunidad** | Directo; el carácter lo pone la composición. |
+| Experiencia | Historial de partidas · Lo técnico + lo de antes · Fichas de turno | **Historial de partidas** | Encaja con trabajos cortos sin inflarlos. |
+| Certificados | Talonario de boletas · Desafíos (LoL) · Pared de diplomas | **Talonario de boletas** | El ID de cada credencial por fin tiene sentido visual, y varía el ritmo. |
+| Contacto | Cierre del parche · Sala de espera (LoL) · Carta corta | **Cierre del parche** | Cierra el concepto donde empezó y deja de ser el bloque centrado. |
+| Nota de Mi equipo ("Pokémon no tiene casilla…") | — | **Se quitó** | Lo pedí yo. |
+
+## 6. Lo que se hizo en la segunda parte
+
+### Mi equipo (`Team.jsx`, nuevo)
+
+- Composición de la pantalla de equipo de Pokémon (Gen III): **una casilla líder grande y torcida** a la izquierda y cinco filas a la derecha.
+- Cada casilla tiene una **pokébola hecha con CSS**, con la mitad de arriba del color de su tipo. Sombras duras, como de pantalla de juego.
+- Sin PS, niveles ni cifras.
+- Casillas:
+  - **Líder · Series:** Steven Universe y Hora de Aventura. Explica que los colores de la página salen de ahí.
+  - **Rock:** My Chemical Romance · Three Days Grace.
+  - **Pop:** Billie Eilish · Olivia Rodrigo.
+  - **Urbano:** Bad Bunny · Karol G · Feid.
+  - **Cancha:** baloncesto, con amigos.
+  - **Fuerza:** gimnasio.
+- Encabezado: "Equipo de Jose David · Cali, Colombia". Va entre Runas y Certificados.
+
+### Formación y comunidad (`About.jsx`)
+
+- Una regla de **enero de 2021 a diciembre de 2029**, ubicada por meses, con una marca **"Aquí voy · 6.º semestre"** en octubre de 2026.
+- Filas, de la más vieja a la más nueva:
+  - **Curso:** Fundamentos de Programación, UTP, 2021.
+  - **Carrera:** Ing. de Sistemas + Ing. Telemática, Icesi, "las dos a la vez". Barra sólida hasta hoy y punteada hasta 2029 (est.).
+  - **Comunidad:** rama IEEE Icesi desde 2024, con un círculo en la **RNR 2025** y una estrella en la **RNR 2026** (representé a la rama y fue reconocida con varios premios).
+  - **Comunidad:** IEEE ComSoc Icesi y Semillero de Astrobiología, desde 2025.
+  - **Curso:** Bootcamp de Automatización, Comfandi e Icesi, julio de 2026.
+- Las fechas viven en `timeline` (en `content.js`), separadas de los textos.
+
+### Experiencia (`Experience.jsx`)
+
+- Historial de partidas: una fila por trabajo con su **modo** y su color (Pasantía, Temporada, Trabajo). Cada fila se abre con `<details>`, y la pasantía arranca abierta.
+- Sin victoria ni derrota.
+- **Pasantía en la Fundación Algo en Común** (jun–ago 2026 · Cali · Híbrido · Jornada parcial):
+  - *Lo que hice:* rediseñar, desarrollar y mantener al día la página web; configurar las páginas y armar diseños para celular, tableta y computador; ayudar con el contenido en Wix y el soporte técnico, para apoyar la comunicación de la fundación.
+  - *Lo que aprendí:* nunca había usado **Wix ni Lovable** y ahí aprendí a manejarlos; aprendí mucho de **diseño UX/UI**, sobre todo al rediseñar la navegación y adaptar las páginas a cada pantalla.
+  - *Build:* Wix y Lovable.
+- Los textos salen de LinkedIn, pero sin el relleno ("boost digital impact", "ensure optimal performance").
+- Las otras filas: Calipieles (dos temporadas), Fablab Cali (UAO) y la monitoría en la UAO.
+- `Build` pasó a su propio archivo (`Build.jsx`) para compartirlo con Proyectos.
+
+### Certificaciones (`Certifications.jsx`)
+
+- Cada certificado es una **boleta con talón troquelado**, que lleva la fecha, el ID real y "Verificar ↗" o "Ver certificado ↗". La segunda boleta va torcida.
+- Un color por emisor: HackerRank verde, MathWorks Perla, IEEE Amatista/Jake, Icesi el acento y EUDII Garnet/Marceline.
+- Certificados:
+  - **HackerRank** (oct 2026): SQL Intermediate, SQL Basic, Python Basic y **Java Basic** (nuevo).
+  - **MathWorks:** Telecomunicaciones Onramp (sep 2026), **sin enlace todavía**.
+  - **IEEE:** RNR 2026 y RNR 2025, con enlace de Drive.
+  - **Icesi, Centro de Talento:** certificación de pasantía. Corregida de oct 2023 a **oct 2026**, con enlace de Drive.
+  - **EUDII 50** (nuevo): asistencia al Encuentro de Ingenieros Industriales, oct 2026. ID `d8afbf7b-…` y verificación en hashproof.dev.
+
+### Contacto (`Contact.jsx`)
+
+- "Eso es todo para el parche **26.10**". La versión sale de `latestVersion` en `content.js`, el mismo cálculo que usa el Hero.
+- Lo que busco (full stack, backend, sistemas conectados), Cali y modalidad.
+- Filas con "+": Correo con botón de copiar, LinkedIn, GitHub y CV en Español e Inglés.
+- Firma "Jose David" torcida.
+- Se quitó el bloque centrado con "¿Construimos algo juntos?".
+
+### Otros cambios
+
+- **Lovable** entró a la página de runas (rama Web), con borde punteado y "Visto en: Pasantía en la Fundación Algo en Común". No tiene logo en Simple Icons, así que se muestra con sus iniciales.
+- **Nav:** se agregó "Equipo". Las secciones se renumeraron del 01 al 07.
+- **CSS borrado** porque quedó sin uso: la línea de tiempo vieja, `.highlights`, `.entry*`, `.about-grid`, `.cert*` y `.contact*`.
+
+## 7. Mis gustos y respuestas (resumen para retomar)
+
+Todo esto ya está en `identidad.md` y `proyectos.md`. Va aquí para tenerlo a mano.
+
+- **Me llaman:** Jose David. Soy de Cali, toda la vida; me gusta viajar.
+- **Estudio:** Ing. de Sistemas + Ing. Telemática en Icesi (6.º semestre, 2024–2029 est.).
+- **Música:** rock (My Chemical Romance, Three Days Grace), pop (Billie Eilish, Olivia Rodrigo) y urbano (Bad Bunny, Karol G, Feid).
+- **Deporte:** gimnasio y baloncesto con amigos.
+- **Juegos:** League of Legends (el principal) y Pokémon.
+- **Series:** Hora de Aventura y Steven Universe.
+- **Tono:** equilibrado, ni muy formal ni muy informal.
+- **Página:** bilingüe (ES/EN) y con modo claro y oscuro, porque me encanta.
+- **Uso de IA:** no se menciona en la página.
+- **Compañeros:** solo se nombra a Andrés Felipe Angel (Camino Legal). En los demás proyectos se cuenta solo mi parte.
+- **Proyectos favoritos:** Camino Legal y Proyecto Arquímedes. AgroIoT también va grande.
+- **Pasantía:** Wix y Lovable eran nuevos para mí; aprendí mucho de UX/UI.
+- **Commits:** los hago yo. Claude deja los cambios listos y me da los comandos.
+
+---
+
+## 8. Pendientes
 
 ### Para hacer yo (José)
 
-- [ ] **Activar GitHub Pages** con fuente **GitHub Actions** (ver la sección 1).
-- [ ] **Arreglar el PATH** de Node de forma permanente (ver la sección 2).
-- [ ] **Revisar en http://localhost:5173** el hero, los parches y las runas, en modo claro y oscuro, en computador y en celular.
-- [ ] **Hacer el commit y el push** de todo lo de esta sesión. Todavía no hay nada subido.
+- [x] Activar GitHub Pages con fuente GitHub Actions. Ya despliega solo con cada push.
+- [x] Arreglar el PATH de Node de forma permanente.
+- [x] Commit y push de la primera y la segunda parte.
+- [ ] Revisar la página completa en vivo (https://josed235.github.io/), en modo claro y oscuro, en computador y en celular.
+- [ ] Pasar el enlace del certificado de **MathWorks Telecomunicaciones Onramp** (y cualquier otro que falte).
+- [ ] Confirmar el nombre exacto del certificado **EUDII 50** y quién lo emite. Hoy dice "Asistencia al Encuentro de Ingenieros Industriales" con emisor "EUDII 50".
+- [ ] Confirmar el nombre de la **RNR**: el texto viejo decía "Encuentro Nacional de Ramas" y el certificado dice "Reunión Nacional de Ramas". En la regla de Formación quedó solo "RNR".
+- [ ] Decir en qué **mes** empecé Icesi, IEEE, ComSoc y el semillero. Hoy las barras arrancan en enero.
 
-### Siguientes secciones a rehacer (una a la vez)
+### Detalles pequeños que quedan
 
-- [ ] **Experiencia:** sigue con la línea de tiempo vieja.
-- [ ] **Certificados:** formato viejo.
-- [ ] **Formación** ("Más allá del código"): formato viejo. Podría alojar algo personal: música (MCR, Three Days Grace, Billie Eilish, Olivia Rodrigo, Bad Bunny, Karol G, Feid), baloncesto, gimnasio, Pokémon, Hora de Aventura y Steven Universe.
-- [ ] **Contacto:** formato viejo. Hay que revisar si dice algo que suene a folleto.
 - [ ] **Nav:** el enlace "Stack" podría llamarse "Runas".
-- [ ] **Footer:** dice "React + Vite". Revisar si aporta algo.
+- [ ] **Footer:** dice "React + Vite". Revisar si aporta algo o se cambia por algo propio.
+- [ ] **Mi equipo:** si tengo un Pokémon favorito (o un campeón o rol de LoL), sería un buen detalle.
 
 ### Información que todavía falta (sección 1 de las reglas)
 
@@ -177,19 +293,26 @@ Todo el texto pasa el contraste mínimo AA (4.5:1).
 ### Mejoras opcionales
 
 - [ ] Subir las versiones de las acciones del workflow para quitar el aviso de Node 20.
-- [ ] Revisar el peso del bundle de JavaScript (332 kB; con gzip, 114 kB).
+- [ ] Revisar el peso del bundle de JavaScript: 349 kB (con gzip, 120 kB). Lo más pesado son los logos de `simple-icons`.
 
 ---
 
-## 6. Checklist de las reglas (estado actual)
+## 9. Checklist de las reglas (estado actual)
 
 | Pregunta | Respuesta |
 |---|---|
-| ¿Alguien que me conozca reconocería que esto es mío? | Más que antes: LoL, Steven Universe, Hora de Aventura y mis proyectos contados con mis palabras. Faltan las secciones personales. |
-| ¿Hay al menos 3 detalles que no existirían en otro portafolio? | Sí: parches con versión, página de runas, paleta SU/HdA y bugs reales de cada proyecto. |
-| ¿Hay algún dato, cifra o frase que yo no haya dicho? | No. Todo sale de los repos o de mis respuestas. |
-| ¿Alguna frase suena a folleto corporativo? | En las secciones hechas, no. Experiencia y Contacto están sin revisar. |
-| ¿Las secciones se ven todas iguales? | No: parches, hotfixes, runas y hero tienen composiciones distintas. |
-| ¿Se nota un concepto central? | Sí, en colores, tipografía, textos y estructura. |
+| ¿Alguien que me conozca reconocería que esto es mío? | Sí: LoL en toda la estructura, Pokémon en Mi equipo, mi música, el baloncesto, el gym, Steven Universe y Hora de Aventura en los colores. |
+| ¿Hay al menos 3 detalles que no existirían en otro portafolio? | Sí: parches con versión, runas, equipo Pokémon con mis gustos, regla de semestres con "aquí voy", historial de partidas y talonario de boletas. |
+| ¿Hay algún dato, cifra o frase que yo no haya dicho? | No. Todo sale de los repos, de LinkedIn, de los certificados o de mis respuestas. Lo que faltaba quedó como `[PENDIENTE]` o en esta lista. |
+| ¿Alguna frase suena a folleto corporativo? | No. Se reescribieron la pasantía y el contacto. |
+| ¿Las secciones se ven todas iguales? | No: las 8 tienen composiciones distintas. |
+| ¿Se nota un concepto central? | Sí: notas del parche de principio (Hero) a fin (Contacto). |
 | ¿Cada proyecto cuenta una historia? | Sí: los 6 tienen Nuevo, Bug conocido y Aprendido. |
-| ¿Es accesible y funciona en celular? | Sí: contraste AA, runas y pestañas manejables con teclado, sin scroll horizontal. |
+| ¿Es accesible y funciona en celular? | Sí: revisado con capturas a 390 px y en los dos temas, sin scroll horizontal; `<details>` y botones manejables con teclado. |
+
+## 10. Cómo retomar
+
+1. Leer `instrucciones.md.txt`, `identidad.md`, `proyectos.md` y esta bitácora.
+2. `npm run dev` y abrir http://localhost:5173.
+3. Todos los textos están en `src/data/content.js`, en los dos idiomas. Las fechas de la regla están en `timeline` y las de los proyectos en `projectsMeta`.
+4. Seguir con la lista de pendientes de la sección 8, una cosa a la vez.

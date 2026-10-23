@@ -21,15 +21,26 @@ Fuente: lo que José escribió el 2026-10-23. No agregar nada que no salga de é
 - **Camino Legal:** hackathon LINXCO, con un compañero. Al inicio costó aterrizar la idea y definir el enfoque; lo resolvieron con buena comunicación. Es de lo que más orgullo le da por el producto final.
 - **Proyecto Arquímedes:** solo, durante varios meses, desde cero: diseño, requerimientos, hardware, sensores, back-end y front-end.
 
+- **Se le llama:** Jose David (así aparece en la página).
+- **Colores:** libres, mientras no sean genéricos. La paleta salió de sus series: Steven Universe (oscuro) y Hora de Aventura (claro).
+
 ## Decisiones tomadas
 
-- **Concepto central:** notas del parche (estilo patch notes de LoL). Cada proyecto es un parche: Nuevo / Bug conocido / Corregido. Pokémon, Hora de Aventura y la música van como detalles en una sección personal.
-- **Íconos de tecnologías:** dentro de cada proyecto, como la "build" de items. Sin sección de stack suelta.
+- **Concepto central:** notas del parche (estilo patch notes de LoL). Cada proyecto es un parche: **Nuevo / Bug conocido / Aprendido**.
+- **Íconos de tecnologías:** dentro de cada proyecto, como la "build" de items, y además en la **página de runas** (decidió conservar el stack, personalizado).
+- **Gustos:** van en la sección **"Mi equipo"**, como pantalla de equipo de Pokémon: Steven Universe y Hora de Aventura (líder), rock, pop, urbano, baloncesto y gimnasio.
+- **IA:** no se menciona en la página.
+- Ver `bitacora.md` para todas las decisiones de diseño por sección.
+
+## Pasantía (Fundación Algo en Común, jun–ago 2026)
+
+- Nunca había usado **Wix ni Lovable**; ahí aprendió a manejarlos.
+- Aprendió mucho de **diseño UX/UI**.
 
 ## Pendiente de preguntar
 
-- Colores/estéticas que le gustan y que no.
+- Colores o estéticas que **no** le gustan.
 - Frases o expresiones propias.
 - Sitios web de referencia.
-- Por proyecto: decisión más difícil, qué falló concretamente, qué aprendió.
-- Material de proceso (fotos, bocetos) y foto suya.
+- Pokémon favorito, o campeón o rol de LoL (opcional, para Mi equipo).
+- Material de proceso (fotos, bocetos).
