@@ -102,7 +102,7 @@ export const stackTrees = [
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
 
 const es = {
-  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', certs: 'Certificados', about: 'Formación', contact: 'Contacto' },
+  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', team: 'Equipo', certs: 'Certificados', about: 'Formación', contact: 'Contacto' },
   hero: {
     kicker: 'Notas del parche',
     degrees: 'Ingeniería de Sistemas + Ingeniería Telemática · Universidad Icesi',
@@ -334,6 +334,26 @@ const es = {
       'Cisco Packet Tracer': 'Introducción a la Ingeniería Telemática, Arquitecturas TIC e Infraestructura 1 y 2',
     },
   },
+  team: {
+    eyebrow: 'Fuera del código',
+    title: 'Mi equipo',
+    trainer: 'Equipo de Jose David · Cali, Colombia',
+    typeLabel: 'Tipo',
+    note: 'Pokémon no tiene casilla porque es la pantalla entera. League of Legends tampoco: ya está en todo lo demás.',
+    members: [
+      {
+        key: 'series',
+        name: 'Steven Universe y Hora de Aventura',
+        type: 'Series',
+        text: 'Mis series favoritas. De ahí salen los colores de esta página: el modo oscuro es Ciudad Playa de noche y el claro es Ooo de día. Prueba el botón de sol y luna.',
+      },
+      { key: 'rock', name: 'My Chemical Romance · Three Days Grace', type: 'Rock' },
+      { key: 'pop', name: 'Billie Eilish · Olivia Rodrigo', type: 'Pop' },
+      { key: 'urbano', name: 'Bad Bunny · Karol G · Feid', type: 'Urbano' },
+      { key: 'cancha', name: 'Baloncesto', type: 'Cancha', text: 'Con amigos.' },
+      { key: 'gym', name: 'Gimnasio', type: 'Fuerza' },
+    ],
+  },
   certs: {
     eyebrow: 'Credenciales',
     title: 'Certificaciones',
@@ -399,7 +419,7 @@ const es = {
 }
 
 const en = {
-  nav: { projects: 'Projects', experience: 'Experience', skills: 'Stack', certs: 'Certificates', about: 'Education', contact: 'Contact' },
+  nav: { projects: 'Projects', experience: 'Experience', skills: 'Stack', team: 'Team', certs: 'Certificates', about: 'Education', contact: 'Contact' },
   hero: {
     kicker: 'Patch notes',
     degrees: 'Systems Engineering + Telematics Engineering · Universidad Icesi',
@@ -630,6 +650,26 @@ const en = {
       R: 'Statistical Inference and Probability Theory courses',
       'Cisco Packet Tracer': 'Intro to Telematics Engineering, ICT Architectures and Infrastructure 1 and 2 courses',
     },
+  },
+  team: {
+    eyebrow: 'Off the clock',
+    title: 'My team',
+    trainer: "Jose David's team · Cali, Colombia",
+    typeLabel: 'Type',
+    note: "Pokémon doesn't get a slot because it's the whole screen. League of Legends doesn't either: it's already in everything else.",
+    members: [
+      {
+        key: 'series',
+        name: 'Steven Universe and Adventure Time',
+        type: 'Shows',
+        text: 'My favorite shows. The colors of this page come from them: dark mode is Beach City at night and light mode is Ooo by day. Try the sun and moon button.',
+      },
+      { key: 'rock', name: 'My Chemical Romance · Three Days Grace', type: 'Rock' },
+      { key: 'pop', name: 'Billie Eilish · Olivia Rodrigo', type: 'Pop' },
+      { key: 'urbano', name: 'Bad Bunny · Karol G · Feid', type: 'Urbano' },
+      { key: 'cancha', name: 'Basketball', type: 'Court', text: 'With friends.' },
+      { key: 'gym', name: 'Gym', type: 'Strength' },
+    ],
   },
   certs: {
     eyebrow: 'Credentials',
