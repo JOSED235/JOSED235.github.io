@@ -1,28 +1,67 @@
 import { useState } from 'react'
-import { projectsMeta } from '../data/content.js'
+import { projectsMeta, majorPatches, hotfixPatches } from '../data/content.js'
 import SectionHead from './SectionHead.jsx'
 import Meta from './Meta.jsx'
+import TechIcon from './TechIcon.jsx'
 import { ArrowUpRight, GitHub, Lock } from './Icons.jsx'
 
-function Stack({ items }) {
+// Como la build de items de LoL: cada casilla es una tecnología usada en ese proyecto.
+function Build({ items, label, compact }) {
   return (
-    <ul className="stack">
-      {items.map((s) => (
-        <li key={s} className="tag mono">
-          {s}
-        </li>
-      ))}
-    </ul>
+    <div className={`build ${compact ? 'build--compact' : ''}`}>
+      {!compact && <span className="build__label mono">{label}</span>}
+      <ul className="build__slots">
+        {items.map((name) => (
+          <li key={name} className="build__slot" title={name}>
+            <span className="build__icon" aria-hidden="true">
+              <TechIcon name={name} />
+            </span>
+            <span className={compact ? 'sr-only' : 'build__name mono'}>{name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
-function Highlights({ items }) {
+// [PENDIENTE: …] se deja a la vista a propósito, pero marcado para que no pase por texto real.
+function NoteItem({ text }) {
+  const pending = /^\[(PENDIENTE|PENDING)/.test(text)
+  return <li className={pending ? 'is-pending' : undefined}>{text}</li>
+}
+
+function Notes({ kind, label, items }) {
+  if (!items?.length) return null
   return (
-    <ul className="highlights">
-      {items.map((h) => (
-        <li key={h}>{h}</li>
-      ))}
-    </ul>
+    <div className={`notes notes--${kind}`}>
+      <h4 className="notes__label mono">{label}</h4>
+      <ul>
+        {items.map((text) => (
+          <NoteItem key={text} text={text} />
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function Links({ t, meta }) {
+  return (
+    <div className="project-links">
+      {meta.live && (
+        <a className="btn btn--primary" href={meta.live} target="_blank" rel="noreferrer">
+          {t.projects.live} <ArrowUpRight />
+        </a>
+      )}
+      {meta.repo ? (
+        <a className={`btn ${meta.live ? 'btn--ghost' : 'btn--primary'}`} href={meta.repo} target="_blank" rel="noreferrer">
+          <GitHub /> {t.projects.repo}
+        </a>
+      ) : (
+        <span className="private-badge mono">
+          <Lock /> {t.projects.privateCode}
+        </span>
+      )}
+    </div>
   )
 }
 
@@ -76,15 +115,18 @@ function Showcase({ p, meta }) {
   )
 }
 
-function Featured({ t, id, reverse }) {
+function Patch({ t, id, reverse }) {
   const p = t.projects[id]
   const meta = projectsMeta[id]
 
   return (
-    <article className={`featured ${reverse ? 'featured--reverse' : ''}`}>
+    <article id={`p-${id}`} className={`featured patch ${reverse ? 'featured--reverse' : ''}`}>
       <Showcase p={p} meta={meta} />
 
       <div className="featured__body">
+        <p className="patch__stamp mono">
+          {t.projects.patch} <span>{meta.version}</span>
+        </p>
         <div className="featured__top">
           {meta.live && (
             <span className="live-badge mono">
@@ -104,25 +146,53 @@ function Featured({ t, id, reverse }) {
           </div>
         )}
 
-        <Highlights items={p.highlights} />
-        <Stack items={meta.stack} />
+        <Notes kind="new" label={t.projects.newLabel} items={p.highlights} />
+        <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs} />
+        <Notes kind="learn" label={t.projects.learnLabel} items={p.learned} />
 
-        <div className="project-links">
-          {meta.live && (
-            <a className="btn btn--primary" href={meta.live} target="_blank" rel="noreferrer">
-              {t.projects.live} <ArrowUpRight />
-            </a>
-          )}
-          {meta.repo ? (
-            <a className={`btn ${meta.live ? 'btn--ghost' : 'btn--primary'}`} href={meta.repo} target="_blank" rel="noreferrer">
-              <GitHub /> {t.projects.repo}
-            </a>
-          ) : (
-            <span className="private-badge mono">
-              <Lock /> {t.projects.privateCode}
-            </span>
-          )}
-        </div>
+        <Build items={meta.build} label={t.projects.build} />
+        <Links t={t} meta={meta} />
+      </div>
+    </article>
+  )
+}
+
+function Hotfix({ t, id }) {
+  const p = t.projects[id]
+  const meta = projectsMeta[id]
+
+  return (
+    <article id={`p-${id}`} className="hotfix">
+      <p className="hotfix__version mono">{meta.version}</p>
+
+      <div className="hotfix__main">
+        <h3 className="hotfix__title">{p.name}</h3>
+        <p className="hotfix__tagline">{p.tagline}</p>
+        <Meta text={p.meta} />
+        {p.role && (
+          <p className="hotfix__role">
+            <span className="mono">{t.projects.myRole}:</span> {p.role}
+          </p>
+        )}
+        <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs} />
+        <Notes kind="learn" label={t.projects.learnLabel} items={p.learned} />
+        <details className="hotfix__more">
+          <summary className="mono">{t.projects.more}</summary>
+          <Notes kind="new" label={t.projects.newLabel} items={p.highlights} />
+        </details>
+      </div>
+
+      <div className="hotfix__side">
+        <img
+          className="hotfix__shot"
+          src={meta.shots[0].src}
+          alt={`${p.name} · ${p.shots[meta.shots[0].key]}`}
+          loading="lazy"
+          width="1280"
+          height="860"
+        />
+        <Build items={meta.build} label={t.projects.build} compact />
+        <Links t={t} meta={meta} />
       </div>
     </article>
   )
@@ -134,12 +204,19 @@ export default function Projects({ t }) {
       <div className="container">
         <SectionHead index={1} eyebrow={t.projects.eyebrow} title={t.projects.title} />
         <div className="projects-list">
-          <Featured t={t} id="caminoLegal" />
-          <Featured t={t} id="archimedes" reverse />
-          <Featured t={t} id="agroiot" />
-          <Featured t={t} id="sgmms" reverse />
-          <Featured t={t} id="pacman" />
-          <Featured t={t} id="beatPotato" reverse />
+          {majorPatches.map((id, i) => (
+            <Patch key={id} t={t} id={id} reverse={i % 2 === 1} />
+          ))}
+        </div>
+
+        <div className="hotfixes">
+          <div className="hotfixes__head">
+            <h3 className="mono">{t.projects.hotfixes}</h3>
+            <p>{t.projects.hotfixesNote}</p>
+          </div>
+          {hotfixPatches.map((id) => (
+            <Hotfix key={id} t={t} id={id} />
+          ))}
         </div>
       </div>
     </section>
