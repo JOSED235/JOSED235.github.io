@@ -36,7 +36,6 @@ export default function Team({ t }) {
             ))}
           </ul>
         </div>
-        <p className="team__note">{team.note}</p>
       </div>
     </section>
   )

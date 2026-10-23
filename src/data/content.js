@@ -99,6 +99,22 @@ export const stackTrees = [
   { key: 'devops', items: ['Docker', 'Nginx', 'GitHub Actions', 'Git', 'JWT', 'Vitest', 'Playwright'] },
 ]
 
+// Regla de semestres: fechas como [año, mes]. Sin `to`, sigue hasta `now`.
+// `expected` pinta punteado lo que falta hasta la fecha estimada.
+export const timeline = {
+  start: 2021,
+  end: 2029,
+  now: [2026, 10],
+  items: [
+    { key: 'utp', kind: 'course', from: [2021, 1], to: [2021, 12] },
+    { key: 'icesi', kind: 'study', from: [2024, 1], to: [2029, 12], expected: true },
+    { key: 'ieee', kind: 'community', from: [2024, 1], marks: [{ key: 'rnr25', at: [2025, 9] }, { key: 'rnr26', at: [2026, 9], star: true }] },
+    { key: 'comsoc', kind: 'community', from: [2025, 1] },
+    { key: 'astro', kind: 'community', from: [2025, 1] },
+    { key: 'bootcamp', kind: 'course', from: [2026, 7], to: [2026, 7] },
+  ],
+}
+
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
 
 const es = {
@@ -339,7 +355,6 @@ const es = {
     title: 'Mi equipo',
     trainer: 'Equipo de Jose David · Cali, Colombia',
     typeLabel: 'Tipo',
-    note: 'Pokémon no tiene casilla porque es la pantalla entera. League of Legends tampoco: ya está en todo lo demás.',
     members: [
       {
         key: 'series',
@@ -390,21 +405,23 @@ const es = {
     ],
   },
   about: {
-    eyebrow: 'Formación y comunidad',
-    title: 'Más allá del código',
-    education: 'Formación',
-    community: 'Comunidad',
-    studies: [
-      { name: 'Ingeniería de Sistemas', org: 'Universidad Icesi', date: '2024 – 2029 (est.)', note: '6.º semestre' },
-      { name: 'Ingeniería Telemática', org: 'Universidad Icesi', date: '2024 – 2029 (est.)', note: '6.º semestre' },
-      { name: 'Bootcamp de Automatización', org: 'Comfandi & Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, ciberseguridad y Lean' },
-      { name: 'Fundamentos de Programación', org: 'Universidad Tecnológica de Pereira', date: '2021' },
-    ],
-    activities: [
-      { name: 'IEEE · Rama estudiantil Icesi', date: 'Desde 2024', note: 'Representé a la rama en el Encuentro Nacional de Ramas (RNR) 2026, donde fue reconocida con varios premios.' },
-      { name: 'IEEE ComSoc Icesi', date: 'Desde 2025' },
-      { name: 'Semillero de Astrobiología Icesi', date: 'Desde 2025' },
-    ],
+    eyebrow: 'De 2021 a 2029',
+    title: 'Formación y comunidad',
+    now: 'Aquí voy · 6.º semestre',
+    expected: 'est.',
+    kinds: { study: 'Carrera', community: 'Comunidad', course: 'Curso' },
+    items: {
+      utp: { name: 'Fundamentos de Programación', org: 'Universidad Tecnológica de Pereira', date: '2021' },
+      icesi: { name: 'Ingeniería de Sistemas + Ingeniería Telemática', org: 'Universidad Icesi · las dos a la vez', date: '2024 – 2029 (est.)' },
+      ieee: { name: 'IEEE · Rama estudiantil Icesi', date: 'Desde 2024' },
+      comsoc: { name: 'IEEE ComSoc Icesi', date: 'Desde 2025' },
+      astro: { name: 'Semillero de Astrobiología Icesi', date: 'Desde 2025' },
+      bootcamp: { name: 'Bootcamp de Automatización', org: 'Comfandi y Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, ciberseguridad y Lean' },
+    },
+    marks: {
+      rnr25: 'RNR 2025 (sep)',
+      rnr26: 'RNR 2026 (sep): representé a la rama y fue reconocida con varios premios.',
+    },
     languages: 'Español nativo · Inglés B1',
   },
   contact: {
@@ -656,7 +673,6 @@ const en = {
     title: 'My team',
     trainer: "Jose David's team · Cali, Colombia",
     typeLabel: 'Type',
-    note: "Pokémon doesn't get a slot because it's the whole screen. League of Legends doesn't either: it's already in everything else.",
     members: [
       {
         key: 'series',
@@ -707,21 +723,23 @@ const en = {
     ],
   },
   about: {
-    eyebrow: 'Education & community',
-    title: 'Beyond the code',
-    education: 'Education',
-    community: 'Community',
-    studies: [
-      { name: 'Systems Engineering', org: 'Universidad Icesi', date: '2024 – 2029 (exp.)', note: '6th semester' },
-      { name: 'Telematics Engineering', org: 'Universidad Icesi', date: '2024 – 2029 (exp.)', note: '6th semester' },
-      { name: 'Automation Bootcamp', org: 'Comfandi & Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, cybersecurity and Lean' },
-      { name: 'Programming Fundamentals', org: 'Universidad Tecnológica de Pereira', date: '2021' },
-    ],
-    activities: [
-      { name: 'IEEE · Icesi Student Branch', date: 'Since 2024', note: 'Represented the branch at the 2026 National Student Branch Meeting (RNR), where it received several awards.' },
-      { name: 'IEEE ComSoc Icesi', date: 'Since 2025' },
-      { name: 'Icesi Astrobiology Research Group', date: 'Since 2025' },
-    ],
+    eyebrow: 'From 2021 to 2029',
+    title: 'Education & community',
+    now: "I'm here · 6th semester",
+    expected: 'exp.',
+    kinds: { study: 'Degree', community: 'Community', course: 'Course' },
+    items: {
+      utp: { name: 'Programming Fundamentals', org: 'Universidad Tecnológica de Pereira', date: '2021' },
+      icesi: { name: 'Systems Engineering + Telematics Engineering', org: 'Universidad Icesi · both at once', date: '2024 – 2029 (exp.)' },
+      ieee: { name: 'IEEE · Icesi Student Branch', date: 'Since 2024' },
+      comsoc: { name: 'IEEE ComSoc Icesi', date: 'Since 2025' },
+      astro: { name: 'Icesi Astrobiology Research Group', date: 'Since 2025' },
+      bootcamp: { name: 'Automation Bootcamp', org: 'Comfandi & Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, cybersecurity and Lean' },
+    },
+    marks: {
+      rnr25: 'RNR 2025 (Sep)',
+      rnr26: 'RNR 2026 (Sep): represented the branch, which received several awards.',
+    },
     languages: 'Spanish (native) · English B1',
   },
   contact: {
