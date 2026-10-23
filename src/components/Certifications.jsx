@@ -1,32 +1,38 @@
 import SectionHead from './SectionHead.jsx'
 import { ArrowUpRight } from './Icons.jsx'
 
-function Cert({ item, c }) {
+// Talonario: cada certificado es una boleta. El talón lleva la fecha, el ID real y el enlace para verificar.
+function Ticket({ item, group, c }) {
   return (
-    <li className="cert">
-      <div className="cert__head">
-        <h4>{item.name}</h4>
-        <span className="meta mono">{item.date}</span>
+    <li className={`ticket ticket--${group.mark.toLowerCase()}`}>
+      <div className="ticket__main">
+        <p className="ticket__issuer mono">{group.issuer}</p>
+        <h3 className="ticket__name">{item.name}</h3>
+        {item.skills && (
+          <ul className="stack">
+            {item.skills.map((s) => (
+              <li key={s} className="tag mono">
+                {s}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {item.skills && (
-        <ul className="stack">
-          {item.skills.map((s) => (
-            <li key={s} className="tag mono">
-              {s}
-            </li>
-          ))}
-        </ul>
-      )}
-      {item.url && (
-        <div className="cert__foot">
-          <span className="meta mono">
-            {c.credId}: {item.credId}
+      <div className="ticket__stub">
+        <span className="ticket__date mono">{item.date}</span>
+        {item.credId && (
+          <span className="ticket__id mono">
+            {c.credId} {item.credId}
           </span>
-          <a className="cert__link" href={item.url} target="_blank" rel="noreferrer">
+        )}
+        {item.url ? (
+          <a className="ticket__link" href={item.url} target="_blank" rel="noreferrer">
             {c.verify} <ArrowUpRight width={15} height={15} />
           </a>
-        </div>
-      )}
+        ) : (
+          <span className="ticket__nolink mono">{c.noLink}</span>
+        )}
+      </div>
     </li>
   )
 }
@@ -37,24 +43,11 @@ export default function Certifications({ t }) {
     <section className="section" id="certs">
       <div className="container">
         <SectionHead index={5} eyebrow={c.eyebrow} title={c.title} />
-        <div className="certs-grid">
-          {c.issuers.map((group) => (
-            <div key={group.issuer} className="card cert-group">
-              <div className="cert-group__head">
-                <span className="cert-group__mark mono" aria-hidden="true">
-                  {group.mark}
-                </span>
-                <h3>{group.issuer}</h3>
-                <span className="cert-group__count mono">{group.items.length}</span>
-              </div>
-              <ul className="certs">
-                {group.items.map((item) => (
-                  <Cert key={item.name} item={item} c={c} />
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <ul className="tickets">
+          {c.issuers.flatMap((group) =>
+            group.items.map((item) => <Ticket key={`${group.mark}-${item.name}`} item={item} group={group} c={c} />),
+          )}
+        </ul>
       </div>
     </section>
   )

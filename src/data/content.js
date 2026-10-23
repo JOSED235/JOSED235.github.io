@@ -93,7 +93,7 @@ export const hotfixPatches = ['beatPotato', 'sgmms', 'pacman']
 export const stackTrees = [
   { key: 'backend', items: ['NestJS', 'FastAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'WhatsApp', 'Spring Boot'] },
   { key: 'iot', items: ['ESP32', 'MQTT', 'C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer', 'MATLAB'] },
-  { key: 'web', items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'HTML/CSS', 'Wix'] },
+  { key: 'web', items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'HTML/CSS', 'Wix', 'Lovable'] },
   { key: 'data', items: ['Python', 'scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini', 'R', 'Automation Anywhere'] },
   { key: 'games', items: ['Java', 'JavaFX', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
   { key: 'devops', items: ['Docker', 'Nginx', 'GitHub Actions', 'Git', 'JWT', 'Vitest', 'Playwright'] },
@@ -302,14 +302,17 @@ const es = {
         role: 'Pasante de desarrollo front-end y web',
         org: 'Fundación Algo en Común',
         date: 'Jun – Ago 2026',
-        place: 'Cali · Híbrido',
+        place: 'Cali · Híbrido · Jornada parcial',
         did: [
-          'Me encargué de rediseñar y desarrollar la página web de la fundación: la interfaz y la forma de navegarla.',
-          'Hice que las páginas se vieran bien en celular, tableta y computador.',
-          'Manejé el contenido de los sitios en Wix y di soporte técnico.',
+          'Me encargué de rediseñar, desarrollar y mantener al día la página web de la fundación: la interfaz y la forma de navegarla.',
+          'Configuré las páginas y armé diseños que se adaptan a celular, tableta y computador.',
+          'Ayudé con el contenido de los sitios en Wix y con el soporte técnico, para apoyar la comunicación de la fundación.',
         ],
-        learned: ['[PENDIENTE: qué aprendiste o qué te costó en la pasantía]'],
-        build: ['Wix'],
+        learned: [
+          'Nunca había usado Wix ni Lovable: ahí aprendí a manejarlos para armar y actualizar los sitios.',
+          'Aprendí mucho de diseño UX/UI, sobre todo al rediseñar la navegación y adaptar las páginas a cada pantalla.',
+        ],
+        build: ['Wix', 'Lovable'],
       },
       { mode: 'seasonal', role: 'Vendedor', org: 'Calipieles', date: 'Dic 2023 – Feb 2024', note: 'Atención al cliente y manejo de caja.' },
       { mode: 'seasonal', role: 'Vendedor', org: 'Calipieles', date: 'Dic 2022 – Feb 2023', note: 'Atención al cliente y manejo de caja.' },
@@ -348,6 +351,7 @@ const es = {
       Python: 'Certificado Python (Basic) de HackerRank',
       MATLAB: 'Curso Telecomunicaciones Onramp de MathWorks',
       Wix: 'Pasantía en la Fundación Algo en Común',
+      Lovable: 'Pasantía en la Fundación Algo en Común',
       'Automation Anywhere': 'Bootcamp de Automatización de Comfandi e Icesi',
       JavaScript: 'Este portafolio',
       'HTML/CSS': 'Este portafolio',
@@ -379,7 +383,8 @@ const es = {
   certs: {
     eyebrow: 'Credenciales',
     title: 'Certificaciones',
-    verify: 'Ver credencial',
+    verify: 'Verificar',
+    noLink: 'Sin enlace público',
     credId: 'ID',
     issuers: [
       {
@@ -407,7 +412,7 @@ const es = {
       {
         issuer: 'Universidad Icesi · Centro de Talento',
         mark: 'UI',
-        items: [{ name: 'Certificación de pasantía', date: 'Oct 2023', skills: ['Desarrollo front end', 'Wix'] }],
+        items: [{ name: 'Certificación de pasantía', date: 'Oct 2026', skills: ['Desarrollo front end', 'Wix'] }],
       },
     ],
   },
@@ -626,14 +631,17 @@ const en = {
         role: 'Front-end & web development intern',
         org: 'Fundación Algo en Común',
         date: 'Jun – Aug 2026',
-        place: 'Cali · Hybrid',
+        place: 'Cali · Hybrid · Part-time',
         did: [
-          "I was in charge of redesigning and building the foundation's website: its interface and how you move around it.",
-          'I made the pages work well on phones, tablets and computers.',
-          "I managed the content of the foundation's Wix sites and handled tech support.",
+          "I was in charge of redesigning, building and keeping the foundation's website up to date: its interface and how you move around it.",
+          'I set up the pages and built layouts that adapt to phones, tablets and computers.',
+          "I helped with the content of the foundation's Wix sites and with tech support, backing its communication work.",
         ],
-        learned: ['[PENDING: what you learned or what was hard during the internship]'],
-        build: ['Wix'],
+        learned: [
+          'I had never used Wix or Lovable before: that is where I learned to work with them to build and update the sites.',
+          'I learned a lot about UX/UI design, especially while redesigning the navigation and adapting the pages to each screen.',
+        ],
+        build: ['Wix', 'Lovable'],
       },
       { mode: 'seasonal', role: 'Sales associate', org: 'Calipieles', date: 'Dec 2023 – Feb 2024', note: 'Customer service and cash handling.' },
       { mode: 'seasonal', role: 'Sales associate', org: 'Calipieles', date: 'Dec 2022 – Feb 2023', note: 'Customer service and cash handling.' },
@@ -672,6 +680,7 @@ const en = {
       Python: 'HackerRank Python (Basic) certificate',
       MATLAB: 'MathWorks Telecommunications Onramp course',
       Wix: 'Internship at Fundación Algo en Común',
+      Lovable: 'Internship at Fundación Algo en Común',
       'Automation Anywhere': 'Comfandi & Icesi Automation Bootcamp',
       JavaScript: 'This portfolio',
       'HTML/CSS': 'This portfolio',
@@ -703,7 +712,8 @@ const en = {
   certs: {
     eyebrow: 'Credentials',
     title: 'Certifications',
-    verify: 'View credential',
+    verify: 'Verify',
+    noLink: 'No public link',
     credId: 'ID',
     issuers: [
       {
@@ -731,7 +741,7 @@ const en = {
       {
         issuer: 'Universidad Icesi · Talent Center',
         mark: 'UI',
-        items: [{ name: 'Internship certificate', date: 'Oct 2023', skills: ['Front-end development', 'Wix'] }],
+        items: [{ name: 'Internship certificate', date: 'Oct 2026', skills: ['Front-end development', 'Wix'] }],
       },
     ],
   },
