@@ -27,7 +27,7 @@ function Ticket({ item, group, c }) {
         )}
         {item.url ? (
           <a className="ticket__link" href={item.url} target="_blank" rel="noreferrer">
-            {c.verify} <ArrowUpRight width={15} height={15} />
+            {item.credId ? c.verify : c.view} <ArrowUpRight width={15} height={15} />
           </a>
         ) : (
           <span className="ticket__nolink mono">{c.noLink}</span>

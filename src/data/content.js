@@ -84,6 +84,12 @@ const projectsMeta = {
   },
 }
 
+// La versión de la página es la del parche más reciente.
+export const latestVersion = Object.values(projectsMeta)
+  .map((m) => m.version)
+  .sort()
+  .at(-1)
+
 // Los que más le importan van como parche completo; el resto, como hotfix.
 export const majorPatches = ['caminoLegal', 'archimedes', 'agroiot']
 export const hotfixPatches = ['beatPotato', 'sgmms', 'pacman']
@@ -116,6 +122,7 @@ export const timeline = {
 }
 
 const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
+const drive = (id) => `https://drive.google.com/file/d/${id}/view`
 
 const es = {
   nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', team: 'Equipo', certs: 'Certificados', about: 'Formación', contact: 'Contacto' },
@@ -384,6 +391,7 @@ const es = {
     eyebrow: 'Credenciales',
     title: 'Certificaciones',
     verify: 'Verificar',
+    view: 'Ver certificado',
     noLink: 'Sin enlace público',
     credId: 'ID',
     issuers: [
@@ -394,6 +402,7 @@ const es = {
           { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
           { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
           { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+          { name: 'Java (Basic)', date: 'Oct 2026', skills: ['Java'], credId: 'df71be511dda', url: hackerRank('df71be511dda') },
         ],
       },
       {
@@ -405,14 +414,26 @@ const es = {
         issuer: 'IEEE Sección Colombia',
         mark: 'IEEE',
         items: [
-          { name: 'Reunión Nacional de Ramas 2026', date: 'Sep 2026', skills: ['Networking'] },
-          { name: 'Reunión Nacional de Ramas 2025', date: 'Sep 2025' },
+          { name: 'Reunión Nacional de Ramas 2026', date: 'Sep 2026', skills: ['Networking'], url: drive('1LmyJSaz7JwI9rGzhWL75NwBA8MSl-Vid') },
+          { name: 'Reunión Nacional de Ramas 2025', date: 'Sep 2025', url: drive('1x-ZQC7huuGseuTtI08tHXe6WnuIlN1dP') },
         ],
       },
       {
         issuer: 'Universidad Icesi · Centro de Talento',
         mark: 'UI',
-        items: [{ name: 'Certificación de pasantía', date: 'Oct 2026', skills: ['Desarrollo front end', 'Wix'] }],
+        items: [{ name: 'Certificación de pasantía', date: 'Oct 2026', skills: ['Desarrollo front end', 'Wix'], url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') }],
+      },
+      {
+        issuer: 'EUDII 50',
+        mark: 'EUDII',
+        items: [
+          {
+            name: 'Asistencia al Encuentro de Ingenieros Industriales',
+            date: 'Oct 2026',
+            credId: 'd8afbf7b-ea76-4352-8360-671cfbd8804e',
+            url: 'https://hashproof.dev/verify/d8afbf7b-ea76-4352-8360-671cfbd8804e',
+          },
+        ],
       },
     ],
   },
@@ -438,8 +459,10 @@ const es = {
   },
   contact: {
     eyebrow: 'Contacto',
-    title: '¿Construimos algo juntos?',
-    text: 'Busco oportunidades en proyectos full stack, backend o de sistemas conectados. Escríbeme y te respondo pronto.',
+    title: 'Eso es todo para el parche',
+    text: 'Busco oportunidades en proyectos full stack, backend o de sistemas conectados. Estoy en Cali y puedo trabajar presencial, híbrido o remoto. Escríbeme y te respondo pronto.',
+    rows: { email: 'Correo', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
+    cvLangs: { es: 'Español', en: 'Inglés' },
     copy: 'Copiar correo',
     copied: '¡Copiado!',
   },
@@ -713,6 +736,7 @@ const en = {
     eyebrow: 'Credentials',
     title: 'Certifications',
     verify: 'Verify',
+    view: 'View certificate',
     noLink: 'No public link',
     credId: 'ID',
     issuers: [
@@ -723,6 +747,7 @@ const en = {
           { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
           { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
           { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+          { name: 'Java (Basic)', date: 'Oct 2026', skills: ['Java'], credId: 'df71be511dda', url: hackerRank('df71be511dda') },
         ],
       },
       {
@@ -734,14 +759,26 @@ const en = {
         issuer: 'IEEE Colombia Section',
         mark: 'IEEE',
         items: [
-          { name: 'National Student Branch Meeting 2026', date: 'Sep 2026', skills: ['Networking'] },
-          { name: 'National Student Branch Meeting 2025', date: 'Sep 2025' },
+          { name: 'National Student Branch Meeting 2026', date: 'Sep 2026', skills: ['Networking'], url: drive('1LmyJSaz7JwI9rGzhWL75NwBA8MSl-Vid') },
+          { name: 'National Student Branch Meeting 2025', date: 'Sep 2025', url: drive('1x-ZQC7huuGseuTtI08tHXe6WnuIlN1dP') },
         ],
       },
       {
         issuer: 'Universidad Icesi · Talent Center',
         mark: 'UI',
-        items: [{ name: 'Internship certificate', date: 'Oct 2026', skills: ['Front-end development', 'Wix'] }],
+        items: [{ name: 'Internship certificate', date: 'Oct 2026', skills: ['Front-end development', 'Wix'], url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') }],
+      },
+      {
+        issuer: 'EUDII 50',
+        mark: 'EUDII',
+        items: [
+          {
+            name: "Attendance, Industrial Engineers Meeting",
+            date: 'Oct 2026',
+            credId: 'd8afbf7b-ea76-4352-8360-671cfbd8804e',
+            url: 'https://hashproof.dev/verify/d8afbf7b-ea76-4352-8360-671cfbd8804e',
+          },
+        ],
       },
     ],
   },
@@ -767,8 +804,10 @@ const en = {
   },
   contact: {
     eyebrow: 'Contact',
-    title: "Let's build something together",
-    text: "I'm looking for full stack, backend or connected-systems opportunities. Drop me a line and I'll get back to you soon.",
+    title: "That's all for patch",
+    text: "I'm looking for full stack, backend or connected-systems opportunities. I'm based in Cali and can work on-site, hybrid or remote. Drop me a line and I'll get back to you soon.",
+    rows: { email: 'Email', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
+    cvLangs: { es: 'Spanish', en: 'English' },
     copy: 'Copy email',
     copied: 'Copied!',
   },
