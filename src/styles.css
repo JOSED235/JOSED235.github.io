@@ -1377,6 +1377,138 @@ ol {
   font-style: italic;
 }
 
+/* ============ Mi equipo (pantalla de equipo de Pokémon) ============ */
+/* La líder va sola y torcida a la izquierda; las otras cinco, en filas. Sombras duras, como de pantalla de juego. */
+.team__trainer {
+  margin: -32px 0 32px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.team {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.team ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team__rest {
+  display: grid;
+  gap: 12px;
+}
+
+.team-slot {
+  --type: var(--accent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-left: 6px solid var(--type);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.team-slot--series { --type: var(--accent); }
+.team-slot--rock { --type: var(--bug); }
+.team-slot--pop { --type: var(--learn); }
+.team-slot--urbano { --type: var(--highlight-text); }
+.team-slot--cancha { --type: var(--new); }
+.team-slot--gym { --type: var(--heading-2); }
+
+.team-slot__name {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.team-slot__text {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.team-slot__type {
+  padding: 3px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--type);
+  color: var(--bg);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* La líder: más grande y fuera de la cuadrícula */
+.team-slot--lead {
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 18px;
+  padding: 28px;
+  border-width: 3px;
+  border-left-width: 10px;
+  box-shadow: 8px 8px 0 var(--type);
+  transform: rotate(-1.5deg);
+}
+
+.team-slot--lead .team-slot__name {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+}
+
+.team-slot--lead .team-slot__text {
+  font-size: 16px;
+}
+
+.team-slot--lead .team-slot__type {
+  justify-self: start;
+}
+
+.team-slot--lead .pokeball {
+  width: 44px;
+  height: 44px;
+}
+
+/* Pokébola hecha con CSS: mitad de arriba con el color del tipo */
+.pokeball {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--heading);
+  background: linear-gradient(var(--type) 0 44%, var(--heading) 44% 56%, var(--surface) 56%);
+  flex-shrink: 0;
+}
+
+.pokeball::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--heading);
+}
+
+.team__note {
+  max-width: 640px;
+  margin: 36px 0 0;
+  color: var(--faint);
+  font-size: 15px;
+}
+
 /* ============ Certificaciones ============ */
 .certs-grid {
   display: grid;
@@ -1708,8 +1840,14 @@ ol {
   }
 
   .certs-grid,
-  .about-grid {
+  .about-grid,
+  .team {
     grid-template-columns: 1fr;
+  }
+
+  .team-slot--lead {
+    transform: rotate(-1deg);
+    margin-right: 8px;
   }
 
   .section {

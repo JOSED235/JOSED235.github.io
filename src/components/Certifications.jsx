@@ -36,7 +36,7 @@ export default function Certifications({ t }) {
   return (
     <section className="section" id="certs">
       <div className="container">
-        <SectionHead index={4} eyebrow={c.eyebrow} title={c.title} />
+        <SectionHead index={5} eyebrow={c.eyebrow} title={c.title} />
         <div className="certs-grid">
           {c.issuers.map((group) => (
             <div key={group.issuer} className="card cert-group">
