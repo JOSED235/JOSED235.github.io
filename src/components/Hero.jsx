@@ -1,11 +1,5 @@
-import { links, projectsMeta, majorPatches } from '../data/content.js'
+import { links, projectsMeta, majorPatches, latestVersion as latest } from '../data/content.js'
 import { GitHub, LinkedIn, Mail, Download, ArrowRight, Pin } from './Icons.jsx'
-
-// La versión de la página es la del parche más reciente.
-const latest = Object.values(projectsMeta)
-  .map((m) => m.version)
-  .sort()
-  .at(-1)
 
 export default function Hero({ t, lang }) {
   const h = t.hero

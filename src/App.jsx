@@ -40,7 +40,7 @@ export default function App() {
         <Team t={t} />
         <Certifications t={t} />
         <About t={t} />
-        <Contact t={t} lang={lang} />
+        <Contact t={t} />
       </main>
       <footer className="footer">
         <div className="container footer__inner">
