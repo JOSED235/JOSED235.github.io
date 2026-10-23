@@ -297,34 +297,8 @@ ol {
 }
 
 /* Las columnas de grid no deben ensancharse por contenido largo */
-.featured > *,
-.timeline__card > *,
-.timeline__head > * {
+.featured > * {
   min-width: 0;
-}
-
-.highlights {
-  display: grid;
-  gap: 10px;
-}
-
-.highlights li {
-  position: relative;
-  padding-left: 22px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.highlights li::before {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: 0.62em;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--accent);
-  transform: rotate(45deg);
 }
 
 .pulse {
@@ -1138,82 +1112,134 @@ ol {
   font-size: 14px;
 }
 
-/* ============ Experiencia ============ */
-.timeline {
-  position: relative;
-  display: grid;
-  gap: 20px;
-  padding-left: 32px;
+/* ============ Experiencia: historial de partidas ============ */
+/* Filas compactas con una franja del color del modo, como el historial de LoL. Cada una se abre con <details>. */
+.history__head {
+  margin: -28px 0 14px;
+  font-size: 13px;
+  color: var(--faint);
 }
 
-.timeline::before {
+.history__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.match {
+  --mode: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--mode);
+  border-radius: var(--radius);
+}
+
+.match--internship { --mode: var(--accent); }
+.match--job { --mode: var(--learn); }
+.match--seasonal { --mode: var(--highlight-text); }
+
+.match__row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr) auto 18px;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.match__row::-webkit-details-marker {
+  display: none;
+}
+
+/* Flecha de abrir y cerrar */
+.match__row::after {
   content: '';
-  position: absolute;
-  left: 7px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: var(--border-strong);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--faint);
+  border-bottom: 2px solid var(--faint);
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+  justify-self: center;
 }
 
-.timeline__item {
-  position: relative;
+.match details[open] > .match__row::after {
+  transform: rotate(45deg);
 }
 
-.timeline__dot {
-  position: absolute;
-  left: -32px;
-  top: 30px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--border-strong);
-}
-
-.timeline__item.is-main .timeline__dot {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 5px var(--accent-soft);
-}
-
-.timeline__card {
-  display: grid;
-  gap: 14px;
-}
-
-.timeline__item:not(.is-main) .timeline__card {
-  padding: 20px 28px;
-}
-
-.timeline__head {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.timeline__head h3 {
-  font-size: 21px;
-}
-
-.timeline__item:not(.is-main) .timeline__head h3 {
-  font-size: 18px;
-}
-
-.timeline__org {
+.match__row:hover .match__role {
   color: var(--accent);
-  font-weight: 500;
-  margin-top: 4px;
-  font-size: 15px;
 }
 
-.timeline__when {
+.match__row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.match__mode {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mode);
+}
+
+.match__what {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  min-width: 0;
+}
+
+.match__role {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--heading);
+  transition: color 0.2s;
+}
+
+.match__org {
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.match__when {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
-  flex-shrink: 0;
+}
+
+.match__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+  padding: 4px 18px 20px calc(104px + 36px);
+}
+
+.match__body .build {
+  grid-column: 1 / -1;
+}
+
+.match__note {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* La partida principal (la pasantía) se ve más grande */
+.match--internship .match__row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.match--internship .match__role {
+  font-size: 21px;
 }
 
 /* ============ Página de runas ============ */
@@ -2002,41 +2028,40 @@ ol {
     padding: 22px;
   }
 
-  .timeline__item:not(.is-main) .timeline__card {
-    padding: 18px 22px;
+  /* En celular la fila se apila: modo, rol y fecha uno debajo del otro */
+  .match__row {
+    grid-template-columns: minmax(0, 1fr) 18px;
+    gap: 4px 12px;
+    padding: 14px 16px;
   }
 
-  .timeline {
-    padding-left: 24px;
+  .match__row::after {
+    grid-column: 2;
+    grid-row: 1 / span 3;
   }
 
-  .timeline::before {
-    left: 5px;
+  .match__mode,
+  .match__what,
+  .match__when {
+    grid-column: 1;
   }
 
-  .timeline__dot {
-    left: -24px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .timeline__head {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .timeline__when {
+  .match__when {
     align-items: flex-start;
     text-align: left;
   }
 
-  .runes {
+  .match__body {
     grid-template-columns: 1fr;
+    padding: 4px 16px 18px;
   }
 
-  .entry__head {
-    flex-direction: column;
-    gap: 2px;
+  .match--internship .match__role {
+    font-size: 19px;
+  }
+
+  .runes {
+    grid-template-columns: 1fr;
   }
 
   .phone {

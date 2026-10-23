@@ -2,27 +2,8 @@ import { useState } from 'react'
 import { projectsMeta, majorPatches, hotfixPatches } from '../data/content.js'
 import SectionHead from './SectionHead.jsx'
 import Meta from './Meta.jsx'
-import TechIcon from './TechIcon.jsx'
+import Build from './Build.jsx'
 import { ArrowUpRight, GitHub, Lock } from './Icons.jsx'
-
-// Como la build de items de LoL: cada casilla es una tecnología usada en ese proyecto.
-function Build({ items, label, compact }) {
-  return (
-    <div className={`build ${compact ? 'build--compact' : ''}`}>
-      {!compact && <span className="build__label mono">{label}</span>}
-      <ul className="build__slots">
-        {items.map((name) => (
-          <li key={name} className="build__slot" title={name}>
-            <span className="build__icon" aria-hidden="true">
-              <TechIcon name={name} />
-            </span>
-            <span className={compact ? 'sr-only' : 'build__name mono'}>{name}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
 
 // [PENDIENTE: …] se deja a la vista a propósito, pero marcado para que no pase por texto real.
 function NoteItem({ text }) {
