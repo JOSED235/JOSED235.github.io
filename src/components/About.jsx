@@ -28,6 +28,14 @@ function Row({ item, a }) {
         {item.marks?.map((m) => (
           <p key={m.key} className={`ruler-row__note ${m.star ? 'is-star' : ''}`}>
             {a.marks[m.key]}
+            {m.url && (
+              <>
+                {' '}
+                <a className="ruler-row__link" href={m.url} target="_blank" rel="noreferrer">
+                  {a.certificate} ↗
+                </a>
+              </>
+            )}
           </p>
         ))}
       </div>
@@ -51,7 +59,7 @@ export default function About({ t }) {
   return (
     <section className="section" id="about">
       <div className="container">
-        <SectionHead index={6} eyebrow={a.eyebrow} title={a.title} />
+        <SectionHead index={5} eyebrow={a.eyebrow} title={a.title} />
         <div className="ruler" style={{ '--now': now }}>
           <div className="ruler__scale" aria-hidden="true">
             {years.map((y) => (

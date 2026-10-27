@@ -19,7 +19,7 @@ public/
   cv/                  CV en PDF (ES y EN), enlazados desde la página
 src/
   data/content.js      TODO el texto del sitio en ES y EN, enlaces y proyectos
-  components/          Secciones: Nav, Hero, Projects, Experience, Skills, About, Contact
+  components/          Secciones: Nav, Hero, Projects, Experience, Skills, Certifications, About, Team, Contact (+ Doodles: sprites del margen)
   styles.css           Tokens de color (oscuro/claro) y estilos
 .github/workflows/     Despliegue automático a GitHub Pages en cada push a main
 ```

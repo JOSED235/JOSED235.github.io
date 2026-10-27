@@ -1,6 +1,7 @@
 import SectionHead from './SectionHead.jsx'
 import Meta from './Meta.jsx'
 import Build from './Build.jsx'
+import { ArrowUpRight } from './Icons.jsx'
 
 const isPending = (text) => /^\[(PENDIENTE|PENDING)/.test(text)
 
@@ -40,7 +41,24 @@ function Match({ item, e, open }) {
           {item.did && <List label={e.did} items={item.did} kind="new" />}
           {item.learned && <List label={e.learned} items={item.learned} kind="learn" />}
           {item.note && <p className="match__note">{item.note}</p>}
+          {item.items && (
+            <ul className="match__others">
+              {item.items.map((o) => (
+                <li key={o.org}>
+                  <span className="match__others-role">{o.role}</span>
+                  <span className="match__others-org">{o.org}</span>
+                  <Meta text={o.date} />
+                  <span className="match__others-note">{o.note}</span>
+                </li>
+              ))}
+            </ul>
+          )}
           {item.build && <Build items={item.build} label={e.build} />}
+          {item.proof && (
+            <a className="match__proof" href={item.proof.url} target="_blank" rel="noreferrer">
+              {item.proof.label} <ArrowUpRight width={15} height={15} />
+            </a>
+          )}
         </div>
       </details>
     </li>
@@ -54,13 +72,12 @@ export default function Experience({ t }) {
       <div className="container">
         <SectionHead index={2} eyebrow={e.eyebrow} title={e.title} />
         <div className="history">
-          <p className="history__head mono">
-            {e.items.length} {e.matches}
-          </p>
           <ol className="history__list">
             {e.items.map((item, i) => (
               <Match key={`${item.org}-${item.date}`} item={item} e={e} open={i === 0} />
             ))}
+            {/* Los trabajos cortos fuera del área van juntos en una sola fila, cerrada */}
+            <Match item={{ mode: 'other', ...e.others }} e={e} open={false} />
           </ol>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { load, save } from '../storage.js'
 import { Sun, Moon, Menu, Close } from './Icons.jsx'
 
-const sections = ['projects', 'experience', 'skills', 'team', 'certs', 'about', 'contact']
+const sections = ['projects', 'experience', 'skills', 'certs', 'about', 'team', 'contact']
 
 function currentTheme() {
   const stored = load('theme')
