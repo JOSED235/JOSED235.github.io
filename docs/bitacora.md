@@ -354,8 +354,8 @@ Archivos: `content.js`, `Hero.jsx`, `Projects.jsx`, `Skills.jsx`, `Experience.js
 
 ## 13. Pendientes nuevos
 
-- [ ] **RNR 2026:** ¿qué premios recibió la rama? Hoy dice "varios premios"; con el nombre pesa más.
-- [ ] **Pasantía:** algún resultado concreto que se pueda contar (cuántas páginas, qué cambió en la navegación, si hay antes y después).
+- [x] **RNR 2026:** premios de la rama en lista dentro de Formación (1.º Mejor Evento del Año, Test Lab 2026; tres 2.º y dos 3.º). Todos son de 2026 (confirmado por José).
+- [x] **Pasantía:** se agregaron la Semana del Guion (espacios, horarios, asistentes), los eventos de la página principal y la página de donaciones por el terremoto, con enlace a algoencomun.co/donaciones-emergencia-colombia.
 - [ ] **Arquímedes:** si recuerdas la causa del HTTP 500, puede volver como falla con su solución.
 - [ ] **CV en PDF:** revisar que diga lo mismo que la página (disponibilidad, títulos de la pasantía y sin EUDII).
 - [ ] **GitHub:** aplicar `docs/github-perfil.md`.

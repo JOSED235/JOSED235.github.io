@@ -51,3 +51,13 @@ Fuente: lo que José escribió el 2026-10-23. No agregar nada que no salga de é
 - Camino Legal: no quedaron en un puesto relevante en LINXCO y buscan inversores o compradores. **No se menciona en la página.**
 - Red 5G y Redes Rurales: en desarrollo, etapa inicial. **No van en la página** por ahora.
 - Fotos del ESP32: no quiere mostrarlas (el hardware se veía feo).
+
+## Pasantía: lo concreto (2026-10-27)
+
+- Semana del Guion: actualizó espacios, horarios y la gestión de asistentes.
+- Página principal de la fundación: actualizó horarios de eventos y creó y publicó eventos nuevos.
+- Terremoto: ayudó a hacer la página de donaciones (https://www.algoencomun.co/donaciones-emergencia-colombia).
+
+## RNR 2026: premios de la rama
+
+1.º Mejor Evento del Año (Test Lab 2026) · 2.º Rama Ejemplar del Año · 2.º Mejor Página Web de Rama Estudiantil · 2.º Colaboración Legendaria · 3.º Mejor Página Web de Capítulo o Grupo de Afinidad (WIE Icesi) · 3.º Mejor Foto No Técnica.

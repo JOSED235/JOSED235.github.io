@@ -1411,9 +1411,15 @@ ol {
   color: var(--muted);
 }
 
-.match__proof {
+/* Enlaces de prueba: la página que hice y la constancia */
+.match__proofs {
   grid-column: 1 / -1;
-  justify-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+
+.match__proof {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2034,6 +2040,33 @@ ol {
 
 .ruler-row__note.is-star {
   color: var(--text);
+}
+
+/* Premios de la rama: el puesto en mono y el primero resaltado */
+.awards {
+  display: grid;
+  gap: 3px;
+  margin: 6px 0 6px;
+}
+
+.awards li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.awards__place {
+  font-weight: 600;
+  color: var(--faint);
+}
+
+.awards__first {
+  font-weight: 700;
+}
+
+.awards__first .awards__place {
+  color: var(--highlight-text);
 }
 
 .ruler-row__link {
