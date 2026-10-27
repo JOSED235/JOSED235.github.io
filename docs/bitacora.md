@@ -360,3 +360,29 @@ Archivos: `content.js`, `Hero.jsx`, `Projects.jsx`, `Skills.jsx`, `Experience.js
 - [ ] **CV en PDF:** revisar que diga lo mismo que la página (disponibilidad, títulos de la pasantía y sin EUDII).
 - [ ] **GitHub:** aplicar `docs/github-perfil.md`.
 - [ ] **LinkedIn:** que la pasantía diga lo mismo que la página.
+
+---
+
+# Cuarta parte (27 de octubre de 2026): GitHub y SITM-MIO
+
+## 14. Perfil de GitHub
+
+Se aplicó `docs/github-perfil.md` con un token temporal y `curl`. En la red de Icesi, `gh.exe`, Node y Java no logran conectarse a GitHub; `curl` y `git` sí.
+
+- Bio y ubicación del perfil.
+- Repo `JOSED235/JOSED235` con el README del perfil.
+- Descripción, sitio web (el ancla de su proyecto en la página) y temas en los 6 repos principales.
+- "(en desarrollo)" en RED5G-STANDALONE y ProyectoRedesRurales.
+- Los repos cortos (talleres, laboratorio de Git, guía de Cisco) **no se tocaron**, por pedido de José.
+- **Pendiente (José):** fijar los 6 repos en *Customize your pins*, y borrar o revocar el token (`D:\laind\tools\gh\token.txt`, vence el 26-nov-2026).
+
+## 15. SITM-MIO
+
+- Commits de José: la base del sistema (`codecasiterminado`: contratos Ice, simulador, procesador de eventos, data center, V1/V2/V3 y visualizador), correcciones de compilación y la documentación de arquitectura.
+- Se corrió el experimento con **datos sintéticos** del mismo formato del piloto, porque los archivos de `/opt/sitm-mio/` no estaban disponibles. Medianas de 3 corridas en un i5-8250U:
+  - 300.000 registros: V1 1.899 ms · V2 1.296 ms (1,47×) · V3 1.411 ms (1,35×).
+  - 2.700.000 registros: V1 11.452 ms · V2 7.280 ms (1,57×) · V3 9.990 ms (1,15×).
+- Correctitud: las 666 combinaciones ruta-mes son iguales en las tres versiones.
+- Fallas encontradas: el comando del Worker 1 usaba `-D`, que Ice no lee; y el límite de 1 MB por mensaje de Ice tumbaba V3 con 300.000 registros. Las dos se documentaron con su solución en el repo. La latencia E3 quedó como estimada, no medida.
+- En la página va como **proyecto corto**, entre Beat Potato y Pac-Man. Imágenes: `sm-chart.webp` (tiempos medidos) y `sm-diagram.webp` (diagrama de despliegue). "Qué aprendí" se sacó de lo que muestran sus commits.
+- **Por confirmar (José):** cuántas personas tenía el equipo. Hoy el meta no lo dice.

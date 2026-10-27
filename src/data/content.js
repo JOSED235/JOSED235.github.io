@@ -70,6 +70,16 @@ const projectsMeta = {
       { src: 'img/sg-menu.webp', key: 'menu' },
     ],
   },
+  sitm: {
+    repo: 'https://github.com/JOSED235/SITM-MIOLNJ',
+    address: 'SITM-MIO · Java + ZeroC Ice',
+    version: '26.06',
+    build: ['Java', 'ZeroC Ice', 'Gradle', 'JavaFX', 'Leaflet'],
+    shots: [
+      { src: 'img/sm-chart.webp', key: 'chart' },
+      { src: 'img/sm-diagram.webp', key: 'diagram' },
+    ],
+  },
   beatPotato: {
     repo: 'https://github.com/JOSED235/SIMONLEON-TEAM',
     address: 'Beat Potato — Unity',
@@ -98,7 +108,7 @@ export const patchDate = (version, months) => {
 
 // Los que más le importan van como parche completo; el resto, en versión corta.
 export const majorPatches = ['caminoLegal', 'archimedes', 'sgmms', 'agroiot']
-export const hotfixPatches = ['beatPotato', 'pacman']
+export const hotfixPatches = ['beatPotato', 'sitm', 'pacman']
 
 // Las que más uso: van arriba, grandes y con sus proyectos a la vista (sin tener que tocar nada).
 export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL', 'Docker', 'MQTT', 'ESP32', 'Java']
@@ -108,10 +118,10 @@ export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL
 export const stackTrees = [
   { key: 'backend', items: ['FastAPI', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'Spring Boot'] },
   { key: 'iot', items: ['C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer', 'MATLAB'] },
-  { key: 'web', items: ['JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'HTML/CSS'] },
+  { key: 'web', items: ['JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'Leaflet', 'HTML/CSS'] },
   { key: 'data', items: ['scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini', 'R'] },
-  { key: 'games', items: ['JavaFX', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
-  { key: 'devops', items: ['Nginx', 'GitHub Actions', 'Git', 'JWT', 'Vitest', 'Playwright'] },
+  { key: 'games', items: ['JavaFX', 'ZeroC Ice', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
+  { key: 'devops', items: ['Nginx', 'GitHub Actions', 'Git', 'Gradle', 'JWT', 'Vitest', 'Playwright'] },
 ]
 
 // Regla de semestres: fechas como [año, mes]. Sin `to`, sigue hasta `now`.
@@ -288,6 +298,31 @@ const es = {
         'Medí la causa antes de presumir: en una cuadrícula, cualquier desvío agrega una cuadra entera y cuesta más de lo que ahorra esquivar un trancón corto. Donde A* sí ganó fue en cómputo.',
       ],
       shots: { despacho: 'Despacho', conduccion: 'Conducción', informe: 'Informe', menu: 'Menú' },
+    },
+    sitm: {
+      name: 'SITM-MIO · Monitoreo distribuido',
+      tagline: 'Monitoreo en tiempo real y velocidad promedio de las rutas del MIO de Cali',
+      meta: 'Ingeniería de Software IV · Jun 2026',
+      description:
+        'Sistema distribuido sobre ZeroC Ice para el MIO: un simulador envía la posición de los buses, un procesador de eventos la reparte en tiempo real a un mapa, y la velocidad promedio por ruta y mes se calcula en tres versiones: secuencial, con hilos y con workers distribuidos.',
+      role: 'Subí la base del sistema: los contratos Ice, el simulador de buses, el procesador de eventos, el data center, el cálculo de velocidades en sus tres versiones, el visualizador y la documentación de arquitectura.',
+      highlights: [
+        'Velocidad promedio por ruta y mes en tres versiones: secuencial, con un pool de hilos y master-worker sobre Ice. Las tres dan las mismas 666 combinaciones ruta-mes.',
+        'Con 2,7 millones de registros en un i5 de 4 núcleos: V1 tarda 11,5 s, V2 7,3 s (1,57×) y V3 con 2 workers 10 s (1,15×).',
+        'Monitoreo en tiempo real: el procesador de eventos archiva cada datagrama de forma asíncrona (AMI) y avisa a los mapas suscritos.',
+        'Contratos en Slice (sitm.ice) y arquitectura documentada con escenarios de calidad (QAW), patrones y diagrama de despliegue.',
+      ],
+      bugs: [
+        'El segundo worker no arrancaba con las instrucciones: Ice no lee las opciones -D de Java, así que ignoraba su puerto, chocaba con el primero y se caía. El código ya aceptaba el puerto como argumento, y con eso quedó.',
+        'Con 300.000 registros cada worker recibía unos 150.000 datagramas en un solo mensaje, superaba el límite de 1 MB de Ice y cortaba la conexión. Se resolvió subiendo Ice.MessageSizeMax.',
+      ],
+      learned: [
+        'Separar un sistema en piezas que solo se conocen por un contrato (sitm.ice): cada módulo se compila, se configura y se despliega por su lado.',
+        'Que las tres versiones usen el mismo algoritmo (SpeedEngine) es lo que permite compararlas: si el cálculo cambia entre versiones, la medición no dice nada.',
+        'Documentar la arquitectura con escenarios de calidad y patrones de despliegue antes de medir, para saber qué se está validando.',
+      ],
+      shots: { chart: 'Tiempos medidos', diagram: 'Despliegue' },
+      shotsNote: 'Tiempos medidos con datos sintéticos del mismo formato del piloto.',
     },
     beatPotato: {
       name: 'Beat Potato',
@@ -625,6 +660,31 @@ const en = {
         'I measured the cause before bragging: on a grid, any detour adds a whole block and costs more than dodging a short jam saves. Where A* did win was compute.',
       ],
       shots: { despacho: 'Dispatch', conduccion: 'Driving', informe: 'Report', menu: 'Menu' },
+    },
+    sitm: {
+      name: 'SITM-MIO · Distributed monitoring',
+      tagline: 'Real-time monitoring and average speed of Cali’s MIO bus routes',
+      meta: 'Software Engineering IV · Jun 2026',
+      description:
+        'Distributed system on ZeroC Ice for Cali’s MIO buses: a simulator sends bus positions, an event processor pushes them to a live map, and the average speed per route and month is computed in three versions: sequential, multi-threaded and with distributed workers.',
+      role: 'I pushed the system’s foundation: the Ice contracts, the bus simulator, the event processor, the data center, the three speed calculators, the map client and the architecture docs.',
+      highlights: [
+        'Average speed per route and month in three versions: sequential, thread pool and master-worker over Ice. All three return the same 666 route-month results.',
+        'With 2.7 million records on a 4-core i5: V1 takes 11.5 s, V2 7.3 s (1.57×) and V3 with 2 workers 10 s (1.15×).',
+        'Real-time monitoring: the event processor archives each datagram asynchronously (AMI) and notifies the subscribed maps.',
+        'Contracts in Slice (sitm.ice) and architecture documented with quality-attribute scenarios (QAW), patterns and a deployment diagram.',
+      ],
+      bugs: [
+        'The second worker would not start with the documented command: Ice ignores Java -D options, so it skipped its port, clashed with the first worker and crashed. The code already took the port as an argument, and that fixed it.',
+        'With 300,000 records each worker got about 150,000 datagrams in a single message, went over Ice’s 1 MB limit and dropped the connection. Raising Ice.MessageSizeMax fixed it.',
+      ],
+      learned: [
+        'Splitting a system into pieces that only know each other through a contract (sitm.ice): each module is built, configured and deployed on its own.',
+        'Having all three versions share the same algorithm (SpeedEngine) is what makes them comparable: if the calculation changes between versions, the measurement means nothing.',
+        'Documenting the architecture with quality-attribute scenarios and deployment patterns before measuring, so you know what you are validating.',
+      ],
+      shots: { chart: 'Measured times', diagram: 'Deployment' },
+      shotsNote: 'Times measured with synthetic data in the same format as the pilot.',
     },
     beatPotato: {
       name: 'Beat Potato',

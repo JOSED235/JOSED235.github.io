@@ -40,6 +40,8 @@ import {
   siR,
   siCisco,
   siWix,
+  siGradle,
+  siLeaflet,
 } from 'simple-icons'
 
 export const techIcons = {
@@ -73,6 +75,8 @@ export const techIcons = {
   Jupyter: siJupyter,
   Java: siOpenjdk,
   Maven: siApachemaven,
+  Gradle: siGradle,
+  Leaflet: siLeaflet,
   'JUnit 5': siJunit5,
   Unity: siUnity,
   JavaScript: siJavascript,
