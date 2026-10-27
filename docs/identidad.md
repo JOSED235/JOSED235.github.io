@@ -44,3 +44,10 @@ Fuente: lo que José escribió el 2026-10-23. No agregar nada que no salga de é
 - Sitios web de referencia.
 - Pokémon favorito, o campeón o rol de LoL (opcional, para Mi equipo).
 - Material de proceso (fotos, bocetos).
+
+## Disponibilidad (2026-10-27)
+
+- Presencial o remoto. Medio tiempo o por horas durante el semestre; tiempo completo en vacaciones.
+- Camino Legal: no quedaron en un puesto relevante en LINXCO y buscan inversores o compradores. **No se menciona en la página.**
+- Red 5G y Redes Rurales: en desarrollo, etapa inicial. **No van en la página** por ahora.
+- Fotos del ESP32: no quiere mostrarlas (el hardware se veía feo).

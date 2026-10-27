@@ -37,15 +37,15 @@ export default function App() {
         <Projects t={t} />
         <Experience t={t} />
         <Skills t={t} />
-        <Team t={t} />
         <Certifications t={t} />
         <About t={t} />
+        <Team t={t} />
         <Contact t={t} />
       </main>
       <footer className="footer">
         <div className="container footer__inner">
           <span>© {new Date().getFullYear()} · {t.footer}</span>
-          <span className="mono">React + Vite</span>
+          <span className="mono">{t.footerNote}</span>
         </div>
       </footer>
     </>

@@ -24,7 +24,7 @@ export default function Team({ t }) {
   return (
     <section className="section" id="team">
       <div className="container">
-        <SectionHead index={4} eyebrow={team.eyebrow} title={team.title} />
+        <SectionHead index={6} eyebrow={team.eyebrow} title={team.title} />
         <p className="team__trainer mono">{team.trainer}</p>
         <div className="team">
           <ul className="team__lead">

@@ -316,3 +316,47 @@ Todo esto ya está en `identidad.md` y `proyectos.md`. Va aquí para tenerlo a m
 2. `npm run dev` y abrir http://localhost:5173.
 3. Todos los textos están en `src/data/content.js`, en los dos idiomas. Las fechas de la regla están en `timeline` y las de los proyectos en `projectsMeta`.
 4. Seguir con la lista de pendientes de la sección 8, una cosa a la vez.
+
+---
+
+# Tercera parte (27 de octubre de 2026): revisión como reclutador
+
+Se revisó la página como la vería alguien de RR. HH. o un líder técnico. Conclusión: no se veía genérica, pero el concepto tapaba el contenido. Faltaban el rol y la disponibilidad arriba, los proyectos tenían demasiado texto y había certificados y habilidades de relleno.
+
+## 11. Decisiones
+
+| Tema | Decisión | Por qué |
+|---|---|---|
+| Títulos de sección | **Planos** (Proyectos, Experiencia, Habilidades…), con la metáfora del juego en el eyebrow. | Un reclutador que no juega LoL no tiene que traducir. |
+| Etiquetas de los proyectos | **Qué construí / Qué falló / Qué aprendí** (antes Nuevo / Bug conocido / Aprendido). | "Bug conocido" en rojo se leía como lista de fallas. |
+| Proyectos grandes | Camino Legal, Arquímedes, **SGMMS** y AgroIoT. Beat Potato y Pac-Man van como "Otros proyectos". | SGMMS es de lo más fuerte técnicamente y estaba como "hotfix". |
+| Texto por proyecto | A la vista: 3 de lo construido, 1 falla y 1 aprendizaje. El resto, en "Ver más detalles". | La página medía más de 9000 px. |
+| Fechas | "Oct 2026" en el hero y en los proyectos cortos. La versión 26.10 queda en el sello y en el kicker. | La versión sola no le dice nada a quien no conoce el concepto. |
+| Fuentes | **Fraunces** (títulos, SOFT 100 / WONK 1) + **Atkinson Hyperlegible** (texto) + IBM Plex Mono + **Caveat** (solo la firma). | Fraunces blanda recuerda los títulos de las series; Atkinson se lee fácil. Elegido por José. |
+| Fondo | **Sprites dibujados en SVG**: oscuro = estrella de Steven y gemas de Rose, Amatista y Perla; claro = gorro de Finn, BMO, corona del Rey Helado y espada de Finn. Uno por encabezado, dos en el hero y uno junto a la firma. | Pedido por José: personalización con SU y Hora de Aventura. Fijos, sin partículas ni animaciones. |
+| 5G y Redes Rurales | **No se agregan.** | Siguen en una etapa inicial (José). |
+| Fotos del ESP32 | **No se agregan.** Arquímedes sigue con capturas. | Según José, el hardware se veía feo. |
+| LINXCO / inversores | **No se menciona** puesto ni búsqueda de compradores. | Pedido por José. |
+
+## 12. Lo que se hizo
+
+- **Hero:** línea "Desarrollador full stack e IoT" con resaltador (Amatista de noche, Jake de día), "6.º semestre" junto a las carreras y recuadro **Disponible para**: medio tiempo o por horas en semestre, tiempo completo en vacaciones; presencial o remoto.
+- **Proyectos:** se quitaron bugs sin contenido ("costó aterrizar la idea" pasó a Aprendido, el HTTP 500 sin causa y "más ideas de las que…" salieron). En español ahora dice "Proyecto **Arquímedes**". Las materias van con su nombre completo (Algoritmos y Programación II, Matemáticas Discretas I).
+- **Experiencia:** la pasantía dice "Pasante de desarrollo web (front-end)" y enlaza la constancia de Icesi. Calipieles, Fablab y la monitoría van juntos en **una sola fila, "Otros trabajos"**, cerrada.
+- **Habilidades:** arriba, **las 9 que más uso** (TypeScript, React, NestJS, Python, PostgreSQL, Docker, MQTT, ESP32, Java), cada una con sus proyectos escritos. Abajo, el resto de la página de runas. Se quitaron WhatsApp, Wix, Lovable y Automation Anywhere de las runas (Wix y Lovable siguen en la build de la pasantía). Python entra a la build de Arquímedes (FastAPI).
+- **Certificaciones:** solo las técnicas (HackerRank ×4 con SQL Intermediate primero, y MathWorks). **Se quitó EUDII 50.** Las RNR pasaron a Formación con su enlace y la constancia de pasantía a Experiencia.
+- **Orden:** Proyectos → Experiencia → Habilidades → Certificaciones → Formación → Fuera del código → Contacto.
+- **Footer:** "Hecho en Cali" en lugar de "React + Vite".
+- **Vista previa al compartir:** `public/og.png` (1200×630) y etiquetas `og:` con URL absoluta.
+- **GitHub:** guía con bio, README de perfil, repos fijados, descripciones y temas en `docs/github-perfil.md`.
+
+Archivos: `content.js`, `Hero.jsx`, `Projects.jsx`, `Skills.jsx`, `Experience.jsx`, `About.jsx`, `Contact.jsx`, `SectionHead.jsx`, `Doodles.jsx` (nuevo), `App.jsx`, `Nav.jsx`, `index.html`, `styles.css`, `public/og.png`.
+
+## 13. Pendientes nuevos
+
+- [ ] **RNR 2026:** ¿qué premios recibió la rama? Hoy dice "varios premios"; con el nombre pesa más.
+- [ ] **Pasantía:** algún resultado concreto que se pueda contar (cuántas páginas, qué cambió en la navegación, si hay antes y después).
+- [ ] **Arquímedes:** si recuerdas la causa del HTTP 500, puede volver como falla con su solución.
+- [ ] **CV en PDF:** revisar que diga lo mismo que la página (disponibilidad, títulos de la pasantía y sin EUDII).
+- [ ] **GitHub:** aplicar `docs/github-perfil.md`.
+- [ ] **LinkedIn:** que la pasantía diga lo mismo que la página.

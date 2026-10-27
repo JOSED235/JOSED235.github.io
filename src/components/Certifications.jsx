@@ -42,7 +42,7 @@ export default function Certifications({ t }) {
   return (
     <section className="section" id="certs">
       <div className="container">
-        <SectionHead index={5} eyebrow={c.eyebrow} title={c.title} />
+        <SectionHead index={4} eyebrow={c.eyebrow} title={c.title} />
         <ul className="tickets">
           {c.issuers.flatMap((group) =>
             group.items.map((item) => <Ticket key={`${group.mark}-${item.name}`} item={item} group={group} c={c} />),

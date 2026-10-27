@@ -33,7 +33,7 @@ const projectsMeta = {
       { src: 'img/ar-captura.webp', key: 'captura' },
     ],
     version: '26.06',
-    build: ['ESP32', 'C++', 'PlatformIO', 'MQTT', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'React', 'Tailwind', 'Recharts', 'Docker', 'Nginx'],
+    build: ['ESP32', 'C++', 'PlatformIO', 'MQTT', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'React', 'Tailwind', 'Recharts', 'Docker', 'Nginx'],
   },
   agroiot: {
     repo: 'https://github.com/JOSED235/ProyectoFinalSyC1',
@@ -90,19 +90,28 @@ export const latestVersion = Object.values(projectsMeta)
   .sort()
   .at(-1)
 
-// Los que más le importan van como parche completo; el resto, como hotfix.
-export const majorPatches = ['caminoLegal', 'archimedes', 'agroiot']
-export const hotfixPatches = ['beatPotato', 'sgmms', 'pacman']
+// "Parche 26.10" → "Oct 2026", con los meses del idioma (t.months).
+export const patchDate = (version, months) => {
+  const [yy, mm] = version.split('.')
+  return `${months[Number(mm) - 1]} 20${yy}`
+}
 
-// Página de runas: la primera de cada rama es la runa principal.
+// Los que más le importan van como parche completo; el resto, en versión corta.
+export const majorPatches = ['caminoLegal', 'archimedes', 'sgmms', 'agroiot']
+export const hotfixPatches = ['beatPotato', 'pacman']
+
+// Las que más uso: van arriba, grandes y con sus proyectos a la vista (sin tener que tocar nada).
+export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL', 'Docker', 'MQTT', 'ESP32', 'Java']
+
+// El resto de la página de runas, por rama.
 // Dónde se usó cada una sale de las builds de los proyectos; lo demás, de skills.seen.
 export const stackTrees = [
-  { key: 'backend', items: ['NestJS', 'FastAPI', 'PostgreSQL', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'WhatsApp', 'Spring Boot'] },
-  { key: 'iot', items: ['ESP32', 'MQTT', 'C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer', 'MATLAB'] },
-  { key: 'web', items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'HTML/CSS', 'Wix', 'Lovable'] },
-  { key: 'data', items: ['Python', 'scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini', 'R', 'Automation Anywhere'] },
-  { key: 'games', items: ['Java', 'JavaFX', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
-  { key: 'devops', items: ['Docker', 'Nginx', 'GitHub Actions', 'Git', 'JWT', 'Vitest', 'Playwright'] },
+  { key: 'backend', items: ['FastAPI', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'Spring Boot'] },
+  { key: 'iot', items: ['C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer', 'MATLAB'] },
+  { key: 'web', items: ['JavaScript', 'Vite', 'PWA', 'Tailwind', 'Recharts', 'HTML/CSS'] },
+  { key: 'data', items: ['scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini', 'R'] },
+  { key: 'games', items: ['JavaFX', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
+  { key: 'devops', items: ['Nginx', 'GitHub Actions', 'Git', 'JWT', 'Vitest', 'Playwright'] },
 ]
 
 // Regla de semestres: fechas como [año, mes]. Sin `to`, sigue hasta `now`.
@@ -114,7 +123,15 @@ export const timeline = {
   items: [
     { key: 'utp', kind: 'course', from: [2021, 1], to: [2021, 12] },
     { key: 'icesi', kind: 'study', from: [2024, 1], to: [2029, 12], expected: true },
-    { key: 'ieee', kind: 'community', from: [2024, 1], marks: [{ key: 'rnr25', at: [2025, 9] }, { key: 'rnr26', at: [2026, 9], star: true }] },
+    {
+      key: 'ieee',
+      kind: 'community',
+      from: [2024, 1],
+      marks: [
+        { key: 'rnr25', at: [2025, 9], url: 'https://drive.google.com/file/d/1x-ZQC7huuGseuTtI08tHXe6WnuIlN1dP/view' },
+        { key: 'rnr26', at: [2026, 9], star: true, url: 'https://drive.google.com/file/d/1LmyJSaz7JwI9rGzhWL75NwBA8MSl-Vid/view' },
+      ],
+    },
     { key: 'comsoc', kind: 'community', from: [2025, 1] },
     { key: 'astro', kind: 'community', from: [2025, 1] },
     { key: 'bootcamp', kind: 'course', from: [2026, 7], to: [2026, 7] },
@@ -125,33 +142,38 @@ const hackerRank = (id) => `https://www.hackerrank.com/certificates/${id}`
 const drive = (id) => `https://drive.google.com/file/d/${id}/view`
 
 const es = {
-  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Stack', team: 'Equipo', certs: 'Certificados', about: 'Formación', contact: 'Contacto' },
+  months: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  nav: { projects: 'Proyectos', experience: 'Experiencia', skills: 'Habilidades', certs: 'Certificados', about: 'Formación', team: 'Gustos', contact: 'Contacto' },
   hero: {
     kicker: 'Notas del parche',
-    degrees: 'Ingeniería de Sistemas + Ingeniería Telemática · Universidad Icesi',
-    available: 'Cali, Colombia · presencial, híbrido o remoto',
+    role: 'Desarrollador full stack e IoT',
+    degrees: 'Ingeniería de Sistemas + Ingeniería Telemática · Universidad Icesi · 6.º semestre',
+    available: 'Cali, Colombia · presencial o remoto',
     summary:
-      'Construyo software de punta a punta: desde el firmware de un ESP32 y la telemetría MQTT hasta la API, la base de datos y la aplicación web. Abajo están mis proyectos como notas del parche: lo nuevo, lo que falló y lo que aprendí.',
+      'Construyo software de punta a punta: desde el firmware de un ESP32 y la telemetría MQTT hasta la API, la base de datos y la aplicación web. Abajo están mis proyectos como notas del parche: lo que construí, lo que falló y lo que aprendí.',
+    availabilityLabel: 'Disponible para',
+    availability: 'Medio tiempo o por horas durante el semestre, y tiempo completo en vacaciones.',
     highlights: 'Lo destacado',
-    allPatches: 'Ver todas las notas',
+    allPatches: 'Ver todos los proyectos',
     ctaCv: 'Descargar CV',
   },
   projects: {
-    eyebrow: 'Proyectos',
-    title: 'Notas del parche',
+    eyebrow: 'Notas del parche',
+    title: 'Proyectos',
     live: 'Ver en vivo',
     repo: 'Código',
     privateCode: 'Código privado',
     myRole: 'Mi parte',
     featured: 'En producción',
     patch: 'Parche',
-    newLabel: 'Nuevo',
-    bugLabel: 'Bug conocido',
-    learnLabel: 'Aprendido',
+    newLabel: 'Qué construí',
+    bugLabel: 'Qué falló',
+    learnLabel: 'Qué aprendí',
     build: 'Build',
-    hotfixes: 'Hotfixes',
-    hotfixesNote: 'Otros proyectos, en versión corta.',
-    more: 'Ver todo lo nuevo',
+    hotfixes: 'Otros proyectos',
+    hotfixesNote: 'En versión corta: qué hice, qué falló y qué aprendí.',
+    more: 'Ver los detalles técnicos',
+    moreMajor: 'Ver más detalles',
     caminoLegal: {
       name: 'Camino Legal',
       tagline: 'Asistente legal para el campo colombiano',
@@ -160,27 +182,26 @@ const es = {
         'Aplicación web progresiva que ayuda a comunidades rurales a redactar un derecho de petición y a revisar contratos con un semáforo de riesgos, en lenguaje sencillo y funcionando sin señal.',
       role: 'Yo hice la plataforma: el motor de las conversaciones, la API, la app sin internet, WhatsApp y SMS, el asistente con IA, el cifrado y el tablero de seguimiento. Andrés Felipe Angel validó el contenido jurídico y escribió los documentos legales y el pitch.',
       highlights: [
-        'Monolito modular: API NestJS y PWA React comparten un paquete de dominio con la máquina de estados de las conversaciones.',
         'Offline-first: instalable, guarda casos en IndexedDB y los sincroniza de forma idempotente al volver la conexión.',
         'Seguridad: cifrado AES-256-GCM, HMAC para teléfonos, JWT por roles, bloqueo por PIN fallidos y purga programada.',
+        'Monolito modular: API NestJS y PWA React comparten un paquete de dominio con la máquina de estados de las conversaciones.',
         'Canales SMS y WhatsApp sobre el mismo motor, y asistente de redacción con IA que el usuario siempre revisa.',
         'Accesibilidad: letra grande, lectura en voz alta y pruebas automáticas con Playwright y axe en CI.',
       ],
       bugs: [
-        'Al principio nos costó aterrizar la idea y definir qué enfoque darle.',
         'El conector de WhatsApp no arrancaba: Chromium dejaba el perfil bloqueado dentro del volumen de Docker y fallaba en bucle.',
-        'No alcancé a tener más idiomas para la presentación final. Decidimos no publicar traducciones a lenguas indígenas hechas por máquina, así que el catálogo quedó listo pero vacío a propósito.',
         'Los casos que se guardan sin conexión todavía no están cifrados en el teléfono.',
+        'No alcancé a tener más idiomas para la presentación final. Decidimos no publicar traducciones a lenguas indígenas hechas por máquina, así que el catálogo quedó listo pero vacío a propósito.',
       ],
       learned: [
-        'Lo que nos destrabó al inicio fue hablar mucho y repartir bien: yo la plataforma, Andrés lo jurídico.',
         'Fue mi primer proyecto grande y mi primer despliegue: la dejé corriendo en caminolegal.space, con los servidores y los contenedores configurados por mí.',
         'Hacer que muchas piezas hablen entre sí: la PWA, la API, la base de datos, el conector de WhatsApp, los SMS y el correo, todas sobre el mismo motor de conversaciones.',
+        'Al inicio nos costó aterrizar la idea. Lo que nos destrabó fue hablar mucho y repartir bien: yo la plataforma, Andrés lo jurídico.',
       ],
       shots: { inicio: 'Inicio', chat: 'Asistente', semaforo: 'Semáforo', admin: 'Panel' },
     },
     archimedes: {
-      name: 'Proyecto Archimedes',
+      name: 'Proyecto Arquímedes',
       tagline: 'Sistema IoT clínico para medir el temblor en manos',
       meta: 'Proyecto Integrador 1 · Individual · Feb – Jun 2026',
       description:
@@ -193,12 +214,10 @@ const es = {
       ],
       bugs: [
         'Por un tiempo no llegaba ni un dato por MQTT: el backend escuchaba un broker y un tópico distintos a los del ESP32. Lo arreglé pasando los dos a un broker público con tópicos propios.',
-        'Un error HTTP 500 en el backend que tardé dos días en corregir.',
         'Si se cae el WiFi en plena prueba se pierden muestras: la vía HTTP de respaldo quedó desactivada.',
-        'Al principio tenía más ideas de las que una sola persona podía construir y me costó encaminarlas.',
       ],
       learned: [
-        'El diseño inicial era telemetría genérica. Construyéndolo entendí que era un sistema clínico: necesitaba roles y poder seguir cada muestra hasta su paciente.',
+        'El diseño inicial era telemetría genérica y tenía más ideas de las que una persona podía construir. Construyéndolo entendí que era un sistema clínico: necesitaba roles y poder seguir cada muestra hasta su paciente.',
         'Cambié la base de datos en la nube por un PostgreSQL en contenedor: prefiero controlar el entorno a depender de una cuenta externa.',
       ],
       shots: { analisis: 'Análisis', dashboard: 'Panel', paciente: 'Paciente', historial: 'Historial', captura: 'Captura' },
@@ -229,7 +248,7 @@ const es = {
     pacman: {
       name: 'Pac-Man · Grafos',
       tagline: 'Juego de escritorio donde el laberinto es un grafo',
-      meta: 'Discretas I · Equipo de 2 · May – Jun 2025',
+      meta: 'Matemáticas Discretas I · Equipo de 2 · May – Jun 2025',
       description:
         'Pac-Man completo en JavaFX: cada casilla es un vértice y los fantasmas recorren el grafo con algoritmos clásicos, sobre estructuras de datos implementadas desde cero.',
       role: 'Estructuras de datos, grafos y algoritmos, IA de los fantasmas, interfaz JavaFX y pruebas.',
@@ -250,13 +269,13 @@ const es = {
     sgmms: {
       name: 'SGMMS · Despacho de emergencias',
       tagline: 'Simulador de despacho sobre un grafo vial dinámico',
-      meta: 'APO II · Equipo de 3 · 2025 · Reconstruido en 2026',
+      meta: 'Algoritmos y Programación II · Equipo de 3 · 2025 · Reconstruido en 2026',
       description:
         'Simulador de un centro de despacho de emergencias: asignas patrullas, ambulancias y bomberos antes de que venza el plazo de cada incidente, en una ciudad donde el tráfico cambia el costo de cada calle en tiempo real.',
       role: 'Reconstrucción completa: motor de simulación, grafo dinámico, rutas con A*, tráfico, estructuras de datos, interfaz JavaFX y pruebas.',
       highlights: [
-        'Grafo vial dinámico: el peso de cada carril depende de la congestión del tráfico civil y los accidentes cierran calles en ambos sentidos.',
         'A* con orígenes y destinos múltiples para vehículos a mitad de cuadra: expande entre 43 y 52 % menos nodos que Dijkstra con el mismo costo óptimo (medido en 2000 rutas).',
+        'Grafo vial dinámico: el peso de cada carril depende de la congestión del tráfico civil y los accidentes cierran calles en ambos sentidos.',
         'Cola de triage por plazo en un árbol AVL propio; tabla hash, montículo y lista enlazada también implementados desde cero.',
         'Motor determinista de paso fijo separado de JavaFX: el mismo código corre en el juego, en 52 pruebas JUnit y en un benchmark de estrategias de despacho.',
         'Tráfico con seguimiento vehicular, replanificación con histéresis, conducción manual con GPS e informe de métricas (P90 y cumplimiento de plazos).',
@@ -297,8 +316,7 @@ const es = {
   experience: {
     eyebrow: 'Historial de partidas',
     title: 'Experiencia',
-    matches: 'partidas',
-    modes: { internship: 'Pasantía', job: 'Trabajo', seasonal: 'Temporada' },
+    modes: { internship: 'Pasantía', other: 'Otros' },
     did: 'Lo que hice',
     learned: 'Lo que aprendí',
     build: 'Build',
@@ -306,43 +324,43 @@ const es = {
     items: [
       {
         mode: 'internship',
-        role: 'Pasante de desarrollo front-end y web',
+        role: 'Pasante de desarrollo web (front-end)',
         org: 'Fundación Algo en Común',
         date: 'Jun – Ago 2026',
         place: 'Cali · Híbrido · Jornada parcial',
         did: [
-          'Me encargué de rediseñar, desarrollar y mantener al día la página web de la fundación: la interfaz y la forma de navegarla.',
-          'Configuré las páginas y armé diseños que se adaptan a celular, tableta y computador.',
-          'Ayudé con el contenido de los sitios en Wix y con el soporte técnico, para apoyar la comunicación de la fundación.',
+          'Rediseñé, desarrollé y mantuve al día la página web de la fundación: la interfaz y la forma de navegarla.',
+          'Configuré las páginas y armé versiones para celular, tableta y computador.',
+          'Apoyé el contenido de los sitios en Wix y el soporte técnico, para la comunicación de la fundación.',
         ],
         learned: [
           'Nunca había usado Wix ni Lovable: ahí aprendí a manejarlos para armar y actualizar los sitios.',
           'Aprendí mucho de diseño UX/UI, sobre todo al rediseñar la navegación y adaptar las páginas a cada pantalla.',
         ],
         build: ['Wix', 'Lovable'],
-      },
-      { mode: 'seasonal', role: 'Vendedor', org: 'Calipieles', date: 'Dic 2023 – Feb 2024', note: 'Atención al cliente y manejo de caja.' },
-      { mode: 'seasonal', role: 'Vendedor', org: 'Calipieles', date: 'Dic 2022 – Feb 2023', note: 'Atención al cliente y manejo de caja.' },
-      {
-        mode: 'job',
-        role: 'Asistente de laboratorio',
-        org: 'Fablab Cali · Universidad Autónoma de Occidente',
-        date: 'Ago 2022 – Ene 2023',
-        note: 'Atendía a estudiantes y docentes, y cuidaba y mantenía los equipos de fabricación digital.',
-      },
-      {
-        mode: 'job',
-        role: 'Monitor administrativo',
-        org: 'Centro para la Excelencia Académica · UAO',
-        date: 'Mar – May 2022',
-        note: 'Apoyo administrativo y atención a estudiantes y docentes.',
+        proof: { label: 'Constancia de la pasantía (Icesi, Centro de Talento)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
       },
     ],
+    // Trabajos cortos fuera del área: van juntos en una sola fila.
+    others: {
+      role: 'Otros trabajos',
+      org: 'Mientras estudiaba',
+      date: '2022 – 2024',
+      note: 'Atención al público, manejo de caja y cuidado de equipos.',
+      items: [
+        { role: 'Vendedor de temporada', org: 'Calipieles', date: 'Dic – Feb, 2022-23 y 2023-24', note: 'Atención al cliente y manejo de caja.' },
+        { role: 'Asistente de laboratorio', org: 'Fablab Cali · Universidad Autónoma de Occidente', date: 'Ago 2022 – Ene 2023', note: 'Atendía a estudiantes y docentes, y cuidaba los equipos de fabricación digital.' },
+        { role: 'Monitor administrativo', org: 'Centro para la Excelencia Académica · UAO', date: 'Mar – May 2022', note: 'Apoyo administrativo y atención a estudiantes y docentes.' },
+      ],
+    },
   },
   skills: {
-    eyebrow: 'Herramientas',
-    title: 'Página de runas',
-    hint: 'Toca una runa para ver en qué proyecto la usé. Las de borde punteado no salen en un proyecto de aquí, pero dicen dónde las vi.',
+    eyebrow: 'Página de runas',
+    title: 'Habilidades',
+    coreTitle: 'Las que más uso',
+    coreNote: 'Cada una con los proyectos de esta página donde la usé.',
+    restTitle: 'El resto de la página de runas',
+    hint: 'Toca una runa para ver dónde la usé. Las de borde punteado no salen en un proyecto de aquí, pero dicen dónde las vi.',
     usedIn: 'Usado en',
     seenIn: 'Visto en',
     trees: {
@@ -355,11 +373,7 @@ const es = {
     },
     seen: {
       SQL: 'Certificados SQL (Basic e Intermediate) de HackerRank',
-      Python: 'Certificado Python (Basic) de HackerRank',
       MATLAB: 'Curso Telecomunicaciones Onramp de MathWorks',
-      Wix: 'Pasantía en la Fundación Algo en Común',
-      Lovable: 'Pasantía en la Fundación Algo en Común',
-      'Automation Anywhere': 'Bootcamp de Automatización de Comfandi e Icesi',
       JavaScript: 'Este portafolio',
       'HTML/CSS': 'Este portafolio',
       Git: 'Todos los proyectos de esta página',
@@ -369,8 +383,8 @@ const es = {
     },
   },
   team: {
-    eyebrow: 'Fuera del código',
-    title: 'Mi equipo',
+    eyebrow: 'Mi equipo',
+    title: 'Fuera del código',
     trainer: 'Equipo de Jose David · Cali, Colombia',
     typeLabel: 'Tipo',
     members: [
@@ -378,7 +392,7 @@ const es = {
         key: 'series',
         name: 'Steven Universe y Hora de Aventura',
         type: 'Series',
-        text: 'Mis series favoritas. De ahí salen los colores de esta página: el modo oscuro es Ciudad Playa de noche y el claro es Ooo de día. Prueba el botón de sol y luna.',
+        text: 'Mis series favoritas. De ahí salen los colores de esta página: el modo oscuro es Ciudad Playa de noche y el claro es Ooo de día. Prueba el botón de sol y luna: los dibujos del margen también cambian.',
       },
       { key: 'rock', name: 'My Chemical Romance · Three Days Grace', type: 'Rock' },
       { key: 'pop', name: 'Billie Eilish · Olivia Rodrigo', type: 'Pop' },
@@ -388,52 +402,28 @@ const es = {
     ],
   },
   certs: {
-    eyebrow: 'Credenciales',
+    eyebrow: 'Talonario',
     title: 'Certificaciones',
     verify: 'Verificar',
     view: 'Ver certificado',
     noLink: 'Sin enlace público',
     credId: 'ID',
+    // Solo las de habilidades técnicas. Las de IEEE van en Formación y la de la pasantía, en Experiencia.
     issuers: [
       {
         issuer: 'HackerRank',
         mark: 'HR',
         items: [
           { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
-          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
-          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
           { name: 'Java (Basic)', date: 'Oct 2026', skills: ['Java'], credId: 'df71be511dda', url: hackerRank('df71be511dda') },
+          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
         ],
       },
       {
         issuer: 'MathWorks',
         mark: 'MW',
         items: [{ name: 'Telecomunicaciones Onramp', date: 'Sep 2026', skills: ['MATLAB', 'Python'] }],
-      },
-      {
-        issuer: 'IEEE Sección Colombia',
-        mark: 'IEEE',
-        items: [
-          { name: 'Reunión Nacional de Ramas 2026', date: 'Sep 2026', skills: ['Networking'], url: drive('1LmyJSaz7JwI9rGzhWL75NwBA8MSl-Vid') },
-          { name: 'Reunión Nacional de Ramas 2025', date: 'Sep 2025', url: drive('1x-ZQC7huuGseuTtI08tHXe6WnuIlN1dP') },
-        ],
-      },
-      {
-        issuer: 'Universidad Icesi · Centro de Talento',
-        mark: 'UI',
-        items: [{ name: 'Certificación de pasantía', date: 'Oct 2026', skills: ['Desarrollo front end', 'Wix'], url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') }],
-      },
-      {
-        issuer: 'EUDII 50',
-        mark: 'EUDII',
-        items: [
-          {
-            name: 'Asistencia al Encuentro de Ingenieros Industriales',
-            date: 'Oct 2026',
-            credId: 'd8afbf7b-ea76-4352-8360-671cfbd8804e',
-            url: 'https://hashproof.dev/verify/d8afbf7b-ea76-4352-8360-671cfbd8804e',
-          },
-        ],
       },
     ],
   },
@@ -452,52 +442,59 @@ const es = {
       bootcamp: { name: 'Bootcamp de Automatización', org: 'Comfandi y Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, ciberseguridad y Lean' },
     },
     marks: {
-      rnr25: 'RNR 2025 (sep)',
-      rnr26: 'RNR 2026 (sep): representé a la rama y fue reconocida con varios premios.',
+      rnr25: 'Reunión Nacional de Ramas IEEE 2025 (sep)',
+      rnr26: 'Reunión Nacional de Ramas IEEE 2026 (sep): representé a la rama y fue reconocida con varios premios.',
     },
+    certificate: 'Certificado',
     languages: 'Español nativo · Inglés B1',
   },
   contact: {
     eyebrow: 'Contacto',
     title: 'Eso es todo para el parche',
-    text: 'Busco oportunidades en proyectos full stack, backend o de sistemas conectados. Estoy en Cali y puedo trabajar presencial, híbrido o remoto. Escríbeme y te respondo pronto.',
+    text: 'Busco trabajo en proyectos full stack, backend o de sistemas conectados. Estoy en Cali y puedo trabajar presencial o remoto: medio tiempo o por horas durante el semestre, y tiempo completo en vacaciones. Escríbeme y te respondo pronto.',
     rows: { email: 'Correo', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
     cvLangs: { es: 'Español', en: 'Inglés' },
     copy: 'Copiar correo',
     copied: '¡Copiado!',
   },
   footer: 'Diseñado y construido por Jose David Rodríguez Pinilla',
+  footerNote: 'Hecho en Cali',
   ui: { theme: 'Cambiar tema', lang: 'Switch to English', menu: 'Menú', prev: 'Anterior', next: 'Siguiente' },
 }
 
 const en = {
-  nav: { projects: 'Projects', experience: 'Experience', skills: 'Stack', team: 'Team', certs: 'Certificates', about: 'Education', contact: 'Contact' },
+  months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  nav: { projects: 'Projects', experience: 'Experience', skills: 'Skills', certs: 'Certificates', about: 'Education', team: 'Interests', contact: 'Contact' },
   hero: {
     kicker: 'Patch notes',
-    degrees: 'Systems Engineering + Telematics Engineering · Universidad Icesi',
-    available: 'Cali, Colombia · on-site, hybrid or remote',
+    role: 'Full stack & IoT developer',
+    degrees: 'Systems Engineering + Telematics Engineering · Universidad Icesi · 6th semester',
+    available: 'Cali, Colombia · on-site or remote',
     summary:
-      'I build software end to end: from ESP32 firmware and MQTT telemetry to the API, the database and the web app. Below are my projects as patch notes: what’s new, what broke and what I learned.',
+      'I build software end to end: from ESP32 firmware and MQTT telemetry to the API, the database and the web app. Below are my projects as patch notes: what I built, what broke and what I learned.',
+    availabilityLabel: 'Available for',
+    availability: 'Part-time or hourly work during the semester, and full-time during school breaks.',
     highlights: 'Highlights',
-    allPatches: 'See all notes',
+    allPatches: 'See all projects',
     ctaCv: 'Download CV',
   },
   projects: {
-    eyebrow: 'Projects',
-    title: 'Patch notes',
+    eyebrow: 'Patch notes',
+    title: 'Projects',
     live: 'Live demo',
     repo: 'Code',
     privateCode: 'Private source',
     myRole: 'My part',
     featured: 'In production',
     patch: 'Patch',
-    newLabel: 'New',
-    bugLabel: 'Known issue',
-    learnLabel: 'Learned',
+    newLabel: 'What I built',
+    bugLabel: 'What broke',
+    learnLabel: 'What I learned',
     build: 'Build',
-    hotfixes: 'Hotfixes',
-    hotfixesNote: 'Other projects, short version.',
-    more: 'See everything new',
+    hotfixes: 'Other projects',
+    hotfixesNote: 'Short version: what I did, what broke and what I learned.',
+    more: 'See the technical details',
+    moreMajor: 'See more details',
     caminoLegal: {
       name: 'Camino Legal',
       tagline: 'Legal assistant for rural Colombia',
@@ -506,22 +503,21 @@ const en = {
         'Progressive web app that helps rural communities draft a formal petition and review contracts with a risk traffic light, in plain language and working without signal.',
       role: 'I built the platform: the conversation engine, the API, the offline app, WhatsApp and SMS, the AI assistant, encryption and the tracking dashboard. Andrés Felipe Angel validated the legal content and wrote the legal documents and the pitch.',
       highlights: [
-        'Modular monolith: a NestJS API and a React PWA share a domain package with the conversation state machine.',
         'Offline-first: installable, stores cases in IndexedDB and syncs them idempotently when back online.',
         'Security: AES-256-GCM encryption, HMAC for phone numbers, role-based JWT, PIN lockout and scheduled purges.',
+        'Modular monolith: a NestJS API and a React PWA share a domain package with the conversation state machine.',
         'SMS and WhatsApp channels on the same engine, plus an AI writing assistant the user always reviews.',
         'Accessibility: large text, read-aloud and automated Playwright + axe tests in CI.',
       ],
       bugs: [
-        'At first it was hard to pin down the idea and decide what angle to take.',
         'The WhatsApp connector would not start: Chromium left its profile locked inside the Docker volume and crashed in a loop.',
-        'I didn’t get to more languages before the final presentation. We chose not to publish machine translations into Indigenous languages, so the catalog is ready but empty on purpose.',
         'Cases saved offline are not encrypted on the phone yet.',
+        'I didn’t get to more languages before the final presentation. We chose not to publish machine translations into Indigenous languages, so the catalog is ready but empty on purpose.',
       ],
       learned: [
-        'What got us unstuck early on was talking a lot and splitting the work cleanly: I took the platform, Andrés took the legal side.',
         'It was my first big project and my first deployment: I got it running at caminolegal.space, with the servers and containers set up by me.',
         'Getting many pieces to talk to each other: the PWA, the API, the database, the WhatsApp connector, SMS and email, all on the same conversation engine.',
+        'Early on it was hard to pin down the idea. What got us unstuck was talking a lot and splitting the work cleanly: I took the platform, Andrés took the legal side.',
       ],
       shots: { inicio: 'Home', chat: 'Assistant', semaforo: 'Traffic light', admin: 'Admin' },
     },
@@ -539,12 +535,10 @@ const en = {
       ],
       bugs: [
         'For a while not a single reading arrived over MQTT: the backend was listening on a different broker and topic than the ESP32. I fixed it by moving both to a public broker with their own topics.',
-        'An HTTP 500 error in the backend that took me two days to fix.',
         'If Wi-Fi drops mid-test, samples are lost: the backup HTTP path ended up disabled.',
-        'At the start I had more ideas than one person could build, and it was hard to narrow them down.',
       ],
       learned: [
-        'The first design was generic telemetry. Building it, I realized it was a clinical system: it needed roles and a way to trace every sample back to its patient.',
+        'The first design was generic telemetry, and I had more ideas than one person could build. Building it, I realized it was a clinical system: it needed roles and a way to trace every sample back to its patient.',
         'I swapped the cloud database for PostgreSQL in a container: I’d rather control the environment than depend on an outside account.',
       ],
       shots: { analisis: 'Analysis', dashboard: 'Dashboard', paciente: 'Patient', historial: 'History', captura: 'Capture' },
@@ -596,13 +590,13 @@ const en = {
     sgmms: {
       name: 'SGMMS · Emergency Dispatch',
       tagline: 'Dispatch simulator on a dynamic road graph',
-      meta: 'Programming II · Team of 3 · 2025 · Rebuilt in 2026',
+      meta: 'Algorithms & Programming II · Team of 3 · 2025 · Rebuilt in 2026',
       description:
         'Emergency dispatch center simulator: assign police cars, ambulances and fire trucks before each incident deadline expires, in a city where traffic changes the cost of every street in real time.',
       role: 'Full rebuild: simulation engine, dynamic graph, A* routing, traffic, data structures, JavaFX interface and tests.',
       highlights: [
-        'Dynamic road graph: each lane weight depends on live civilian traffic congestion, and accidents close streets in both directions.',
         'Multi-source, multi-target A* for vehicles in the middle of a block: expands 43–52% fewer nodes than Dijkstra with the same optimal cost (measured over 2,000 routes).',
+        'Dynamic road graph: each lane weight depends on live civilian traffic congestion, and accidents close streets in both directions.',
         'Deadline-ordered triage queue on a custom AVL tree; hash table, heap and linked list also built from scratch.',
         'Deterministic fixed-step engine decoupled from JavaFX: the same code runs the game, 52 JUnit tests and a dispatch-strategy benchmark.',
         'Car-following traffic, rerouting with hysteresis, manual driving with GPS and a metrics report (P90 and deadline compliance).',
@@ -643,51 +637,49 @@ const en = {
   experience: {
     eyebrow: 'Match history',
     title: 'Experience',
-    matches: 'matches',
-    modes: { internship: 'Internship', job: 'Job', seasonal: 'Seasonal' },
+    modes: { internship: 'Internship', other: 'Other' },
     did: 'What I did',
     learned: 'What I learned',
     build: 'Build',
     items: [
       {
         mode: 'internship',
-        role: 'Front-end & web development intern',
+        role: 'Web development intern (front-end)',
         org: 'Fundación Algo en Común',
         date: 'Jun – Aug 2026',
         place: 'Cali · Hybrid · Part-time',
         did: [
-          "I was in charge of redesigning, building and keeping the foundation's website up to date: its interface and how you move around it.",
-          'I set up the pages and built layouts that adapt to phones, tablets and computers.',
-          "I helped with the content of the foundation's Wix sites and with tech support, backing its communication work.",
+          "I redesigned, built and kept the foundation's website up to date: its interface and how you move around it.",
+          'I set up the pages and built versions for phones, tablets and computers.',
+          "I supported the content of the foundation's Wix sites and tech support, for its communication work.",
         ],
         learned: [
           'I had never used Wix or Lovable before: that is where I learned to work with them to build and update the sites.',
           'I learned a lot about UX/UI design, especially while redesigning the navigation and adapting the pages to each screen.',
         ],
         build: ['Wix', 'Lovable'],
-      },
-      { mode: 'seasonal', role: 'Sales associate', org: 'Calipieles', date: 'Dec 2023 – Feb 2024', note: 'Customer service and cash handling.' },
-      { mode: 'seasonal', role: 'Sales associate', org: 'Calipieles', date: 'Dec 2022 – Feb 2023', note: 'Customer service and cash handling.' },
-      {
-        mode: 'job',
-        role: 'Lab assistant',
-        org: 'Fablab Cali · Universidad Autónoma de Occidente',
-        date: 'Aug 2022 – Jan 2023',
-        note: 'I helped students and faculty, and looked after and maintained the digital fabrication equipment.',
-      },
-      {
-        mode: 'job',
-        role: 'Administrative assistant',
-        org: 'Center for Academic Excellence · UAO',
-        date: 'Mar – May 2022',
-        note: 'Administrative support and assistance to students and faculty.',
+        proof: { label: 'Internship certificate (Icesi, Talent Center)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
       },
     ],
+    others: {
+      role: 'Other jobs',
+      org: 'While studying',
+      date: '2022 – 2024',
+      note: 'Customer service, cash handling and looking after equipment.',
+      items: [
+        { role: 'Seasonal sales associate', org: 'Calipieles', date: 'Dec – Feb, 2022-23 and 2023-24', note: 'Customer service and cash handling.' },
+        { role: 'Lab assistant', org: 'Fablab Cali · Universidad Autónoma de Occidente', date: 'Aug 2022 – Jan 2023', note: 'I helped students and faculty, and looked after the digital fabrication equipment.' },
+        { role: 'Administrative assistant', org: 'Center for Academic Excellence · UAO', date: 'Mar – May 2022', note: 'Administrative support and assistance to students and faculty.' },
+      ],
+    },
   },
   skills: {
-    eyebrow: 'Toolbox',
-    title: 'Rune page',
-    hint: 'Tap a rune to see which project I used it in. Dashed ones don’t appear in a project here, but they say where I picked them up.',
+    eyebrow: 'Rune page',
+    title: 'Skills',
+    coreTitle: 'The ones I use most',
+    coreNote: 'Each one with the projects on this page where I used it.',
+    restTitle: 'The rest of the rune page',
+    hint: 'Tap a rune to see where I used it. Dashed ones don’t appear in a project here, but they say where I picked them up.',
     usedIn: 'Used in',
     seenIn: 'Seen in',
     trees: {
@@ -700,11 +692,7 @@ const en = {
     },
     seen: {
       SQL: 'HackerRank SQL certificates (Basic and Intermediate)',
-      Python: 'HackerRank Python (Basic) certificate',
       MATLAB: 'MathWorks Telecommunications Onramp course',
-      Wix: 'Internship at Fundación Algo en Común',
-      Lovable: 'Internship at Fundación Algo en Común',
-      'Automation Anywhere': 'Comfandi & Icesi Automation Bootcamp',
       JavaScript: 'This portfolio',
       'HTML/CSS': 'This portfolio',
       Git: 'Every project on this page',
@@ -714,8 +702,8 @@ const en = {
     },
   },
   team: {
-    eyebrow: 'Off the clock',
-    title: 'My team',
+    eyebrow: 'My team',
+    title: 'Off the clock',
     trainer: "Jose David's team · Cali, Colombia",
     typeLabel: 'Type',
     members: [
@@ -723,7 +711,7 @@ const en = {
         key: 'series',
         name: 'Steven Universe and Adventure Time',
         type: 'Shows',
-        text: 'My favorite shows. The colors of this page come from them: dark mode is Beach City at night and light mode is Ooo by day. Try the sun and moon button.',
+        text: 'My favorite shows. The colors of this page come from them: dark mode is Beach City at night and light mode is Ooo by day. Try the sun and moon button: the doodles in the margins change too.',
       },
       { key: 'rock', name: 'My Chemical Romance · Three Days Grace', type: 'Rock' },
       { key: 'pop', name: 'Billie Eilish · Olivia Rodrigo', type: 'Pop' },
@@ -733,7 +721,7 @@ const en = {
     ],
   },
   certs: {
-    eyebrow: 'Credentials',
+    eyebrow: 'Ticket stubs',
     title: 'Certifications',
     verify: 'Verify',
     view: 'View certificate',
@@ -745,40 +733,15 @@ const en = {
         mark: 'HR',
         items: [
           { name: 'SQL (Intermediate)', date: 'Oct 2026', skills: ['SQL'], credId: 'dda3926c5f05', url: hackerRank('dda3926c5f05') },
-          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
-          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
           { name: 'Java (Basic)', date: 'Oct 2026', skills: ['Java'], credId: 'df71be511dda', url: hackerRank('df71be511dda') },
+          { name: 'Python (Basic)', date: 'Oct 2026', skills: ['Python'], credId: '350d36f89345', url: hackerRank('350d36f89345') },
+          { name: 'SQL (Basic)', date: 'Oct 2026', skills: ['SQL', 'PostgreSQL'], credId: '7df411b95865', url: hackerRank('7df411b95865') },
         ],
       },
       {
         issuer: 'MathWorks',
         mark: 'MW',
         items: [{ name: 'Telecommunications Onramp', date: 'Sep 2026', skills: ['MATLAB', 'Python'] }],
-      },
-      {
-        issuer: 'IEEE Colombia Section',
-        mark: 'IEEE',
-        items: [
-          { name: 'National Student Branch Meeting 2026', date: 'Sep 2026', skills: ['Networking'], url: drive('1LmyJSaz7JwI9rGzhWL75NwBA8MSl-Vid') },
-          { name: 'National Student Branch Meeting 2025', date: 'Sep 2025', url: drive('1x-ZQC7huuGseuTtI08tHXe6WnuIlN1dP') },
-        ],
-      },
-      {
-        issuer: 'Universidad Icesi · Talent Center',
-        mark: 'UI',
-        items: [{ name: 'Internship certificate', date: 'Oct 2026', skills: ['Front-end development', 'Wix'], url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') }],
-      },
-      {
-        issuer: 'EUDII 50',
-        mark: 'EUDII',
-        items: [
-          {
-            name: "Attendance, Industrial Engineers Meeting",
-            date: 'Oct 2026',
-            credId: 'd8afbf7b-ea76-4352-8360-671cfbd8804e',
-            url: 'https://hashproof.dev/verify/d8afbf7b-ea76-4352-8360-671cfbd8804e',
-          },
-        ],
       },
     ],
   },
@@ -797,21 +760,23 @@ const en = {
       bootcamp: { name: 'Automation Bootcamp', org: 'Comfandi & Universidad Icesi', date: 'Jul 2026', note: 'Automation Anywhere, cybersecurity and Lean' },
     },
     marks: {
-      rnr25: 'RNR 2025 (Sep)',
-      rnr26: 'RNR 2026 (Sep): represented the branch, which received several awards.',
+      rnr25: 'IEEE National Student Branch Meeting 2025 (Sep)',
+      rnr26: 'IEEE National Student Branch Meeting 2026 (Sep): I represented the branch, which received several awards.',
     },
+    certificate: 'Certificate',
     languages: 'Spanish (native) · English B1',
   },
   contact: {
     eyebrow: 'Contact',
     title: "That's all for patch",
-    text: "I'm looking for full stack, backend or connected-systems opportunities. I'm based in Cali and can work on-site, hybrid or remote. Drop me a line and I'll get back to you soon.",
+    text: "I'm looking for work on full stack, backend or connected-systems projects. I'm based in Cali and can work on-site or remote: part-time or hourly during the semester, and full-time during school breaks. Drop me a line and I'll get back to you soon.",
     rows: { email: 'Email', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
     cvLangs: { es: 'Spanish', en: 'English' },
     copy: 'Copy email',
     copied: 'Copied!',
   },
   footer: 'Designed and built by Jose David Rodríguez Pinilla',
+  footerNote: 'Made in Cali',
   ui: { theme: 'Toggle theme', lang: 'Cambiar a español', menu: 'Menu', prev: 'Previous', next: 'Next' },
 }
 

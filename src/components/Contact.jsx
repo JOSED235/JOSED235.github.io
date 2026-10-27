@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { links, latestVersion } from '../data/content.js'
 import { Copy, Check, ArrowUpRight, Download } from './Icons.jsx'
+import Doodle from './Doodles.jsx'
 
 // Cierre de las notas del parche: lo que busco y cómo encontrarme, en filas como las de una nota.
 export default function Contact({ t }) {
@@ -70,7 +71,10 @@ export default function Contact({ t }) {
             </li>
           </ul>
 
-          <p className="closing__signature">Jose David</p>
+          <p className="closing__signature">
+            Jose David
+            <Doodle n={0} place="closing" />
+          </p>
         </div>
       </div>
     </section>

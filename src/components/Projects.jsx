@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { projectsMeta, majorPatches, hotfixPatches } from '../data/content.js'
+import { projectsMeta, majorPatches, hotfixPatches, patchDate } from '../data/content.js'
 import SectionHead from './SectionHead.jsx'
 import Meta from './Meta.jsx'
 import Build from './Build.jsx'
@@ -127,9 +127,19 @@ function Patch({ t, id, reverse }) {
           </div>
         )}
 
-        <Notes kind="new" label={t.projects.newLabel} items={p.highlights} />
-        <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs} />
-        <Notes kind="learn" label={t.projects.learnLabel} items={p.learned} />
+        {/* A la vista solo lo más fuerte: 3 de lo construido, 1 falla y 1 aprendizaje. Lo demás se abre. */}
+        <Notes kind="new" label={t.projects.newLabel} items={p.highlights.slice(0, 3)} />
+        <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs.slice(0, 1)} />
+        <Notes kind="learn" label={t.projects.learnLabel} items={p.learned.slice(0, 1)} />
+
+        {(p.highlights.length > 3 || p.bugs.length > 1 || p.learned.length > 1) && (
+          <details className="patch__more">
+            <summary className="mono">{t.projects.moreMajor}</summary>
+            <Notes kind="new" label={t.projects.newLabel} items={p.highlights.slice(3)} />
+            <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs.slice(1)} />
+            <Notes kind="learn" label={t.projects.learnLabel} items={p.learned.slice(1)} />
+          </details>
+        )}
 
         <Build items={meta.build} label={t.projects.build} />
         <Links t={t} meta={meta} />
@@ -144,7 +154,7 @@ function Hotfix({ t, id }) {
 
   return (
     <article id={`p-${id}`} className="hotfix">
-      <p className="hotfix__version mono">{meta.version}</p>
+      <p className="hotfix__version mono">{patchDate(meta.version, t.months)}</p>
 
       <div className="hotfix__main">
         <h3 className="hotfix__title">{p.name}</h3>
