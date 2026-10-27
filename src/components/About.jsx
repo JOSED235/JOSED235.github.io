@@ -25,19 +25,35 @@ function Row({ item, a }) {
           {text.org && <> · {text.org}</>}
         </p>
         {text.note && <p className="ruler-row__note">{text.note}</p>}
-        {item.marks?.map((m) => (
-          <p key={m.key} className={`ruler-row__note ${m.star ? 'is-star' : ''}`}>
-            {a.marks[m.key]}
-            {m.url && (
-              <>
-                {' '}
-                <a className="ruler-row__link" href={m.url} target="_blank" rel="noreferrer">
-                  {a.certificate} ↗
-                </a>
-              </>
-            )}
-          </p>
-        ))}
+        {item.marks?.map((m) => {
+          const awards = a.awards?.[m.key]
+          const link = m.url && (
+            <a className="ruler-row__link" href={m.url} target="_blank" rel="noreferrer">
+              {a.certificate} ↗
+            </a>
+          )
+          return (
+            <div key={m.key} className={`ruler-row__note ${m.star ? 'is-star' : ''}`}>
+              <p>
+                {a.marks[m.key]}
+                {/* Sin premios, el certificado va en la misma línea; con premios, al final de la lista */}
+                {!awards && link && <> {link}</>}
+              </p>
+              {awards && (
+                <>
+                  <ul className="awards">
+                    {awards.map((w) => (
+                      <li key={w.name} className={w.place.startsWith('1') ? 'awards__first' : undefined}>
+                        <span className="awards__place mono">{w.place}</span> {w.name}
+                      </li>
+                    ))}
+                  </ul>
+                  {link}
+                </>
+              )}
+            </div>
+          )
+        })}
       </div>
       <div className="ruler-row__track" aria-hidden="true">
         <span className="ruler-row__bar" style={{ left: `${from}%`, width: `${Math.max(solidTo - from, 100 / months)}%` }} />

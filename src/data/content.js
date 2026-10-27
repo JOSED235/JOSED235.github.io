@@ -331,14 +331,19 @@ const es = {
         did: [
           'Rediseñé, desarrollé y mantuve al día la página web de la fundación: la interfaz y la forma de navegarla.',
           'Configuré las páginas y armé versiones para celular, tableta y computador.',
-          'Apoyé el contenido de los sitios en Wix y el soporte técnico, para la comunicación de la fundación.',
+          'Actualicé la página de la Semana del Guion: espacios, horarios y la gestión de los asistentes.',
+          'En la página principal actualicé los horarios de los eventos, y creé y publiqué eventos nuevos.',
+          'Cuando ocurrió el terremoto, ayudé a hacer la página para recibir donaciones para la emergencia.',
         ],
         learned: [
           'Nunca había usado Wix ni Lovable: ahí aprendí a manejarlos para armar y actualizar los sitios.',
           'Aprendí mucho de diseño UX/UI, sobre todo al rediseñar la navegación y adaptar las páginas a cada pantalla.',
         ],
         build: ['Wix', 'Lovable'],
-        proof: { label: 'Constancia de la pasantía (Icesi, Centro de Talento)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
+        proofs: [
+          { label: 'Página de donaciones por el terremoto', url: 'https://www.algoencomun.co/donaciones-emergencia-colombia' },
+          { label: 'Constancia de la pasantía (Icesi, Centro de Talento)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
+        ],
       },
     ],
     // Trabajos cortos fuera del área: van juntos en una sola fila.
@@ -443,7 +448,18 @@ const es = {
     },
     marks: {
       rnr25: 'Reunión Nacional de Ramas IEEE 2025 (sep)',
-      rnr26: 'Reunión Nacional de Ramas IEEE 2026 (sep): representé a la rama y fue reconocida con varios premios.',
+      rnr26: 'Reunión Nacional de Ramas IEEE 2026 (sep): representé a la rama, que se llevó estos premios:',
+    },
+    // Premios de la rama en la RNR 2026, del mejor puesto al menor
+    awards: {
+      rnr26: [
+        { place: '1.º', name: 'Mejor Evento del Año (Test Lab 2026)' },
+        { place: '2.º', name: 'Rama Ejemplar del Año' },
+        { place: '2.º', name: 'Mejor Página Web de Rama Estudiantil' },
+        { place: '2.º', name: 'Colaboración Legendaria' },
+        { place: '3.º', name: 'Mejor Página Web de Capítulo (WIE Icesi)' },
+        { place: '3.º', name: 'Mejor Foto No Técnica' },
+      ],
     },
     certificate: 'Certificado',
     languages: 'Español nativo · Inglés B1',
@@ -651,14 +667,19 @@ const en = {
         did: [
           "I redesigned, built and kept the foundation's website up to date: its interface and how you move around it.",
           'I set up the pages and built versions for phones, tablets and computers.',
-          "I supported the content of the foundation's Wix sites and tech support, for its communication work.",
+          'I updated the Semana del Guion (Screenwriting Week) page: venues, schedules and attendee management.',
+          "On the foundation's main page I updated event schedules, and created and published new events.",
+          'When the earthquake hit, I helped build the page to collect donations for the emergency.',
         ],
         learned: [
           'I had never used Wix or Lovable before: that is where I learned to work with them to build and update the sites.',
           'I learned a lot about UX/UI design, especially while redesigning the navigation and adapting the pages to each screen.',
         ],
         build: ['Wix', 'Lovable'],
-        proof: { label: 'Internship certificate (Icesi, Talent Center)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
+        proofs: [
+          { label: 'Earthquake donations page', url: 'https://www.algoencomun.co/donaciones-emergencia-colombia' },
+          { label: 'Internship certificate (Icesi, Talent Center)', url: drive('1pfcbsh0MfMO4yr4ix2FPK6L5xUvIo30m') },
+        ],
       },
     ],
     others: {
@@ -761,7 +782,17 @@ const en = {
     },
     marks: {
       rnr25: 'IEEE National Student Branch Meeting 2025 (Sep)',
-      rnr26: 'IEEE National Student Branch Meeting 2026 (Sep): I represented the branch, which received several awards.',
+      rnr26: 'IEEE National Student Branch Meeting 2026 (Sep): I represented the branch, which took home these awards:',
+    },
+    awards: {
+      rnr26: [
+        { place: '1st', name: 'Best Event of the Year (Test Lab 2026)' },
+        { place: '2nd', name: 'Exemplary Branch of the Year' },
+        { place: '2nd', name: 'Best Student Branch Website' },
+        { place: '2nd', name: 'Legendary Collaboration' },
+        { place: '3rd', name: 'Best Chapter Website (WIE Icesi)' },
+        { place: '3rd', name: 'Best Non-Technical Photo' },
+      ],
     },
     certificate: 'Certificate',
     languages: 'Spanish (native) · English B1',

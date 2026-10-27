@@ -54,10 +54,14 @@ function Match({ item, e, open }) {
             </ul>
           )}
           {item.build && <Build items={item.build} label={e.build} />}
-          {item.proof && (
-            <a className="match__proof" href={item.proof.url} target="_blank" rel="noreferrer">
-              {item.proof.label} <ArrowUpRight width={15} height={15} />
-            </a>
+          {item.proofs && (
+            <p className="match__proofs">
+              {item.proofs.map((p) => (
+                <a key={p.url} className="match__proof" href={p.url} target="_blank" rel="noreferrer">
+                  {p.label} <ArrowUpRight width={15} height={15} />
+                </a>
+              ))}
+            </p>
           )}
         </div>
       </details>
