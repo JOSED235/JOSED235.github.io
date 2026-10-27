@@ -38,6 +38,8 @@ Presencial o remoto.
   un grafo vial dinámico, AVL propio y 52 pruebas JUnit.
 - **[AgroIoT](https://github.com/JOSED235/ProyectoFinalSyC1)**: MQTT → Node-RED → InfluxDB, con un modelo que
   aprende en línea.
+- **[SITM-MIO](https://github.com/JOSED235/SITM-MIOLNJ)**: monitoreo distribuido del MIO de Cali sobre ZeroC Ice,
+  con la velocidad por ruta calculada en versión secuencial, con hilos y con workers.
 
 Todo, con lo que falló y lo que aprendí: **[josed235.github.io](https://josed235.github.io)**
 
@@ -69,12 +71,13 @@ La red 5G y Redes Rurales **no se fijan** hasta que estén más avanzadas.
 | `SIMULADOR-SGMMS` | Simulador de despacho de emergencias sobre un grafo vial dinámico. A*, AVL propio, JavaFX y 52 pruebas JUnit. | `java` `javafx` `graphs` `a-star` `data-structures` `junit5` |
 | `ProyectoFinalSyC1` | Monitoreo agroclimático en tiempo real: MQTT, Node-RED, InfluxDB y machine learning en línea. | `iot` `mqtt` `node-red` `influxdb` `machine-learning` `python` |
 | `Pacman-aj` | Pac-Man en JavaFX donde el laberinto es un grafo: Dijkstra, BFS y estructuras propias. | `java` `javafx` `graphs` `dijkstra` `game` |
+| `SITM-MIOLNJ` | Monitoreo distribuido del MIO de Cali sobre ZeroC Ice: velocidad promedio por ruta en versión secuencial, con hilos y master-worker. | `java` `distributed-systems` `zeroc-ice` `concurrency` `gradle` |
 | `SIMONLEON-TEAM` | Beat Potato: duelo rítmico 1v1 en Unity, hecho en 24 h en la GameHub Game Jam (IEEE CIS Icesi). | `unity` `csharp` `game-jam` `rhythm-game` |
 | `JOSED235.github.io` | Mi portafolio: proyectos contados como notas del parche. React + Vite. | `portfolio` `react` `vite` |
 
 En **Website** de cada repo puedes poner el enlace a su proyecto en la página, por ejemplo
 `https://josed235.github.io/#p-sgmms` (los anclas son `#p-caminoLegal`, `#p-archimedes`, `#p-sgmms`,
-`#p-agroiot`, `#p-pacman` y `#p-beatPotato`).
+`#p-agroiot`, `#p-sitm`, `#p-pacman` y `#p-beatPotato`).
 
 ## 5. Los repos de clase sueltos
 

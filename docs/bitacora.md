@@ -385,4 +385,4 @@ Se aplicó `docs/github-perfil.md` con un token temporal y `curl`. En la red de 
 - Correctitud: las 666 combinaciones ruta-mes son iguales en las tres versiones.
 - Fallas encontradas: el comando del Worker 1 usaba `-D`, que Ice no lee; y el límite de 1 MB por mensaje de Ice tumbaba V3 con 300.000 registros. Las dos se documentaron con su solución en el repo. La latencia E3 quedó como estimada, no medida.
 - En la página va como **proyecto corto**, entre Beat Potato y Pac-Man. Imágenes: `sm-chart.webp` (tiempos medidos) y `sm-diagram.webp` (diagrama de despliegue). "Qué aprendí" se sacó de lo que muestran sus commits.
-- **Por confirmar (José):** cuántas personas tenía el equipo. Hoy el meta no lo dice.
+- Equipo de 3 (confirmado por José). SITM-MIOLNJ ya tiene descripción, sitio web y temas en GitHub, y está en el README del perfil.

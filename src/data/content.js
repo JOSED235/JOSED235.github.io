@@ -302,7 +302,7 @@ const es = {
     sitm: {
       name: 'SITM-MIO · Monitoreo distribuido',
       tagline: 'Monitoreo en tiempo real y velocidad promedio de las rutas del MIO de Cali',
-      meta: 'Ingeniería de Software IV · Jun 2026',
+      meta: 'Ingeniería de Software IV · Equipo de 3 · Jun 2026',
       description:
         'Sistema distribuido sobre ZeroC Ice para el MIO: un simulador envía la posición de los buses, un procesador de eventos la reparte en tiempo real a un mapa, y la velocidad promedio por ruta y mes se calcula en tres versiones: secuencial, con hilos y con workers distribuidos.',
       role: 'Subí la base del sistema: los contratos Ice, el simulador de buses, el procesador de eventos, el data center, el cálculo de velocidades en sus tres versiones, el visualizador y la documentación de arquitectura.',
@@ -664,7 +664,7 @@ const en = {
     sitm: {
       name: 'SITM-MIO · Distributed monitoring',
       tagline: 'Real-time monitoring and average speed of Cali’s MIO bus routes',
-      meta: 'Software Engineering IV · Jun 2026',
+      meta: 'Software Engineering IV · Team of 3 · Jun 2026',
       description:
         'Distributed system on ZeroC Ice for Cali’s MIO buses: a simulator sends bus positions, an event processor pushes them to a live map, and the average speed per route and month is computed in three versions: sequential, multi-threaded and with distributed workers.',
       role: 'I pushed the system’s foundation: the Ice contracts, the bus simulator, the event processor, the data center, the three speed calculators, the map client and the architecture docs.',
