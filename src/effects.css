@@ -1,0 +1,388 @@
+/* ============ Movimiento y efectos ============ */
+/* Se carga después de styles.css. Con prefers-reduced-motion, el bloque del final de styles.css
+   apaga animaciones y transiciones (!important), y reveal.js y el cambio de tema no se activan. */
+
+/* Entrada del hero en cascada */
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.hero__text > *,
+.hero__highlights {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__text > :nth-child(2) { animation-delay: 0.08s; }
+.hero__text > :nth-child(3) { animation-delay: 0.16s; }
+.hero__text > :nth-child(4) { animation-delay: 0.24s; }
+.hero__text > :nth-child(5) { animation-delay: 0.32s; }
+.hero__text > :nth-child(6) { animation-delay: 0.4s; }
+.hero__text > :nth-child(7) { animation-delay: 0.48s; }
+.hero__highlights { animation-delay: 0.35s; }
+
+/* Bloques que aparecen con el scroll (ver src/reveal.js). `translate` y no `transform`,
+   para no pisar giros como el de .team-slot--lead. */
+.reveal-on :is(.section-head, .featured, .hotfix, .hotfixes__head, .match, .core-stack, .rune-tree, .team-slot, .closing, .ticket, .ruler, .awards) {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.7s ease, translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.reveal-on :is(.section-head, .featured, .hotfix, .hotfixes__head, .match, .core-stack, .rune-tree, .team-slot, .closing, .ticket, .ruler, .awards).is-visible {
+  opacity: 1;
+  translate: none;
+}
+
+/* Hermanos de una misma lista entran uno tras otro */
+.reveal-on :is(.team-slot, .ticket, .rune-tree, .match):nth-child(2) { transition-delay: 0.08s; }
+.reveal-on :is(.team-slot, .ticket, .rune-tree, .match):nth-child(3) { transition-delay: 0.16s; }
+.reveal-on :is(.team-slot, .ticket, .rune-tree, .match):nth-child(4) { transition-delay: 0.24s; }
+.reveal-on :is(.team-slot, .ticket, .rune-tree, .match):nth-child(n + 5) { transition-delay: 0.3s; }
+
+@media print {
+  .reveal-on * {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}
+
+/* Barra de progreso del nav: "descargando el parche" */
+.nav__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Sección activa en el nav */
+.nav__links a.is-active {
+  color: var(--heading);
+  background: var(--accent-soft);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Botón de la paleta de comandos */
+.kbd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--faint);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.kbd-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* En celular no hay teclado: el botón sobra */
+@media (max-width: 860px), (hover: none) {
+  .kbd-btn {
+    display: none;
+  }
+}
+
+/* Cambio de tema: el nuevo se abre en círculo desde el botón */
+.theme-switching,
+.theme-switching * {
+  transition: none !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(150vmax at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+}
+
+/* Paleta de comandos */
+.palette {
+  width: min(560px, calc(100vw - 32px));
+  margin: 12vh auto auto;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 24px 60px var(--shadow);
+  animation: pop 0.18s ease-out;
+}
+
+.palette::backdrop,
+.lightbox::backdrop {
+  background: rgba(10, 8, 24, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    scale: 0.97;
+  }
+}
+
+.palette__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--faint);
+}
+
+.palette__search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--heading);
+  font: inherit;
+  font-size: 16px;
+}
+
+.palette__search kbd,
+.palette__hint {
+  font-size: 11.5px;
+  color: var(--faint);
+}
+
+.palette__search kbd {
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.palette__list {
+  max-height: min(380px, 55vh);
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.palette__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.palette__list li.is-active {
+  background: var(--accent-soft);
+  color: var(--heading);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.palette__list li.palette__empty {
+  cursor: default;
+  color: var(--faint);
+}
+
+.palette__hint {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Capturas que se amplían */
+.zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.zoom .browser__view {
+  display: block;
+}
+
+.zoom__hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  opacity: 0;
+  translate: 0 4px;
+  transition: opacity 0.2s, translate 0.2s;
+}
+
+.zoom:hover .zoom__hint,
+.zoom:focus-visible .zoom__hint {
+  opacity: 1;
+  translate: none;
+}
+
+@media (hover: none) {
+  .zoom__hint {
+    opacity: 0.9;
+    translate: none;
+  }
+}
+
+.zoom img {
+  transition: scale 0.5s ease, opacity 0.5s ease;
+}
+
+.zoom:hover img {
+  scale: 1.015;
+}
+
+.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  padding: 56px 16px 16px;
+  border: 0;
+  background: transparent;
+  place-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox[open] {
+  display: grid;
+}
+
+.lightbox img {
+  max-width: min(1280px, 100%);
+  max-height: calc(100dvh - 72px);
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  cursor: default;
+  animation: pop 0.2s ease-out;
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+}
+
+/* Cifras medidas de un proyecto */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 4px;
+}
+
+.stats__item {
+  flex: 1 1 120px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.stats__value {
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.stats__label {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+/* Tooltip de la build compacta, como el de un item */
+.build__slot[data-tip] {
+  position: relative;
+}
+
+.build__slot[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  translate: -50% 4px;
+  padding: 4px 8px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+  color: var(--heading);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, translate 0.15s;
+  z-index: 5;
+}
+
+.build__slot[data-tip]:hover::after {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+/* Casillas de la build y runas: un saltito al pasar el mouse */
+.build__icon,
+.rune__icon,
+.core-rune__icon {
+  transition: border-color 0.2s, color 0.2s, translate 0.2s;
+}
+
+.build__slot:hover .build__icon,
+.rune:hover .rune__icon,
+.core-rune:hover .core-rune__icon {
+  translate: 0 -3px;
+}
+
+/* Las tarjetas grandes se levantan un poco */
+.featured,
+.hotfix {
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.featured:hover,
+.hotfix:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 18px 40px var(--shadow);
+}

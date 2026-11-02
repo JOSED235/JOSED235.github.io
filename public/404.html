@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Parche no encontrado · Jose David</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,700,100,1&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+    <style>
+      /* Mismos colores que la página: oscuro = Steven Universe, claro = Hora de Aventura */
+      :root {
+        --bg: #1b1830;
+        --surface: #262142;
+        --border: #52497f;
+        --heading: #fff8ee;
+        --muted: #c9bfdc;
+        --accent: #ffd447;
+        --on-accent: #1b1830;
+        --bug: #ff7d8c;
+        color-scheme: dark;
+      }
+      @media (prefers-color-scheme: light) {
+        :root:not([data-theme='dark']) {
+          --bg: #fff8e8;
+          --surface: #ffffff;
+          --border: #d4b77a;
+          --heading: #141a30;
+          --muted: #47506a;
+          --accent: #1565c0;
+          --on-accent: #ffffff;
+          --bug: #c62828;
+          color-scheme: light;
+        }
+      }
+      :root[data-theme='light'] {
+        --bg: #fff8e8;
+        --surface: #ffffff;
+        --border: #d4b77a;
+        --heading: #141a30;
+        --muted: #47506a;
+        --accent: #1565c0;
+        --on-accent: #ffffff;
+        --bug: #c62828;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background: var(--bg);
+        color: var(--muted);
+        font: 17px/1.6 'Atkinson Hyperlegible', 'Segoe UI', sans-serif;
+      }
+      main {
+        width: min(560px, 100%);
+        padding: 32px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--surface);
+      }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; }
+      .code { color: var(--accent); letter-spacing: 0.08em; margin: 0 0 8px; }
+      h1 {
+        margin: 0 0 16px;
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'SOFT' 100, 'WONK' 1;
+        font-size: clamp(30px, 7vw, 44px);
+        line-height: 1.1;
+        color: var(--heading);
+      }
+      .bug { border-left: 3px solid var(--bug); padding-left: 12px; margin: 0 0 24px; }
+      .bug b { color: var(--bug); }
+      p { margin: 0 0 12px; }
+      a.btn {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 10px 18px;
+        border-radius: 4px;
+        background: var(--accent);
+        color: var(--on-accent);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      a.btn:focus-visible { outline: 2px solid var(--heading); outline-offset: 3px; }
+    </style>
+    <script>
+      try {
+        var t = localStorage.getItem('theme')
+        if (t) document.documentElement.dataset.theme = t
+        if ((localStorage.getItem('lang') || navigator.language || '').toLowerCase().indexOf('en') === 0) document.documentElement.lang = 'en'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="code mono">ERROR 404 · <span lang="en">PATCH NOT FOUND</span></p>
+      <h1>Este parche no existe</h1>
+      <div class="bug">
+        <p><b class="mono">Qué falló:</b> la dirección que abriste no lleva a ninguna página de este sitio.</p>
+        <p lang="en"><b class="mono">What broke:</b> the address you opened doesn’t lead to any page on this site.</p>
+      </div>
+      <p>Las notas del parche siguen en la página principal.</p>
+      <a class="btn" href="/">Volver a las notas · Back home</a>
+    </main>
+  </body>
+</html>

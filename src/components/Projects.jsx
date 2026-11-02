@@ -3,7 +3,8 @@ import { projectsMeta, majorPatches, hotfixPatches, patchDate } from '../data/co
 import SectionHead from './SectionHead.jsx'
 import Meta from './Meta.jsx'
 import Build from './Build.jsx'
-import { ArrowUpRight, GitHub, Lock } from './Icons.jsx'
+import Lightbox from './Lightbox.jsx'
+import { ArrowUpRight, GitHub, Lock, Expand } from './Icons.jsx'
 
 // [PENDIENTE: …] se deja a la vista a propósito, pero marcado para que no pase por texto real.
 function NoteItem({ text }) {
@@ -46,8 +47,39 @@ function Links({ t, meta }) {
   )
 }
 
-function Showcase({ p, meta }) {
+// Cifras medidas del proyecto, en grande para que se lean de un vistazo.
+function Stats({ items }) {
+  if (!items?.length) return null
+  return (
+    <dl className="stats">
+      {items.map((s) => (
+        <div key={s.label} className="stats__item">
+          <dt className="stats__value">{s.value}</dt>
+          <dd className="stats__label">{s.label}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+function Zoom({ t, src, alt, children }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      <button type="button" className="zoom" onClick={() => setOpen(true)} aria-label={`${t.ui.zoom}: ${alt}`}>
+        {children}
+        <span className="zoom__hint" aria-hidden="true">
+          <Expand width={16} height={16} />
+        </span>
+      </button>
+      {open && <Lightbox src={src} alt={alt} closeLabel={t.ui.close} onClose={() => setOpen(false)} />}
+    </>
+  )
+}
+
+function Showcase({ t, p, meta }) {
   const [active, setActive] = useState(0)
+  const shot = meta.shots[active]
   return (
     <div className="featured__showcase">
       <div className="devices">
@@ -58,19 +90,21 @@ function Showcase({ p, meta }) {
             <span className="dot" />
             <span className="browser__url mono">{meta.shots[active].address ?? meta.address}</span>
           </div>
-          <div className="browser__view">
-            {meta.shots.map((s, i) => (
-              <img
-                key={s.key}
-                src={s.src}
-                alt={`${p.name} · ${p.shots[s.key]}`}
-                loading="lazy"
-                width="1280"
-                height="860"
-                className={i === active ? 'is-active' : ''}
-              />
-            ))}
-          </div>
+          <Zoom t={t} src={shot.src} alt={`${p.name} · ${p.shots[shot.key]}`}>
+            <span className="browser__view">
+              {meta.shots.map((s, i) => (
+                <img
+                  key={s.key}
+                  src={s.src}
+                  alt={i === active ? `${p.name} · ${p.shots[s.key]}` : ''}
+                  loading="lazy"
+                  width="1280"
+                  height="860"
+                  className={i === active ? 'is-active' : ''}
+                />
+              ))}
+            </span>
+          </Zoom>
         </div>
         {meta.mobile && (
           <div className="phone" aria-hidden="true">
@@ -102,7 +136,7 @@ function Patch({ t, id, reverse }) {
 
   return (
     <article id={`p-${id}`} className={`featured patch ${reverse ? 'featured--reverse' : ''}`}>
-      <Showcase p={p} meta={meta} />
+      <Showcase t={t} p={p} meta={meta} />
 
       <div className="featured__body">
         <p className="patch__stamp mono">
@@ -119,6 +153,7 @@ function Patch({ t, id, reverse }) {
         <h3 className="featured__title">{p.name}</h3>
         <p className="featured__tagline">{p.tagline}</p>
         <p className="featured__desc">{p.description}</p>
+        <Stats items={p.stats} />
 
         {p.role && (
           <div className="role-box">
@@ -160,6 +195,7 @@ function Hotfix({ t, id }) {
         <h3 className="hotfix__title">{p.name}</h3>
         <p className="hotfix__tagline">{p.tagline}</p>
         <Meta text={p.meta} />
+        <Stats items={p.stats} />
         {p.role && (
           <p className="hotfix__role">
             <span className="mono">{t.projects.myRole}:</span> {p.role}
@@ -174,14 +210,16 @@ function Hotfix({ t, id }) {
       </div>
 
       <div className="hotfix__side">
-        <img
-          className="hotfix__shot"
-          src={meta.shots[0].src}
-          alt={`${p.name} · ${p.shots[meta.shots[0].key]}`}
-          loading="lazy"
-          width="1280"
-          height="860"
-        />
+        <Zoom t={t} src={meta.shots[0].src} alt={`${p.name} · ${p.shots[meta.shots[0].key]}`}>
+          <img
+            className="hotfix__shot"
+            src={meta.shots[0].src}
+            alt={`${p.name} · ${p.shots[meta.shots[0].key]}`}
+            loading="lazy"
+            width="1280"
+            height="860"
+          />
+        </Zoom>
         <Build items={meta.build} label={t.projects.build} compact />
         <Links t={t} meta={meta} />
       </div>

@@ -7,7 +7,7 @@ export default function Build({ items, label, compact }) {
       {!compact && <span className="build__label mono">{label}</span>}
       <ul className="build__slots">
         {items.map((name) => (
-          <li key={name} className="build__slot" title={name}>
+          <li key={name} className="build__slot" data-tip={compact ? name : undefined}>
             <span className="build__icon" aria-hidden="true">
               <TechIcon name={name} />
             </span>

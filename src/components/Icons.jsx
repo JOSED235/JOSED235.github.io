@@ -98,3 +98,22 @@ export const Check = (p) => (
     <path d="M20 6 9 17l-5-5" />
   </svg>
 )
+
+export const Command = (p) => (
+  <svg {...base} {...p}>
+    <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+  </svg>
+)
+
+export const Search = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5" />
+  </svg>
+)
+
+export const Expand = (p) => (
+  <svg {...base} {...p}>
+    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+  </svg>
+)

@@ -322,6 +322,11 @@ const es = {
         'Documentar la arquitectura con escenarios de calidad y patrones de despliegue antes de medir, para saber qué se está validando.',
       ],
       shots: { chart: 'Tiempos medidos', diagram: 'Despliegue' },
+      stats: [
+        { value: '1,57×', label: 'más rápido con hilos (V2)' },
+        { value: '2,7 M', label: 'registros procesados' },
+        { value: '666', label: 'resultados iguales en las 3 versiones' },
+      ],
       shotsNote: 'Tiempos medidos con datos sintéticos del mismo formato del piloto.',
     },
     beatPotato: {
@@ -510,7 +515,16 @@ const es = {
   },
   footer: 'Diseñado y construido por Jose David Rodríguez Pinilla',
   footerNote: 'Hecho en Cali',
-  ui: { theme: 'Cambiar tema', lang: 'Switch to English', menu: 'Menú', prev: 'Anterior', next: 'Siguiente' },
+  ui: { theme: 'Cambiar tema', lang: 'Switch to English', menu: 'Menú', prev: 'Anterior', next: 'Siguiente', zoom: 'Ampliar captura', close: 'Cerrar' },
+  palette: {
+    open: 'Abrir comandos (Ctrl+K)',
+    placeholder: 'Escribe una sección o un comando…',
+    empty: 'No hay comandos con ese nombre.',
+    go: 'Ir a',
+    copyEmail: 'Copiar correo',
+    cv: 'Descargar CV',
+    hint: '↑ ↓ para moverte · Enter para elegir · Esc para cerrar',
+  },
 }
 
 const en = {
@@ -684,6 +698,11 @@ const en = {
         'Documenting the architecture with quality-attribute scenarios and deployment patterns before measuring, so you know what you are validating.',
       ],
       shots: { chart: 'Measured times', diagram: 'Deployment' },
+      stats: [
+        { value: '1.57×', label: 'faster with threads (V2)' },
+        { value: '2.7 M', label: 'records processed' },
+        { value: '666', label: 'matching results across 3 versions' },
+      ],
       shotsNote: 'Times measured with synthetic data in the same format as the pilot.',
     },
     beatPotato: {
@@ -868,7 +887,16 @@ const en = {
   },
   footer: 'Designed and built by Jose David Rodríguez Pinilla',
   footerNote: 'Made in Cali',
-  ui: { theme: 'Toggle theme', lang: 'Cambiar a español', menu: 'Menu', prev: 'Previous', next: 'Next' },
+  ui: { theme: 'Toggle theme', lang: 'Cambiar a español', menu: 'Menu', prev: 'Previous', next: 'Next', zoom: 'Enlarge screenshot', close: 'Close' },
+  palette: {
+    open: 'Open commands (Ctrl+K)',
+    placeholder: 'Type a section or a command…',
+    empty: 'No commands match that.',
+    go: 'Go to',
+    copyEmail: 'Copy email',
+    cv: 'Download CV',
+    hint: '↑ ↓ to move · Enter to pick · Esc to close',
+  },
 }
 
 export const content = { es, en }
