@@ -190,7 +190,7 @@ const es = {
       meta: 'Hackatón LINXCO · Equipo de 2 · Oct 2026',
       description:
         'Aplicación web progresiva que ayuda a comunidades rurales a redactar un derecho de petición y a revisar contratos con un semáforo de riesgos, en lenguaje sencillo y funcionando sin señal.',
-      role: 'Yo hice la plataforma: el motor de las conversaciones, la API, la app sin internet, WhatsApp y SMS, el asistente con IA, el cifrado y el tablero de seguimiento. Andrés Felipe Angel validó el contenido jurídico y escribió los documentos legales y el pitch.',
+      role: 'Yo hice la mayor parte de la plataforma: el motor de las conversaciones, la API, la app sin internet, WhatsApp y SMS, el asistente con IA, el cifrado y el tablero de seguimiento. Andrés Felipe Ángel validó el contenido jurídico y escribió los documentos legales y el pitch; en el código hizo las mejoras de inicio de sesión y recuperación de contraseña, la base de accesibilidad e idiomas, y ajustes de Docker y Nginx.',
       highlights: [
         'Offline-first: instalable, guarda casos en IndexedDB y los sincroniza de forma idempotente al volver la conexión.',
         'Seguridad: cifrado AES-256-GCM, HMAC para teléfonos, JWT por roles, bloqueo por PIN fallidos y purga programada.',
@@ -206,7 +206,7 @@ const es = {
       learned: [
         'Fue mi primer proyecto grande y mi primer despliegue: la dejé corriendo en caminolegal.space, con los servidores y los contenedores configurados por mí.',
         'Hacer que muchas piezas hablen entre sí: la PWA, la API, la base de datos, el conector de WhatsApp, los SMS y el correo, todas sobre el mismo motor de conversaciones.',
-        'Al inicio nos costó aterrizar la idea. Lo que nos destrabó fue hablar mucho y repartir bien: yo la plataforma, Andrés lo jurídico.',
+        'Al inicio nos costó aterrizar la idea. Lo que nos destrabó fue hablar mucho y repartir bien: yo la mayor parte de la plataforma, Andrés lo jurídico y una parte del código.',
       ],
       shots: { inicio: 'Inicio', chat: 'Asistente', semaforo: 'Semáforo', admin: 'Panel' },
     },
@@ -578,7 +578,7 @@ const en = {
       meta: 'LINXCO Hackathon · Team of 2 · Oct 2026',
       description:
         'Progressive web app that helps rural communities draft a formal petition and review contracts with a risk traffic light, in plain language and working without signal.',
-      role: 'I built the platform: the conversation engine, the API, the offline app, WhatsApp and SMS, the AI assistant, encryption and the tracking dashboard. Andrés Felipe Angel validated the legal content and wrote the legal documents and the pitch.',
+      role: 'I built most of the platform: the conversation engine, the API, the offline app, WhatsApp and SMS, the AI assistant, encryption and the tracking dashboard. Andrés Felipe Ángel validated the legal content and wrote the legal documents and the pitch; in the code he improved sign-in and password recovery, laid the accessibility and language groundwork, and fixed Docker and Nginx settings.',
       highlights: [
         'Offline-first: installable, stores cases in IndexedDB and syncs them idempotently when back online.',
         'Security: AES-256-GCM encryption, HMAC for phone numbers, role-based JWT, PIN lockout and scheduled purges.',
@@ -594,7 +594,7 @@ const en = {
       learned: [
         'It was my first big project and my first deployment: I got it running at caminolegal.space, with the servers and containers set up by me.',
         'Getting many pieces to talk to each other: the PWA, the API, the database, the WhatsApp connector, SMS and email, all on the same conversation engine.',
-        'Early on it was hard to pin down the idea. What got us unstuck was talking a lot and splitting the work cleanly: I took the platform, Andrés took the legal side.',
+        'Early on it was hard to pin down the idea. What got us unstuck was talking a lot and splitting the work cleanly: I took most of the platform, Andrés took the legal side and part of the code.',
       ],
       shots: { inicio: 'Home', chat: 'Assistant', semaforo: 'Traffic light', admin: 'Admin' },
     },
