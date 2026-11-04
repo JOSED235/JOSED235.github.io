@@ -12,7 +12,7 @@ export default function Hero({ t, lang }) {
       <div className="container hero__grid">
         <div className="hero__text">
           <p className="hero__kicker mono">
-            {h.kicker} <span>{latest}</span>
+            {h.kicker} <span>{patchDate(latest, t.months)}</span>
           </p>
           <h1 className="hero__name">Jose David Rodríguez</h1>
           <p className="hero__role">{h.role}</p>
@@ -56,7 +56,7 @@ export default function Hero({ t, lang }) {
               const p = t.projects[id]
               const meta = projectsMeta[id]
               return (
-                <li key={id}>
+                <li key={id} className={`patch--${id}`}>
                   <a href={`#p-${id}`}>
                     <span className="hero__hl-version mono">{patchDate(meta.version, t.months)}</span>
                     <span>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { links, latestVersion } from '../data/content.js'
+import { links } from '../data/content.js'
 import { Copy, Check, ArrowUpRight, Download } from './Icons.jsx'
 import Doodle from './Doodles.jsx'
 
@@ -26,7 +26,7 @@ export default function Contact({ t }) {
             <span className="accent">07</span> / {c.eyebrow}
           </p>
           <h2 className="closing__title">
-            {c.title} <span className="closing__version mono">{latestVersion}</span>
+            {c.title}
           </h2>
           <p className="closing__text">{c.text}</p>
 

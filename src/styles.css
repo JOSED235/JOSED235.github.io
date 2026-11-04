@@ -31,6 +31,15 @@
   --rose: #ff9ecf; /* gema de Rose */
   --marker: rgba(185, 160, 245, 0.38); /* resaltador Amatista */
   --doodle-ink: #0f0d1f;
+  /* Ciudad Playa de noche: pocas estrellas quietas detrás de todo. Dos tamaños de mosaico para que no se note la repetición. */
+  --sky:
+    radial-gradient(1.5px 1.5px at 8% 12%, rgba(255, 248, 238, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 37% 64%, rgba(255, 248, 238, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 71% 28%, rgba(255, 212, 71, 0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 88% 82%, rgba(185, 160, 245, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 22% 47%, rgba(255, 248, 238, 0.35), transparent 60%),
+    radial-gradient(1px 1px at 58% 91%, rgba(126, 227, 224, 0.4), transparent 60%);
+  --sky-size: 520px 520px, 520px 520px, 520px 520px, 810px 810px, 810px 810px, 810px 810px;
   --radius: 4px;
   /* Fraunces: serif blanda y algo chueca (SOFT/WONK), como los títulos de las series.
      Atkinson Hyperlegible: hecha para leerse fácil. Caveat: solo notas al margen y la firma. */
@@ -70,6 +79,7 @@
     --rose: #c2185b;
     --marker: rgba(255, 201, 60, 0.6); /* Jake */
     --doodle-ink: #1f2a44;
+  --sky: none;
     --ok: var(--new);
     color-scheme: light;
   }
@@ -103,6 +113,7 @@
   --rose: #c2185b;
   --marker: rgba(255, 201, 60, 0.6); /* Jake */
   --doodle-ink: #1f2a44;
+  --sky: none;
   --ok: var(--new);
   color-scheme: light;
 }
@@ -129,6 +140,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  background-image: var(--sky);
+  background-size: var(--sky-size, auto);
   transition: background 0.3s, color 0.3s;
 }
 
@@ -519,8 +532,8 @@ ol {
 /* Foto pequeña y algo torcida, como pegada en la hoja */
 .hero__photo {
   flex-shrink: 0;
-  width: 76px;
-  height: 76px;
+  width: 96px;
+  height: 96px;
   object-fit: cover;
   object-position: 50% 20%;
   border: 2px solid var(--accent);
@@ -612,7 +625,8 @@ ol {
 .hero__hl-version {
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--accent);
+  /* la misma gema que lleva el proyecto abajo */
+  color: var(--gem, var(--accent));
 }
 
 .hero__hl-name {
@@ -986,6 +1000,44 @@ ol {
 .private-badge svg {
   width: 16px;
   height: 16px;
+}
+
+/* Cada proyecto destacado lleva su gema: el color identifica el proyecto en el sello, el borde, la pestaña y el resplandor.
+   En claro, --learn y --rose son el mismo tono, por eso Arquímedes usa --highlight-text. */
+.patch--caminoLegal { --gem: var(--accent); }
+.patch--archimedes { --gem: var(--highlight-text); }
+.patch--sgmms { --gem: var(--rose); }
+.patch--agroiot { --gem: var(--new); }
+
+.featured {
+  border-top: 3px solid var(--gem, var(--accent));
+  background:
+    radial-gradient(110% 60% at 100% 0%, color-mix(in srgb, var(--gem, var(--accent)) 10%, transparent), transparent 65%),
+    var(--surface);
+}
+
+.featured .patch__stamp,
+.featured .role-box__label,
+.featured__tagline {
+  color: var(--gem, var(--accent));
+}
+
+.featured .patch__stamp {
+  border-color: var(--gem, var(--accent));
+}
+
+.featured .dot:first-child {
+  background: var(--gem, var(--accent));
+}
+
+.featured .shot-tab.is-active {
+  background: var(--gem, var(--accent));
+  border-color: var(--gem, var(--accent));
+}
+
+.featured .role-box {
+  border-left-color: var(--gem, var(--accent));
+  background: color-mix(in srgb, var(--gem, var(--accent)) 12%, transparent);
 }
 
 /* ============ Notas del parche ============ */
@@ -1676,12 +1728,6 @@ ol {
 
 /* ============ Mi equipo (pantalla de equipo de Pokémon) ============ */
 /* La líder va sola y torcida a la izquierda; las otras cinco, en filas. Sombras duras, como de pantalla de juego. */
-.team__trainer {
-  margin: -32px 0 32px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 .team {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -1715,9 +1761,7 @@ ol {
 }
 
 .team-slot--series { --type: var(--accent); }
-.team-slot--rock { --type: var(--bug); }
-.team-slot--pop { --type: var(--learn); }
-.team-slot--urbano { --type: var(--highlight-text); }
+.team-slot--musica { --type: var(--bug); }
 .team-slot--cancha { --type: var(--new); }
 .team-slot--gym { --type: var(--heading-2); }
 
@@ -2141,11 +2185,6 @@ ol {
   font-size: clamp(30px, 4.6vw, 50px);
   font-weight: 700;
   max-width: 820px;
-}
-
-.closing__version {
-  color: var(--highlight-text);
-  white-space: nowrap;
 }
 
 .closing__text {

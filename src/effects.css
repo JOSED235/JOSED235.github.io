@@ -386,3 +386,8 @@
   border-color: var(--border-strong);
   box-shadow: 0 18px 40px var(--shadow);
 }
+
+/* El borde de arriba conserva la gema del proyecto */
+.featured:hover {
+  border-top-color: var(--gem, var(--accent));
+}

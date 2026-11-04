@@ -1,14 +1,22 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import App, { initialLang, initialTheme } from './App.jsx'
 import './styles.css'
 import './effects.css'
 
-createRoot(document.getElementById('root')).render(
+// El HTML ya viene prerenderizado en español y oscuro (scripts/prerender.mjs). Si el visitante usa
+// otro idioma o tema, se pinta de cero en vez de hidratar, para no forzar un desajuste.
+const container = document.getElementById('root')
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+if (container.hasChildNodes() && initialLang() === 'es' && initialTheme() === 'dark') hydrateRoot(container, app)
+else {
+  container.replaceChildren()
+  createRoot(container).render(app)
+}
 
 // Para quien abra DevTools
 console.log(

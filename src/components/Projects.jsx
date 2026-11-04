@@ -135,7 +135,7 @@ function Patch({ t, id, reverse }) {
   const meta = projectsMeta[id]
 
   return (
-    <article id={`p-${id}`} className={`featured patch ${reverse ? 'featured--reverse' : ''}`}>
+    <article id={`p-${id}`} className={`featured patch patch--${id} ${reverse ? 'featured--reverse' : ''}`}>
       <Showcase t={t} p={p} meta={meta} />
 
       <div className="featured__body">

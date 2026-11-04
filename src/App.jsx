@@ -14,13 +14,18 @@ import Contact from './components/Contact.jsx'
 import Palette from './components/Palette.jsx'
 import { useReveal } from './reveal.js'
 
-function initialLang() {
+// En el prerender (Node) no hay window: la página sale en español y oscura.
+const isServer = typeof window === 'undefined'
+
+export function initialLang() {
+  if (isServer) return 'es'
   const stored = load('lang')
   if (stored === 'es' || stored === 'en') return stored
   return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es'
 }
 
-function initialTheme() {
+export function initialTheme() {
+  if (isServer) return 'dark'
   const stored = load('theme')
   if (stored === 'light' || stored === 'dark') return stored
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
