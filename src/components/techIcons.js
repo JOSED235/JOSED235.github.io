@@ -37,6 +37,12 @@ import {
   siSpringboot,
   siCisco,
   siWix,
+  siNextdotjs,
+  siLaravel,
+  siTauri,
+  siRust,
+  siSvelte,
+  siCoolify,
   siGradle,
   siLeaflet,
 } from 'simple-icons'
@@ -80,4 +86,10 @@ export const techIcons = {
   'Spring Boot': siSpringboot,
   'Cisco Packet Tracer': siCisco,
   Wix: siWix,
+  'Next.js': siNextdotjs,
+  Laravel: siLaravel,
+  Tauri: siTauri,
+  Rust: siRust,
+  Svelte: siSvelte,
+  Coolify: siCoolify,
 }

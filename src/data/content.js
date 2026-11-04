@@ -356,12 +356,31 @@ const es = {
   experience: {
     eyebrow: 'Trabajo',
     title: 'Experiencia',
-    modes: { internship: 'Pasantía', other: 'Otros' },
+    modes: { founder: 'Emprendimiento', internship: 'Pasantía', other: 'Otros' },
     did: 'Lo que hice',
     learned: 'Lo que aprendí',
     build: 'Build',
     // De la más reciente a la más vieja, como el historial de LoL.
     items: [
+      {
+        mode: 'founder',
+        role: 'Cofundador y desarrollador full stack',
+        org: 'Fuzyum Studio · en constitución',
+        date: 'Oct 2026 – hoy',
+        place: 'Cali · Híbrido',
+        did: [
+          'Fundé con un socio un estudio de software a medida, sitios web y automatización. Además de programar, llevo la parte administrativa y comercial.',
+          'Hice la mayor parte de fuzyum.com (Next.js 16, TypeScript y Tailwind): el cambio de marca a FUZYUM, los proyectos y la historia reales, los precios de referencia, el formulario de contacto, el hero animado y la imagen Docker con Nginx desplegada en Coolify, con analítica sin cookies.',
+          'En ZymPOS, un punto de venta que funciona sin internet (API en Laravel 13 y PostgreSQL, caja de escritorio en Tauri 2, Rust y Svelte), cerré la entrega V1: hora del negocio en la zona de Colombia, ventas sincronizadas que conservan la hora de la caja, planes y precios, instalador para Windows y despliegue desde la CI.',
+          'La V1 de ZymPOS salió con la CI en verde: 1180 pruebas de Laravel, 495 de Rust y 179 de Vitest.',
+          'Camino Legal ahora es un producto del estudio (está arriba, en Proyectos).',
+        ],
+        build: ['Next.js', 'TypeScript', 'Tailwind', 'Laravel', 'PostgreSQL', 'Tauri', 'Rust', 'Svelte', 'Docker', 'Nginx', 'Coolify'],
+        proofs: [
+          { label: 'fuzyum.com', url: 'https://fuzyum.com' },
+          { label: 'zympos.com', url: 'https://zympos.com' },
+        ],
+      },
       {
         mode: 'internship',
         role: 'Pasante de desarrollo web (front-end)',
@@ -725,11 +744,30 @@ const en = {
   experience: {
     eyebrow: 'Work',
     title: 'Experience',
-    modes: { internship: 'Internship', other: 'Other' },
+    modes: { founder: 'Startup', internship: 'Internship', other: 'Other' },
     did: 'What I did',
     learned: 'What I learned',
     build: 'Build',
     items: [
+      {
+        mode: 'founder',
+        role: 'Co-founder and full stack developer',
+        org: 'Fuzyum Studio · being incorporated',
+        date: 'Oct 2026 – now',
+        place: 'Cali · Hybrid',
+        did: [
+          'I founded a studio for custom software, websites and automation with a partner. Besides coding, I handle the administrative and sales side.',
+          'I built most of fuzyum.com (Next.js 16, TypeScript and Tailwind): the rebrand to FUZYUM, the real projects and story, reference pricing, the contact form, the animated hero and the Docker image with Nginx deployed on Coolify, with cookie-free analytics.',
+          'On ZymPOS, a point of sale that works offline (Laravel 13 and PostgreSQL API, desktop register on Tauri 2, Rust and Svelte), I closed the V1 delivery: business hours in Colombia’s time zone, synced sales that keep the register’s timestamp, plans and pricing, a Windows installer and deployment from CI.',
+          'ZymPOS V1 shipped with CI green: 1,180 Laravel tests, 495 Rust tests and 179 Vitest tests.',
+          'Camino Legal is now one of the studio’s products (see Projects above).',
+        ],
+        build: ['Next.js', 'TypeScript', 'Tailwind', 'Laravel', 'PostgreSQL', 'Tauri', 'Rust', 'Svelte', 'Docker', 'Nginx', 'Coolify'],
+        proofs: [
+          { label: 'fuzyum.com', url: 'https://fuzyum.com' },
+          { label: 'zympos.com', url: 'https://zympos.com' },
+        ],
+      },
       {
         mode: 'internship',
         role: 'Web development intern (front-end)',

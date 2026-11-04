@@ -1336,6 +1336,7 @@ ol {
   border-radius: var(--radius);
 }
 
+.match--founder { --mode: var(--new); }
 .match--internship { --mode: var(--accent); }
 .match--other { --mode: var(--highlight-text); }
 
@@ -1481,13 +1482,13 @@ ol {
   text-underline-offset: 3px;
 }
 
-/* La partida principal (la pasantía) se ve más grande */
-.match--internship .match__row {
+/* Las filas principales (el estudio y la pasantía) se ven más grandes */
+:is(.match--founder, .match--internship) .match__row {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.match--internship .match__role {
+:is(.match--founder, .match--internship) .match__role {
   font-size: 21px;
 }
 
@@ -2464,7 +2465,7 @@ ol {
     padding: 4px 16px 18px;
   }
 
-  .match--internship .match__role {
+  :is(.match--founder, .match--internship) .match__role {
     font-size: 19px;
   }
 
