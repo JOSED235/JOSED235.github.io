@@ -7,7 +7,7 @@ Portafolio personal bilingüe (ES / EN) con modo claro y oscuro, hecho con **Rea
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # genera dist/
+npm run build    # genera dist/ con el HTML ya prerenderizado (ES, tema oscuro)
 npm run preview  # sirve dist/ localmente
 ```
 
@@ -21,12 +21,17 @@ src/
   data/content.js      TODO el texto del sitio en ES y EN, enlaces y proyectos
   components/          Secciones: Nav, Hero, Projects, Experience, Skills, Certifications, About, Team, Contact (+ Doodles: sprites del margen)
   styles.css           Tokens de color (oscuro/claro) y estilos
+  prerender.jsx        Entrada del build que genera el HTML de la página
+scripts/prerender.mjs  Inyecta ese HTML en dist/index.html después del build
 .github/workflows/     Despliegue automático a GitHub Pages en cada push a main
 ```
 
 ## Cómo actualizar
 
 - **Texto, experiencia o un proyecto nuevo:** edita `src/data/content.js` en ambos idiomas (`es` y `en`). Los datos que no dependen del idioma (enlaces, tecnologías, capturas) van en `projectsMeta`.
+- **Color de un proyecto destacado:** cada uno lleva su gema con la clase `patch--<id>` en `styles.css` (`--gem`). Un proyecto nuevo en `majorPatches` necesita su línea ahí.
+- **Ícono de una tecnología:** agrégalo en `src/components/techIcons.js` desde `simple-icons`. Sin ícono, se muestran sus iniciales.
+- **Notas privadas:** `docs/` está en `.gitignore` y no se publica.
 - **Imágenes:** agrégalas en `public/img/` (mejor en `.webp`) y referéncialas como `img/nombre.webp`.
 - **CV:** reemplaza los PDF en `public/cv/` manteniendo el mismo nombre.
 
