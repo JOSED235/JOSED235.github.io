@@ -29,6 +29,8 @@ function Match({ item, e, open }) {
         <summary className="match__row">
           <span className="match__mode mono">{e.modes[item.mode]}</span>
           <span className="match__what">
+            {/* alt vacío: el nombre de la empresa ya va escrito al lado */}
+            {item.logo && <img className="match__logo" src={item.logo} alt="" width="32" height="32" />}
             <span className="match__role">{item.role}</span>
             <span className="match__org">{item.org}</span>
           </span>

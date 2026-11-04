@@ -1395,6 +1395,14 @@ ol {
   min-width: 0;
 }
 
+/* Logo de la empresa: el ícono de app de la marca, que ya trae su fondo y sirve en los dos temas */
+.match__logo {
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
 .match__role {
   font-size: 17px;
   font-weight: 600;

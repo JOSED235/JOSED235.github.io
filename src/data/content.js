@@ -364,6 +364,7 @@ const es = {
     items: [
       {
         mode: 'founder',
+        logo: 'img/fuzyum.svg',
         role: 'Cofundador y desarrollador full stack',
         org: 'Fuzyum Studio · en constitución',
         date: 'Oct 2026 – hoy',
@@ -751,6 +752,7 @@ const en = {
     items: [
       {
         mode: 'founder',
+        logo: 'img/fuzyum.svg',
         role: 'Co-founder and full stack developer',
         org: 'Fuzyum Studio · being incorporated',
         date: 'Oct 2026 – now',
