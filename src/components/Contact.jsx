@@ -44,6 +44,14 @@ export default function Contact({ t }) {
               </span>
             </li>
             <li className="closing__row">
+              <span className="closing__label mono">{c.rows.whatsapp}</span>
+              <span className="closing__value">
+                <a href={links.whatsapp} target="_blank" rel="noreferrer">
+                  +57 314 572 7863 <ArrowUpRight width={15} height={15} />
+                </a>
+              </span>
+            </li>
+            <li className="closing__row">
               <span className="closing__label mono">{c.rows.linkedin}</span>
               <span className="closing__value">
                 <a href={links.linkedin} target="_blank" rel="noreferrer">
@@ -56,6 +64,14 @@ export default function Contact({ t }) {
               <span className="closing__value">
                 <a href={links.github} target="_blank" rel="noreferrer">
                   JOSED235 <ArrowUpRight width={15} height={15} />
+                </a>
+              </span>
+            </li>
+            <li className="closing__row">
+              <span className="closing__label mono">{c.rows.web}</span>
+              <span className="closing__value">
+                <a href={links.webDemo} target="_blank" rel="noreferrer">
+                  {c.web} <ArrowUpRight width={15} height={15} />
                 </a>
               </span>
             </li>

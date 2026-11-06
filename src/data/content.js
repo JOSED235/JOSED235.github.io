@@ -4,6 +4,8 @@
 export const links = {
   email: 'jdrpjd@gmail.com',
   github: 'https://github.com/JOSED235',
+  whatsapp: 'https://wa.me/573145727863',
+  webDemo: 'https://josed235.github.io/gimnasio-demo/',
   linkedin: 'https://www.linkedin.com/in/jose-david-rodriguez-pinilla-b0752526b',
   cv: { es: 'cv/CV_JoseDavidRodriguez_ES.pdf', en: 'cv/CV_JoseDavidRodriguez_EN.pdf' },
 }
@@ -581,7 +583,8 @@ const es = {
     eyebrow: 'Contacto',
     title: 'Eso es todo por este parche',
     text: 'Busco trabajo en proyectos full stack, backend o de sistemas conectados. Estoy en Cali y puedo trabajar presencial o remoto: medio tiempo o por horas durante el semestre, y tiempo completo en vacaciones. Escríbeme y te respondo pronto.',
-    rows: { email: 'Correo', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
+    rows: { email: 'Correo', whatsapp: 'WhatsApp', linkedin: 'LinkedIn', github: 'GitHub', web: 'Páginas web', cv: 'CV' },
+    web: 'Para negocios, desde $600.000: mira la demo para gimnasios',
     cvLangs: { es: 'Español', en: 'Inglés' },
     copy: 'Copiar correo',
     copied: '¡Copiado!',
@@ -1005,7 +1008,8 @@ const en = {
     eyebrow: 'Contact',
     title: "That's all for this patch",
     text: "I'm looking for work on full stack, backend or connected-systems projects. I'm based in Cali and can work on-site or remote: part-time or hourly during the semester, and full-time during school breaks. Drop me a line and I'll get back to you soon.",
-    rows: { email: 'Email', linkedin: 'LinkedIn', github: 'GitHub', cv: 'CV' },
+    rows: { email: 'Email', whatsapp: 'WhatsApp', linkedin: 'LinkedIn', github: 'GitHub', web: 'Websites', cv: 'CV' },
+    web: 'For small businesses: see the gym demo',
     cvLangs: { es: 'Spanish', en: 'English' },
     copy: 'Copy email',
     copied: 'Copied!',
