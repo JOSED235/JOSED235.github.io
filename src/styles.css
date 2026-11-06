@@ -1008,6 +1008,7 @@ ol {
 .patch--archimedes { --gem: var(--highlight-text); }
 .patch--sgmms { --gem: var(--rose); }
 .patch--agroiot { --gem: var(--new); }
+.patch--calipieles { --gem: var(--learn); }
 
 .featured {
   border-top: 3px solid var(--gem, var(--accent));

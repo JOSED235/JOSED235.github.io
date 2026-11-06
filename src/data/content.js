@@ -22,6 +22,20 @@ const projectsMeta = {
     version: '26.10',
     build: ['React', 'TypeScript', 'Vite', 'NestJS', 'PostgreSQL', 'TypeORM', 'PWA', 'Gemini', 'WhatsApp', 'Docker', 'Nginx', 'Vitest', 'Playwright', 'GitHub Actions'],
   },
+  calipieles: {
+    live: 'https://josed235.github.io/calipieles-landing/',
+    repo: 'https://github.com/JOSED235/calipieles-landing',
+    address: 'josed235.github.io/calipieles-landing',
+    shots: [
+      { src: 'img/cp-inicio.webp', key: 'inicio' },
+      { src: 'img/cp-muestrario.webp', key: 'muestrario' },
+      { src: 'img/cp-pedir.webp', key: 'pedir' },
+      { src: 'img/cp-visita.webp', key: 'visita' },
+    ],
+    mobile: 'img/cp-movil.webp',
+    version: '26.11',
+    build: ['Vite', 'JavaScript', 'GSAP', 'Lenis', 'Python', 'GitHub Actions'],
+  },
   archimedes: {
     repo: 'https://github.com/JOSED235/ProyectoIntegrador1-Tel',
     address: 'localhost:5173',
@@ -107,7 +121,7 @@ export const patchDate = (version, months) => {
 }
 
 // Los que más le importan van como parche completo; el resto, en versión corta.
-export const majorPatches = ['caminoLegal', 'archimedes', 'sgmms', 'agroiot']
+export const majorPatches = ['caminoLegal', 'calipieles', 'archimedes', 'sgmms', 'agroiot']
 export const hotfixPatches = ['beatPotato', 'sitm', 'pacman']
 
 // Las que más uso: van arriba, grandes y con sus proyectos a la vista (sin tener que tocar nada).
@@ -118,7 +132,7 @@ export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL
 export const stackTrees = [
   { key: 'backend', items: ['FastAPI', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'Spring Boot'] },
   { key: 'iot', items: ['C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer'] },
-  { key: 'web', items: ['Vite', 'PWA', 'Tailwind', 'Recharts', 'Leaflet'] },
+  { key: 'web', items: ['Vite', 'JavaScript', 'GSAP', 'PWA', 'Tailwind', 'Recharts', 'Leaflet'] },
   { key: 'data', items: ['scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini'] },
   { key: 'games', items: ['JavaFX', 'ZeroC Ice', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
   { key: 'devops', items: ['Nginx', 'GitHub Actions', 'Git', 'Gradle', 'JWT', 'Vitest', 'Playwright'] },
@@ -209,6 +223,26 @@ const es = {
         'Al inicio nos costó aterrizar la idea. Lo que nos destrabó fue hablar mucho y repartir bien: yo la mayor parte de la plataforma, Andrés lo jurídico y una parte del código.',
       ],
       shots: { inicio: 'Inicio', chat: 'Asistente', semaforo: 'Semáforo', admin: 'Panel' },
+    },
+    calipieles: {
+      name: 'Calipieles',
+      tagline: 'Landing para una peletería del centro de Cali',
+      meta: 'Cliente · Individual · Nov 2026',
+      description:
+        'Página para que un fabricante de bolsos, correas o calzado vea en segundos qué cueros hay y escriba por WhatsApp, en lugar de ir hasta el local a preguntar.',
+      highlights: [
+        'Muestrario con lupa para ver la textura del cuero de cerca, y un botón «Pedir fotos» que abre WhatsApp con la referencia ya escrita.',
+        'Animaciones con GSAP (ScrollTrigger y SplitText) y scroll suave con Lenis. Si el sistema pide menos movimiento, la página se ve completa y sin animaciones.',
+        'Aviso de «abierto ahora» calculado con el horario de la tienda en hora de Colombia, con sus pruebas.',
+        'SEO local con LocalBusiness en JSON-LD, fotos en WebP generadas por un script de Python y despliegue con GitHub Actions.',
+      ],
+      bugs: [
+        'Todavía no tiene dominio propio ni la sección «Quiénes somos»: dependen de datos que el cliente aún debe confirmar.',
+      ],
+      learned: [
+        'Investigar el negocio antes de diseñar: los directorios tenían direcciones, correos y categorías distintas, y eso se resuelve con el cliente, no en el código.',
+      ],
+      shots: { inicio: 'Inicio', muestrario: 'Muestrario', pedir: 'Cómo pedir', visita: 'Visítenos' },
     },
     archimedes: {
       name: 'Proyecto Arquímedes',
@@ -598,6 +632,26 @@ const en = {
         'Early on it was hard to pin down the idea. What got us unstuck was talking a lot and splitting the work cleanly: I took most of the platform, Andrés took the legal side and part of the code.',
       ],
       shots: { inicio: 'Home', chat: 'Assistant', semaforo: 'Traffic light', admin: 'Admin' },
+    },
+    calipieles: {
+      name: 'Calipieles',
+      tagline: 'Landing page for a leather shop in downtown Cali',
+      meta: 'Client · Solo · Nov 2026',
+      description:
+        'A page where a maker of bags, belts or shoes can see in seconds which leathers are in stock and write on WhatsApp, instead of going to the shop to ask.',
+      highlights: [
+        'Sample gallery with a magnifier to see the leather texture up close, and an "Ask for photos" button that opens WhatsApp with the reference already typed.',
+        'Animations with GSAP (ScrollTrigger and SplitText) and smooth scrolling with Lenis. If the system asks for reduced motion, the page shows in full without animations.',
+        '"Open now" badge computed from the shop hours in Colombia time, with tests.',
+        'Local SEO with LocalBusiness JSON-LD, WebP photos generated by a Python script and deployment with GitHub Actions.',
+      ],
+      bugs: [
+        'It still has no custom domain or "About us" section: both depend on details the client has yet to confirm.',
+      ],
+      learned: [
+        'Research the business before designing: directories listed different addresses, emails and categories, and that gets solved with the client, not in code.',
+      ],
+      shots: { inicio: 'Home', muestrario: 'Samples', pedir: 'How to order', visita: 'Visit us' },
     },
     archimedes: {
       name: 'Project Archimedes',
