@@ -94,6 +94,13 @@ const projectsMeta = {
       { src: 'img/sm-diagram.webp', key: 'diagram' },
     ],
   },
+  zympos: {
+    live: 'https://zympos.com',
+    address: 'zympos.com',
+    version: '26.10',
+    build: ['Laravel', 'PostgreSQL', 'Tauri', 'Rust', 'Svelte', 'React', 'Docker', 'Coolify', 'GitHub Actions'],
+    shots: [{ src: 'img/zp-inicio.webp', key: 'inicio' }],
+  },
   beatPotato: {
     repo: 'https://github.com/JOSED235/SIMONLEON-TEAM',
     address: 'Beat Potato — Unity',
@@ -122,7 +129,7 @@ export const patchDate = (version, months) => {
 
 // Los que más le importan van como parche completo; el resto, en versión corta.
 export const majorPatches = ['caminoLegal', 'calipieles', 'archimedes', 'sgmms', 'agroiot']
-export const hotfixPatches = ['beatPotato', 'sitm', 'pacman']
+export const hotfixPatches = ['zympos', 'beatPotato', 'sitm', 'pacman']
 
 // Las que más uso: van arriba, grandes y con sus proyectos a la vista (sin tener que tocar nada).
 export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL', 'Docker', 'MQTT', 'ESP32', 'Java']
@@ -362,6 +369,25 @@ const es = {
         { value: '666', label: 'resultados iguales en las 3 versiones' },
       ],
       shotsNote: 'Tiempos medidos con datos sintéticos del mismo formato del piloto.',
+    },
+    zympos: {
+      name: 'ZymPOS',
+      tagline: 'Punto de venta que sigue vendiendo sin internet',
+      meta: 'Fuzyum Studio · Equipo de 2 · Oct – Nov 2026',
+      role: 'Colaborador: 26 de los 41 commits. Revisé el monorepo completo, armé el plan de 15 sprints y la CI raíz, y cerré la entrega V1: la hora del negocio en la zona de Colombia, las ventas sincronizadas que conservan la hora de la caja, los planes y precios (también en la landing, con contacto por WhatsApp), el instalador para Windows sin clave de firma y el despliegue en Coolify desde la CI.',
+      highlights: [
+        'Monorepo con API en Laravel 13 y PostgreSQL, caja de escritorio en Tauri 2, Rust, Svelte y SQLite, y landing en React.',
+        'La caja guarda en SQLite y sincroniza con la API por outbox y cursor cuando vuelve la conexión.',
+        'La base guarda todo en UTC; la zona del negocio decide cómo se muestra y dónde empieza «hoy».',
+        'La V1 salió con la CI en verde: 1180 pruebas de Laravel, 495 de Rust y 179 de Vitest.',
+      ],
+      bugs: [
+        'Las ventas replicadas tomaban la hora del servidor y no la de la caja, y el healthcheck del despliegue fallaba porque no enviaba el Host de la app. Corregí los dos.',
+      ],
+      learned: [
+        'Trabajar por épicas (epica/* → develop → main) en un repositorio compartido, con la CI como juez antes de cada fusión.',
+      ],
+      shots: { inicio: 'Inicio' },
     },
     beatPotato: {
       name: 'Beat Potato',
@@ -771,6 +797,25 @@ const en = {
         { value: '666', label: 'matching results across 3 versions' },
       ],
       shotsNote: 'Times measured with synthetic data in the same format as the pilot.',
+    },
+    zympos: {
+      name: 'ZymPOS',
+      tagline: 'Point of sale that keeps selling without internet',
+      meta: 'Fuzyum Studio · Team of 2 · Oct – Nov 2026',
+      role: 'Contributor: 26 of the 41 commits. I reviewed the whole monorepo, wrote the 15-sprint plan and the root CI, and closed the V1 delivery: business hours in the Colombia time zone, synced sales that keep the register time, plans and pricing (also on the landing page, with WhatsApp contact), the Windows installer without a signing key and the Coolify deployment from CI.',
+      highlights: [
+        'Monorepo with a Laravel 13 + PostgreSQL API, a desktop register in Tauri 2, Rust, Svelte and SQLite, and a React landing page.',
+        'The register stores sales in SQLite and syncs with the API through an outbox and a cursor when the connection comes back.',
+        'The database stores everything in UTC; the business time zone decides how it is shown and where "today" starts.',
+        'V1 shipped with CI green: 1180 Laravel tests, 495 Rust tests and 179 Vitest tests.',
+      ],
+      bugs: [
+        'Replicated sales took the server time instead of the register time, and the deployment healthcheck failed because it did not send the app Host. I fixed both.',
+      ],
+      learned: [
+        'Working by epics (epica/* → develop → main) in a shared repository, with CI as the judge before every merge.',
+      ],
+      shots: { inicio: 'Home' },
     },
     beatPotato: {
       name: 'Beat Potato',
