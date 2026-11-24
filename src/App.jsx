@@ -12,6 +12,7 @@ import Certifications from './components/Certifications.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Palette from './components/Palette.jsx'
+import { TechSprite } from './components/TechIcon.jsx'
 import { useReveal } from './reveal.js'
 
 // En el prerender (Node) no hay window: la página sale en español y oscura.
@@ -93,6 +94,7 @@ export default function App() {
         onToggleTheme={toggleTheme}
         onOpenPalette={() => setPaletteOpen(true)}
       />
+      <TechSprite />
       <main>
         <Hero t={t} lang={lang} />
         <Projects t={t} />

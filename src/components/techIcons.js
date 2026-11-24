@@ -52,6 +52,8 @@ import {
   siUbuntu,
   siWireshark,
   siLatex,
+  siAstro,
+  siMongodb,
 } from 'simple-icons'
 
 export const techIcons = {
@@ -60,6 +62,8 @@ export const techIcons = {
   Ubuntu: siUbuntu,
   Wireshark: siWireshark,
   LaTeX: siLatex,
+  Astro: siAstro,
+  MongoDB: siMongodb,
   React: siReact,
   TypeScript: siTypescript,
   Vite: siVite,

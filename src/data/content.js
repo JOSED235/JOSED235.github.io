@@ -505,7 +505,7 @@ const es = {
   experience: {
     eyebrow: 'Trabajo',
     title: 'Experiencia',
-    modes: { founder: 'Emprendimiento', internship: 'Pasantía', other: 'Otros' },
+    modes: { founder: 'Emprendimiento', freelance: 'Independiente', internship: 'Pasantía', other: 'Otros' },
     did: 'Lo que hice',
     learned: 'Lo que aprendí',
     build: 'Build',
@@ -529,6 +529,27 @@ const es = {
         proofs: [
           { label: 'fuzyum.com', url: 'https://fuzyum.com' },
           { label: 'zympos.com', url: 'https://zympos.com' },
+        ],
+      },
+      {
+        mode: 'freelance',
+        role: 'Desarrollador de software independiente',
+        org: 'Persona natural',
+        date: 'Oct 2026 – hoy',
+        place: 'Cali · Presencial y remoto',
+        did: [
+          'Hago páginas web para negocios de Cali con Astro, Vite y GSAP: catálogo con pedido por WhatsApp, aviso de «abierto ahora», SEO local y ficha de Google. Calipieles está arriba, en Proyectos.',
+          'Desarrollo un SaaS para gimnasios (Next.js 16, React 19, PostgreSQL 17, Drizzle y Better Auth): panel del gimnasio y app del socio con QR de entrada que funciona sin conexión. Van 43 pull requests con CI, Row Level Security, verificación en dos pasos y una prueba de carga con 15.000 socios.',
+          'Construí un software de órdenes de servicio multiempresa para empresas de mantenimiento técnico: agenda del técnico en el celular, lista de chequeo, fotos, firma del cliente e informe PDF, con pruebas unitarias, de servidor y de extremo a extremo en GitHub Actions.',
+        ],
+        learned: [
+          'Investigar el negocio antes de diseñar y anotar los supuestos para validarlos con el cliente, en vez de adivinar.',
+          'Trabajar por ramas con pull requests y la CI como juez aunque trabaje solo: cada cambio queda probado antes de entrar a main.',
+        ],
+        build: ['Astro', 'Vite', 'GSAP', 'Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Playwright', 'GitHub Actions'],
+        proofs: [
+          { label: 'Calipieles', url: 'https://josed235.github.io/calipieles-landing/' },
+          { label: 'Demo de página para gimnasios', url: 'https://josed235.github.io/gimnasio-demo/' },
         ],
       },
       {
@@ -995,7 +1016,7 @@ const en = {
   experience: {
     eyebrow: 'Work',
     title: 'Experience',
-    modes: { founder: 'Startup', internship: 'Internship', other: 'Other' },
+    modes: { founder: 'Startup', freelance: 'Freelance', internship: 'Internship', other: 'Other' },
     did: 'What I did',
     learned: 'What I learned',
     build: 'Build',
@@ -1018,6 +1039,27 @@ const en = {
         proofs: [
           { label: 'fuzyum.com', url: 'https://fuzyum.com' },
           { label: 'zympos.com', url: 'https://zympos.com' },
+        ],
+      },
+      {
+        mode: 'freelance',
+        role: 'Freelance software developer',
+        org: 'Self-employed',
+        date: 'Oct 2026 – now',
+        place: 'Cali · On-site and remote',
+        did: [
+          'I build websites for businesses in Cali with Astro, Vite and GSAP: catalogs with WhatsApp ordering, an “open now” notice, local SEO and Google Business listings. Calipieles is up in Projects.',
+          'I’m developing a SaaS for gyms (Next.js 16, React 19, PostgreSQL 17, Drizzle and Better Auth): a gym admin panel and a member app with QR check-in that works offline. So far: 43 pull requests through CI, Row Level Security, two-factor authentication and a load test with 15,000 members.',
+          'I built a multi-tenant field service order system for maintenance companies: technician schedule on mobile, checklists, photos, customer signature and PDF reports, with unit, server and end-to-end tests on GitHub Actions.',
+        ],
+        learned: [
+          'Research the business before designing, and write down assumptions to validate with the client instead of guessing.',
+          'Work in branches with pull requests and CI as the judge even when working alone: every change is tested before it reaches main.',
+        ],
+        build: ['Astro', 'Vite', 'GSAP', 'Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Playwright', 'GitHub Actions'],
+        proofs: [
+          { label: 'Calipieles', url: 'https://josed235.github.io/calipieles-landing/' },
+          { label: 'Website demo for gyms', url: 'https://josed235.github.io/gimnasio-demo/' },
         ],
       },
       {
