@@ -54,6 +54,9 @@ import {
   siLatex,
   siAstro,
   siMongodb,
+  siDrizzle,
+  siBetterauth,
+  siKiwix,
 } from 'simple-icons'
 
 export const techIcons = {
@@ -64,6 +67,9 @@ export const techIcons = {
   LaTeX: siLatex,
   Astro: siAstro,
   MongoDB: siMongodb,
+  Drizzle: siDrizzle,
+  'Better Auth': siBetterauth,
+  Kiwix: siKiwix,
   React: siReact,
   TypeScript: siTypescript,
   Vite: siVite,

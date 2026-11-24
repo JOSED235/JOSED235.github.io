@@ -29,6 +29,16 @@ export default function Hero({ t, lang }) {
 
           <p className="hero__summary">{h.summary}</p>
 
+          {/* Pruebas medibles a la vista: quien revisa la página la hojea en segundos. */}
+          <dl className="stats hero__stats">
+            {h.stats.map((s) => (
+              <div key={s.label} className="stats__item">
+                <dt className="stats__value">{s.value}</dt>
+                <dd className="stats__label">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+
           <p className="hero__availability">
             <span className="hero__availability-label mono">{h.availabilityLabel}</span> {h.availability}
           </p>

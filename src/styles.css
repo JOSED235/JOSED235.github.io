@@ -1011,6 +1011,8 @@ ol {
 .patch--calipieles { --gem: var(--learn); }
 .patch--red5g { --gem: var(--link); }
 .patch--redesRurales { --gem: var(--new); }
+.patch--gymApp { --gem: var(--rose); }
+.patch--ordenes { --gem: var(--highlight-text); }
 
 .featured {
   border-top: 3px solid var(--gem, var(--accent));
@@ -1084,6 +1086,10 @@ ol {
   --kind: var(--learn);
 }
 
+.notes--why {
+  --kind: var(--accent);
+}
+
 .notes__label {
   font-size: 12px;
   font-weight: 600;
@@ -1122,6 +1128,10 @@ ol {
 
 .notes--learn li::before {
   content: '→';
+}
+
+.notes--why li::before {
+  content: '?';
 }
 
 .notes li.is-pending {

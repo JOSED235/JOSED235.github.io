@@ -169,6 +169,7 @@ function Patch({ t, id, reverse }) {
 
         {/* A la vista solo lo más fuerte: 3 de lo construido, 1 falla y 1 aprendizaje. Lo demás se abre. */}
         <Notes kind="new" label={t.projects.newLabel} items={p.highlights.slice(0, 3)} />
+        <Notes kind="why" label={t.projects.whyLabel} items={p.why} />
         <Notes kind="bug" label={t.projects.bugLabel} items={p.bugs.slice(0, 1)} />
         <Notes kind="learn" label={t.projects.learnLabel} items={p.learned.slice(0, 1)} />
 

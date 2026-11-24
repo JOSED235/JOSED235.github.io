@@ -391,3 +391,8 @@
 .featured:hover {
   border-top-color: var(--gem, var(--accent));
 }
+
+/* Cifras de la portada: un poco más de aire que en los proyectos */
+.hero__stats {
+  margin: 18px 0 8px;
+}
