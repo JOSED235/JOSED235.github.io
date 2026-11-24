@@ -47,9 +47,19 @@ import {
   siCoolify,
   siGradle,
   siLeaflet,
+  siMikrotik,
+  siRaspberrypi,
+  siUbuntu,
+  siWireshark,
+  siLatex,
 } from 'simple-icons'
 
 export const techIcons = {
+  MikroTik: siMikrotik,
+  'Raspberry Pi': siRaspberrypi,
+  Ubuntu: siUbuntu,
+  Wireshark: siWireshark,
+  LaTeX: siLatex,
   React: siReact,
   TypeScript: siTypescript,
   Vite: siVite,

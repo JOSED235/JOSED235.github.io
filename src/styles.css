@@ -1009,6 +1009,8 @@ ol {
 .patch--sgmms { --gem: var(--rose); }
 .patch--agroiot { --gem: var(--new); }
 .patch--calipieles { --gem: var(--learn); }
+.patch--red5g { --gem: var(--link); }
+.patch--redesRurales { --gem: var(--new); }
 
 .featured {
   border-top: 3px solid var(--gem, var(--accent));

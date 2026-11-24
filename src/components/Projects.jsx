@@ -34,8 +34,13 @@ function Links({ t, meta }) {
           {t.projects.live} <ArrowUpRight />
         </a>
       )}
+      {meta.video && (
+        <a className="btn btn--primary" href={meta.video} target="_blank" rel="noreferrer">
+          {t.projects.video} <ArrowUpRight />
+        </a>
+      )}
       {meta.repo ? (
-        <a className={`btn ${meta.live ? 'btn--ghost' : 'btn--primary'}`} href={meta.repo} target="_blank" rel="noreferrer">
+        <a className={`btn ${meta.live || meta.video ? 'btn--ghost' : 'btn--primary'}`} href={meta.repo} target="_blank" rel="noreferrer">
           <GitHub /> {t.projects.repo}
         </a>
       ) : (

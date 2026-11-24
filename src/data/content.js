@@ -24,6 +24,32 @@ const projectsMeta = {
     version: '26.10',
     build: ['React', 'TypeScript', 'Vite', 'NestJS', 'PostgreSQL', 'TypeORM', 'PWA', 'Gemini', 'WhatsApp', 'Docker', 'Nginx', 'Vitest', 'Playwright', 'GitHub Actions'],
   },
+  red5g: {
+    repo: 'https://github.com/JOSED235/RED5G-STANDALONE',
+    video: 'https://drive.google.com/file/d/1-HOV4RiCsWxqCv6UE2BTmOUK0HAWfsrs/view?usp=sharing',
+    address: 'presentacion_final.pdf · Fase 3',
+    shots: [
+      { src: 'img/g5-montaje.webp', key: 'montaje' },
+      { src: 'img/g5-kpis.webp', key: 'kpis' },
+      { src: 'img/g5-enlace.webp', key: 'enlace' },
+    ],
+    mobile: 'img/g5-nperf.webp',
+    version: '26.11',
+    build: ['Open5GS', 'srsRAN', 'USRP B200', 'Docker', 'MongoDB', 'Python', 'Wireshark', 'Ubuntu', 'GitHub Actions', 'LaTeX'],
+  },
+  redesRurales: {
+    repo: 'https://github.com/JOSED235/ProyectoRedesRurales',
+    video: 'https://drive.google.com/file/d/1J6_ganKjTGxB2m3KPEWVqq3gwkQ7xW5S/view?usp=sharing',
+    address: 'portal.hub.lan',
+    shots: [
+      { src: 'img/rr-portal.webp', key: 'portal' },
+      { src: 'img/rr-montaje.webp', key: 'montaje', address: 'Laboratorio · CCR2004 + Raspberry Pi 5' },
+      { src: 'img/rr-offline.webp', key: 'offline', address: 'ssh admin · Starlink sin señal' },
+      { src: 'img/rr-gns3.webp', key: 'gns3', address: 'GNS3 · laboratorio virtual' },
+    ],
+    version: '26.11',
+    build: ['MikroTik', 'Raspberry Pi', 'Ubuntu', 'Nginx', 'Squid', 'dnsmasq', 'Kiwix', 'GNS3', 'Starlink', 'LaTeX'],
+  },
   calipieles: {
     live: 'https://josed235.github.io/calipieles-landing/',
     repo: 'https://github.com/JOSED235/calipieles-landing',
@@ -130,8 +156,8 @@ export const patchDate = (version, months) => {
 }
 
 // Los que más le importan van como parche completo; el resto, en versión corta.
-export const majorPatches = ['caminoLegal', 'calipieles', 'archimedes', 'sgmms', 'agroiot']
-export const hotfixPatches = ['zympos', 'beatPotato', 'sitm', 'pacman']
+export const majorPatches = ['caminoLegal', 'red5g', 'redesRurales', 'calipieles', 'archimedes', 'sgmms']
+export const hotfixPatches = ['zympos', 'agroiot', 'beatPotato', 'sitm', 'pacman']
 
 // Las que más uso: van arriba, grandes y con sus proyectos a la vista (sin tener que tocar nada).
 export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL', 'Docker', 'MQTT', 'ESP32', 'Java']
@@ -140,7 +166,7 @@ export const coreStack = ['TypeScript', 'React', 'NestJS', 'Python', 'PostgreSQL
 // Dónde se usó cada una sale de las builds de los proyectos; lo demás, de skills.seen.
 export const stackTrees = [
   { key: 'backend', items: ['FastAPI', 'TypeORM', 'SQLAlchemy', 'InfluxDB', 'SQL', 'Spring Boot'] },
-  { key: 'iot', items: ['C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Cisco Packet Tracer'] },
+  { key: 'iot', items: ['C++', 'PlatformIO', 'Mosquitto', 'Node-RED', 'Open5GS', 'srsRAN', 'MikroTik', 'Raspberry Pi', 'Wireshark', 'GNS3', 'Cisco Packet Tracer'] },
   { key: 'web', items: ['Vite', 'JavaScript', 'GSAP', 'PWA', 'Tailwind', 'Recharts', 'Leaflet'] },
   { key: 'data', items: ['scikit-learn', 'Pandas', 'Matplotlib', 'Jupyter', 'Gemini'] },
   { key: 'games', items: ['JavaFX', 'ZeroC Ice', 'Maven', 'JUnit 5', 'Unity', 'C#'] },
@@ -152,7 +178,7 @@ export const stackTrees = [
 export const timeline = {
   start: 2021,
   end: 2029,
-  now: [2026, 10],
+  now: [2026, 11],
   items: [
     { key: 'utp', kind: 'course', from: [2021, 1], to: [2021, 12] },
     { key: 'icesi', kind: 'study', from: [2024, 1], to: [2029, 12], expected: true },
@@ -207,6 +233,7 @@ const es = {
     hotfixesNote: 'En versión corta: qué hice, qué falló y qué aprendí.',
     more: 'Ver los detalles técnicos',
     moreMajor: 'Ver más detalles',
+    video: 'Ver video',
     caminoLegal: {
       name: 'Camino Legal',
       tagline: 'Asistente legal para el campo colombiano',
@@ -232,6 +259,66 @@ const es = {
         'Al inicio nos costó aterrizar la idea. Lo que nos destrabó fue hablar mucho y repartir bien: yo la mayor parte de la plataforma, Andrés lo jurídico y una parte del código.',
       ],
       shots: { inicio: 'Inicio', chat: 'Asistente', semaforo: 'Semáforo', admin: 'Panel' },
+    },
+    red5g: {
+      name: 'Red 5G Standalone',
+      tagline: 'Una celda 5G propia con software libre y un teléfono comercial navegando por ella',
+      meta: 'Sistemas y Comunicaciones II · Individual · Oct – Nov 2026',
+      description:
+        'Red celular 5G SA completa: núcleo Open5GS, estación base srsRAN y radio definido por software. Primero emulé el radio con ZeroMQ y después la llevé al aire con una USRP B200 hasta que un teléfono con una SIM programada por mí se registró y navegó por Internet.',
+      stats: [
+        { value: '43 Mbit/s', label: 'de bajada en el teléfono (nPerf, 0,2 m)' },
+        { value: '30,9 ms', label: 'RTT medio, 0 % de pérdidas' },
+        { value: '11', label: 'funciones de red del núcleo en Docker' },
+      ],
+      highlights: [
+        'Núcleo Open5GS 2.8 con 11 funciones de red (AMF, SMF, UPF, AUSF, UDM...) y MongoDB en Docker Compose, configurado desde un solo .env.',
+        'Celda n78 al aire con la USRP B200 (prueba autorizada a potencia mínima): registro 5G-AKA, cifrado NEA2 e integridad NIA2, sesión PDU y salida a Internet.',
+        'Banco de pruebas en Python sin dependencias: latencia, caudal, MCS, CQI y BLER por corrida, con media, intervalo de confianza del 95 % y metadatos del equipo.',
+        'Análisis de las trazas del registro con tshark (NGAP, NAS-5GS, PFCP, GTP-U) y contraste de lo medido con la cota de TS 38.306 y el presupuesto de enlace.',
+        'Recuperación automática del gNB cuando el SDR se cae del USB, y preparación del equipo en un comando (gobernador, C-states, autosuspend).',
+      ],
+      bugs: [
+        'La B200 se desconectaba del bus USB en plena prueba. Lo mitigué con un vigilante que reinicia el gNB solo (se recupera en unos 17 s) y alimentando el radio con una fuente aparte.',
+        'Desde WSL2 el USB no pasaba de unos 18 MB/s y se perdían muestras: tuve que correr el gNB en Ubuntu nativo desde una memoria USB.',
+        'El teléfono se registraba pero no abría sesión de datos mientras tuviera el Wi-Fi encendido.',
+      ],
+      learned: [
+        'En radio real casi todo es ajuste fino: la ganancia del receptor saturaba al teléfono a menos de un metro y el procesador perdía muestras por el ahorro de energía. Medir antes de cambiar fue lo que me sacó de cada bloqueo.',
+        'La emulación engaña: con ZeroMQ la subida no pasaba de 10 Mbit/s y parecía un límite de la red, pero con el teléfono real llegó a MCS 28. El cuello de botella era el emulador.',
+      ],
+      shots: { montaje: 'Montaje', kpis: 'KPIs', enlace: 'Enlace' },
+      shotsNote: 'Diapositivas de la sustentación y captura de nPerf en el teléfono conectado a la celda propia.',
+    },
+    redesRurales: {
+      name: 'Hub rural sin Internet',
+      tagline: 'Red local para un puesto de salud comunitario que sigue funcionando sin señal',
+      meta: 'Infraestructura de Redes II · Equipo de 2 · Oct – Nov 2026',
+      description:
+        'Infraestructura de red para una unidad de atención móvil en zonas rurales: portal cautivo por grupo, Wikipedia, guías de salud y videos guardados en una Raspberry Pi, y salida por Starlink cuando hay cielo. Si el enlace se cae, lo local sigue funcionando.',
+      role: 'Montamos el diseño consolidado entre los dos. Yo llevé la parte física y de servicios: el paso de GNS3 al MikroTik y la Raspberry Pi reales, el portal, la caché, la CDN de video, las pruebas y el informe. Carol Andrea Mosquera aportó el direccionamiento VLSM, el enrutamiento y la matriz de tráfico.',
+      stats: [
+        { value: '15/15', label: 'pruebas de red y servicios en hardware real' },
+        { value: '4/4', label: 'pruebas de video' },
+        { value: '3', label: 'VLAN: administración, salud y pública' },
+      ],
+      highlights: [
+        'MikroTik CCR2004 con RouterOS 7: VLAN por grupo, Hotspot con HTTPS, firewall entre VLAN de 18 reglas, colas por grupo y NAT hacia la Starlink Mini.',
+        'Raspberry Pi 5 como hub, sin Docker: dnsmasq, chrony, Nginx con el portal y la CDN de video, Kiwix con la Wikipedia y Squid como caché transparente.',
+        'Probado sin Internet de verdad: con la Starlink sin vista al cielo, el portal, los PDF, la Wikipedia y los videos siguieron respondiendo en milisegundos.',
+        'Diseño validado primero en GNS3 y llevado a hardware un equipo a la vez, respaldando y restaurando el router compartido con otro grupo en cada sesión.',
+        'Portal propio con fuentes alojadas en el hub (Atkinson Hyperlegible para baja visión) y búsqueda de la Wikipedia integrada.',
+      ],
+      bugs: [
+        'Jellyfin no servía: la Raspberry Pi 5 no tiene codificador H.264 por hardware. Cambié a codificar cada video una vez fuera del hub (720p, ≤ 1,2 Mbps) y servirlo como archivo con Nginx.',
+        'HTTPS no se puede cachear sin descifrarlo, y no quisimos instalar certificados falsos en una red con datos de salud: Squid solo guarda HTTP.',
+      ],
+      learned: [
+        'Separar router y servidor: si se cae la Raspberry Pi, la red y el portal cautivo siguen en pie. Esa decisión salió de unir dos diseños distintos en uno.',
+        'Trabajar con hardware prestado obliga a documentar todo: cada sesión empezaba restaurando la configuración y terminaba dejándola como la encontramos.',
+      ],
+      shots: { portal: 'Portal', montaje: 'Montaje', offline: 'Sin señal', gns3: 'GNS3' },
+      shotsNote: 'Capturas y fotos del prototipo en el laboratorio de la universidad.',
     },
     calipieles: {
       name: 'Calipieles',
@@ -636,6 +723,7 @@ const en = {
     hotfixesNote: 'Short version: what I did, what broke and what I learned.',
     more: 'See the technical details',
     moreMajor: 'See more details',
+    video: 'Watch video',
     caminoLegal: {
       name: 'Camino Legal',
       tagline: 'Legal assistant for rural Colombia',
@@ -661,6 +749,66 @@ const en = {
         'Early on it was hard to pin down the idea. What got us unstuck was talking a lot and splitting the work cleanly: I took most of the platform, Andrés took the legal side and part of the code.',
       ],
       shots: { inicio: 'Home', chat: 'Assistant', semaforo: 'Traffic light', admin: 'Admin' },
+    },
+    red5g: {
+      name: '5G Standalone Network',
+      tagline: 'My own 5G cell built with open-source software, with a commercial phone browsing through it',
+      meta: 'Systems and Communications II · Solo · Oct – Nov 2026',
+      description:
+        'A complete 5G SA cellular network: Open5GS core, srsRAN base station and a software-defined radio. I first emulated the radio with ZeroMQ, then took it on air with a USRP B200 until a phone with a SIM I programmed registered and browsed the Internet.',
+      stats: [
+        { value: '43 Mbit/s', label: 'downlink on the phone (nPerf, 0.2 m)' },
+        { value: '30.9 ms', label: 'mean RTT, 0% loss' },
+        { value: '11', label: 'core network functions in Docker' },
+      ],
+      highlights: [
+        'Open5GS 2.8 core with 11 network functions (AMF, SMF, UPF, AUSF, UDM...) and MongoDB on Docker Compose, configured from a single .env.',
+        'n78 cell on air with the USRP B200 (authorized test at minimum power): 5G-AKA registration, NEA2 ciphering and NIA2 integrity, PDU session and Internet breakout.',
+        'Dependency-free Python test bench: latency, throughput, MCS, CQI and BLER per run, with mean, 95% confidence interval and hardware metadata.',
+        'Registration traces dissected with tshark (NGAP, NAS-5GS, PFCP, GTP-U), and measurements checked against the TS 38.306 bound and the link budget.',
+        'Automatic gNB recovery when the SDR drops off USB, and one-command host tuning (governor, C-states, autosuspend).',
+      ],
+      bugs: [
+        'The B200 kept disconnecting from the USB bus mid-test. I mitigated it with a watchdog that restarts the gNB on its own (about 17 s to recover) and a separate power supply for the radio.',
+        'Through WSL2, USB topped out around 18 MB/s and dropped samples, so I had to run the gNB on native Ubuntu from a USB stick.',
+        'The phone registered but would not open a data session while its Wi-Fi was on.',
+      ],
+      learned: [
+        'Real radio is mostly fine-tuning: receiver gain saturated the phone under one meter away, and CPU power saving dropped samples. Measuring before changing anything is what got me past each blocker.',
+        'Emulation can mislead: with ZeroMQ the uplink never passed 10 Mbit/s and looked like a network limit, but the real phone reached MCS 28. The bottleneck was the emulator.',
+      ],
+      shots: { montaje: 'Setup', kpis: 'KPIs', enlace: 'Link budget' },
+      shotsNote: 'Slides from the final presentation and an nPerf screenshot on the phone attached to my own cell.',
+    },
+    redesRurales: {
+      name: 'Offline Rural Hub',
+      tagline: 'A local network for a community health post that keeps working without signal',
+      meta: 'Network Infrastructure II · Team of 2 · Oct – Nov 2026',
+      description:
+        'Network infrastructure for a mobile care unit in rural areas: a captive portal per group, Wikipedia, health guides and videos stored on a Raspberry Pi, and Starlink for the Internet when the sky is clear. If the link drops, everything local keeps working.',
+      role: 'We built the consolidated design together. I handled the hardware and services side: moving from GNS3 to the real MikroTik and Raspberry Pi, the portal, the cache, the video CDN, the tests and the report. Carol Andrea Mosquera contributed the VLSM addressing, routing and traffic matrix.',
+      stats: [
+        { value: '15/15', label: 'network and service tests on real hardware' },
+        { value: '4/4', label: 'video tests' },
+        { value: '3', label: 'VLANs: admin, health and public' },
+      ],
+      highlights: [
+        'MikroTik CCR2004 on RouterOS 7: one VLAN per group, HTTPS Hotspot, an 18-rule inter-VLAN firewall, per-group queues and NAT to the Starlink Mini.',
+        'Raspberry Pi 5 as the hub, no Docker: dnsmasq, chrony, Nginx serving the portal and the video CDN, Kiwix with Wikipedia, and Squid as a transparent cache.',
+        'Tested truly offline: with the Starlink unable to see the sky, the portal, PDFs, Wikipedia and videos kept answering in milliseconds.',
+        'Design validated first in GNS3 and moved to hardware one device at a time, backing up and restoring the router shared with another team every session.',
+        'Custom portal with fonts hosted on the hub (Atkinson Hyperlegible for low vision) and built-in Wikipedia search.',
+      ],
+      bugs: [
+        'Jellyfin was a dead end: the Raspberry Pi 5 has no hardware H.264 encoder. I switched to encoding each video once outside the hub (720p, ≤ 1.2 Mbps) and serving it as a file with Nginx.',
+        "HTTPS can't be cached without decrypting it, and we refused to install fake certificates on a network carrying health data, so Squid only caches HTTP.",
+      ],
+      learned: [
+        'Keep router and server apart: if the Raspberry Pi goes down, the network and the captive portal stay up. That decision came out of merging two different designs into one.',
+        'Borrowed hardware forces you to document everything: every session started by restoring the config and ended by leaving it as we found it.',
+      ],
+      shots: { portal: 'Portal', montaje: 'Setup', offline: 'No signal', gns3: 'GNS3' },
+      shotsNote: 'Screenshots and photos of the prototype in the university lab.',
     },
     calipieles: {
       name: 'Calipieles',
